@@ -1,0 +1,16 @@
+.footer-navigation {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #F7ECDE;
+  color: #373737;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  margin: 10px 0;
+}
