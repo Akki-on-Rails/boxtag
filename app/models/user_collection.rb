@@ -1,4 +1,4 @@
 class UserCollection < ApplicationRecord
-  belongs_to :users
-  belongs_to :collections
+  belongs_to :user
+  belongs_to :collection
 end
