@@ -6,6 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts 'Seed: Deleting existing records...'
+UserCollection.delete_all
+User.delete_all
+Item.delete_all
+Box.delete_all
+Collection.delete_all
+
 
 user1 = User.create!(
   email: "menakadevisundaramoorthy@gmail.com",
@@ -33,26 +39,29 @@ user3 = User.create!(
 collection1 = Collection.create!(
   name: "My storage room",
   description: "All boxes are inside this room",
-  user_id: user1.id
+  # user_id: user1.id
 
+)
+
+user_collection1 = UserCollection.create!(
+  user: user1,
+  collection: collection1
 )
 
 
 box1 = Box.create!(
   name: "white box",
   description: "This is my first box",
-  # user_id: user1.id,
-  collection_id: collection1.id
+  collection: collection1
 )
 
 box2 = Box.create!(
   name: "black box",
   description: "All my kids toys inside the box",
-  # user_id: user2.id,
-  collection_id: collection1.id
+  collection: collection1
 )
 
 item1 = Item.create!(
   name: "toy",
-  box_id: box1.id
+  box: box1
 )
