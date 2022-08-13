@@ -5,10 +5,9 @@ class BoxesController < ApplicationController
 
   def create
     @box = Box.new(params[box_params])
-    @box.user = current_user
     @box.collection = Box.find(params[:collection_id])
     if @box.save
-      redirect_to booking_path(@box)
+      redirect_to box_path(@box)
     else
       redirect_to collection_path(@collection)
     end
