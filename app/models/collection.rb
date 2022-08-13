@@ -1,4 +1,4 @@
 class Collection < ApplicationRecord
-  belongs_to :user_collection
+  has_many :user_collections
   has_many :boxes
 end
