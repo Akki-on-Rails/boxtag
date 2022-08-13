@@ -6,6 +6,6 @@ class PagesController < ApplicationController
 
   def dashboard
     @user = current_user
-    @collections = Collection.where(user: @user)
+    @user_collections = UserCollection.where(user: @user)
   end
 end
