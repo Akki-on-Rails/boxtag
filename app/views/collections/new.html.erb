@@ -1,0 +1,12 @@
+<h1>Create a new collection</h1>
+
+  <p>A collection can be anything to group your boxes. Be it a place where you store them or an event like a vacation or a move.</p>
+
+  <div class="container">
+    <%= simple_form_for [ @collection] do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.submit "create" %>
+      <%# button style needs to be defined! %>
+    <% end%>
+  </div>
