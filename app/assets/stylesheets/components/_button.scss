@@ -1,6 +1,34 @@
 .button-round {
-  background-color: #54BAB9;
+  background-color: $main;
   width: 80px;
   height: 80px;
   border-radius: 40px;
 }
+
+button {
+  border: 2px solid $main;
+  border-radius: 8px;
+  padding: 10px 20px;
+  display: inline-block;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  color: $main;
+  font-weight: 500;
+  box-sizing: border-box;
+}
+
+
+.button-main {
+  color: $white;
+  background-color: $main;
+}
+
+.button-main:hover, .button-main:active{
+  color: $main;
+  background-color: $white;
+}
+
+
+
+// transform: translateY(-0.2em);
+// transition: transform 0.1s ease;
