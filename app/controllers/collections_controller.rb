@@ -9,7 +9,7 @@ class CollectionsController < ApplicationController
     @collection = Collection.new(collection_params)
     @collection.save
     if @collection.save
-      UserCollection.create(user_id: current_user, collection_id: @collection.id)
+      UserCollection.create(user: current_user, collection: @collection)
       redirect_to collection_path(@collection)
     else
       render :new
