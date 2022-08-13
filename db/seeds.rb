@@ -24,8 +24,8 @@ user2 = User.create!(
 )
 user3 = User.create!(
   email: "kimoliverm@gmail.com",
-  first_name: "kim",
-  last_name: "oliver",
+  first_name: "kim-Oliver",
+  last_name: "Hein",
   password: "123456",
   password_confirmation: "123456"
 )
