@@ -3,9 +3,4 @@ class PagesController < ApplicationController
 
   def home
   end
-
-  def dashboard
-    @user = current_user
-    @user_collections = UserCollection.where(user: @user)
-  end
 end

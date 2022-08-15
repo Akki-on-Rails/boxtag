@@ -1,0 +1,15 @@
+<div class="container ">
+  <h1>my Dashboard</h1>
+  <div class="bg-light m-4 p-3 rounded-3">
+    <h4>Your collections:</h4>
+      <% @collections.each do |collection| %>
+        <div class="collections">
+          <h3 class="collection-name"><%= collection.name %></h3>
+          <div class="box-info">
+            <p class="boxcount"><%= collection.boxes.count %> Boxes inside</p>
+            <i class="fas fa-user"></i>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>
