@@ -1,2 +1,12 @@
-<h1>@box.name</h1>
+<h1><%= @box.name %></h1>
 <p>@box.description</p>
+
+<% @box.items.each do |box| %>
+    <%# wrong path(box_path)? %>
+    <%#= link_to box_path(box) do %>
+      <div class="box">
+        <h3><%= box.name %></h3>
+        <p><%#= box.description %></p>
+        <%# <p class="box-count"><%= box.count %>
+      </div> %>
+    <% end %>
