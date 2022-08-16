@@ -13,11 +13,18 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
+    <% if user_signed_in? %>
+      <%= render 'shared/navbar' %>
+    <%end%>
+
     <%= render 'shared/flashes' %>
+
 
     <%= yield %>
 
-    <%= render 'shared/footer-navigation' %>
+    <% if user_signed_in? %>
+      <%= render 'shared/footer-navigation' %>
+    <%end%>
+
   </body>
 </html>
