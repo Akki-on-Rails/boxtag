@@ -13,6 +13,9 @@ class BoxesController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
 
   def box_params
