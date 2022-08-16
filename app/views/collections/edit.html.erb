@@ -1,0 +1,8 @@
+  <div class="container">
+    <%= simple_form_for [ @collection] do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.submit "edit" %>
+      <%# button style needs to be defined! %>
+    <% end%>
+  </div>
