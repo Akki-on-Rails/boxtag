@@ -6,8 +6,8 @@
     <%# show all other users sharing that collection %>
     <%# button for adding/deleting users %>
   <% @collection.boxes.each do |box| %>
-    <%# wrong path: %>
-    <%= link_to boxes_path(box) do %>
+    <%# wrong path? %>
+    <%= link_to box_path(box) do %>
       <div class="box">
         <h3><%= box.name %></h3>
         <p><%= box.description %></p>
