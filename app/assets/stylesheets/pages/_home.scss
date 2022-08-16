@@ -1,1 +1,23 @@
 // Specific CSS for your home-page
+a {
+  color:white;
+  text-decoration: none;
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.first-image {
+  background-image: url(/assets/homepage.png);
+  background-color: #ff46b5; /* Used if the image is unavailable */
+  height: 844px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
