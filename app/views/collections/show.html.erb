@@ -1,0 +1,18 @@
+<div class="container">
+  <h2><%= @collection.name %></h2>
+  <p><%= @collection.description %></p>
+  <p>Shared with</p>
+    <%# show the creator of the collection if it's not current_user %>
+    <%# show all other users sharing that collection %>
+    <%# button for adding/deleting users %>
+  <% @collection.boxes.each do |box| %>
+    <%# wrong path? %>
+    <%= link_to box_path(box) do %>
+      <div class="box">
+        <h3><%= box.name %></h3>
+        <p><%= box.description %></p>
+        <p class="box-count"><%= box.items.size %> items inside</p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
