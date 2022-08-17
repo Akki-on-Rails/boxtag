@@ -5,8 +5,13 @@
   border-radius: 40px;
 }
 
+.button-round:hover, .button-round:active {
+  color: $white;
+  background-color: $main50;
+}
+
 button {
-  border: 2px solid $main;
+  border: 1px solid $main;
   border-radius: 8px;
   padding: 10px 20px;
   display: inline-block;
@@ -17,19 +22,27 @@ button {
   box-sizing: border-box;
 }
 
-
 .button-main {
   color: $white;
   background-color: $main;
 }
 
-
-.button-main:hover, .button-main:active{
-  color: $main;
-  background-color: $white;
+.button-main:hover, .button-main:active {
+  color: $white;
+  background-color: $main50;
 }
 
+.button-secondary {
+  color: $neutral90;
+  background-color: $white;
+  border-color: $neutral90;
+}
 
+.button-secondary:hover, .button-secondary:active {
+  color: $neutral90;
+  background-color: $main50;
+  border-color: $main;
+}
 
 // transform: translateY(-0.2em);
 // transition: transform 0.1s ease;
