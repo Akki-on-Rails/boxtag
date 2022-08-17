@@ -25,3 +25,15 @@
     <% end %>
   </div>
 </nav>
+<%# adding another div containing the search form %>
+  <%# search form shall be toggled when clicking on the search button in footer %>
+<div class="container search-form d-flex justify-content-center" data-search-form-target="search">
+  <%= form_tag search_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find collections, boxes or items"
+    %>
+    <%= submit_tag "Search", class: "button" %>
+  <% end %>
+</div>
