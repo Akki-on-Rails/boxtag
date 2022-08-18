@@ -2,17 +2,10 @@
 
 <% @box.items.each do |item| %>
 
-
       <div class="box">
         <h3><%= item.name %></h3>
-        <%= link_to "delete", item_path(item), method: :delete, data: { confirm: "Are you sure?" }%>
-        <%#= item.destroy %>
+        <%= link_to "delete", item_path(item), method: :delete, data: { confirm: "sure?" }%>
       </div>
-
-        <%= link_to "add an Item", new_box_item_path(@box) %>
-
-
-
-
-
 <% end %>
+
+<%= link_to "add an Item", new_box_item_path(@box)%>
