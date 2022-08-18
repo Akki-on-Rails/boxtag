@@ -1,5 +1,10 @@
 * { margin: 0; padding: 0; }
 
+a:link, a:visited, a:hover, a:active{
+  text-decoration: none;
+  color: $black;
+}
+
 .box{
   margin-top: 16px;
   padding: 16px 16px;
