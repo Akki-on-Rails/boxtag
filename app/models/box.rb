@@ -4,4 +4,10 @@ class Box < ApplicationRecord
   has_one_attached :photo
   belongs_to :collection
   has_many :items, dependent: :destroy
+
+  include PgSearch::Model
+  multisearchable against: [:name]
+  PgSearch.multisearch_options = {
+    using: {:tsearch => { :prefix => true }}
+  }
 end

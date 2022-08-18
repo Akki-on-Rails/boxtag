@@ -1,32 +1,18 @@
 <% if user_signed_in? %>
-<div class="container">
-  <h1>My Dashboard</h1>
-
-  <%= button_tag :class => "button button-main" do %>
-    <%= t('done')%>
-  <% end %>
-
-  <%= button_tag :class => "button button-secondary" do %>
-    <%= t('store it')%>
-  <% end %>
-
-  <div class="box">
-    <h2 class="title">shoe box</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-    <div class="box-info">
-      <p class="boxcount">19 items inside</p>
-      <i class="fas fa-user"></i>
-    </div>
+<div class="container"> 
+  <h1>my Dashboard</h1>
+  <div class="bg-light m-4 p-3 rounded-3">
+    <h4>Your collections:</h4>
+      <% @collections.each do |collection| %>
+        <div class="collections">
+          <h3 class="collection-name"><%= collection.name %></h3>
+          <div class="box-info">
+            <p class="boxcount"><%= collection.boxes.count %> Boxes inside</p>
+            <i class="fas fa-user"></i>
+          </div>
+        </div>
+      <% end %>
   </div>
-
-  <div class="collections">
-    <H3 class="collection-name">my storage room</H3>
-      <div class="box-info">
-        <p class="boxcount">19 Boxes inside</p>
-        <i class="fas fa-user"></i>
-      </div>
-  </div>
-
 </div>
 
 <%else%>

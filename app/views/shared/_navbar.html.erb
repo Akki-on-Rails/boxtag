@@ -9,7 +9,7 @@
       <div class="collapse navbar-collapse text-end" id="navbarTogglerDemo01">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item active">
-            <%= link_to "my Dashboard", "#", class: "nav-link" %>
+            <%= link_to "my Dashboard", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Edit profile", edit_user_registration_path, class: "nav-link" %>
@@ -25,3 +25,15 @@
     <% end %>
   </div>
 </nav>
+<%# adding another div containing the search form %>
+  <%# search form shall be toggled when clicking on the search button in footer %>
+<div class="container search-form d-flex justify-content-center" data-search-form-target="search">
+  <%= form_tag search_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find collections, boxes or items"
+    %>
+    <%= submit_tag "Search", class: "button" %>
+  <% end %>
+</div>

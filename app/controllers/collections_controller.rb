@@ -17,13 +17,24 @@ class CollectionsController < ApplicationController
   end
 
   def index
-    @collections = Collection.all
+    @user = current_user
+    @collections = Collection.joins(user_collections: :user)
   end
 
   def show
     @user_collections = UserCollection.where(id: @collection.id)
     @users = User.joins(user_collections: :collection)
 
+  end
+
+  def edit
+    @collection = Collection.find(params[:id])
+  end
+
+  def update
+    @collection = Collection.find(params[:id])
+    @collection.update(collection_params)
+    redirect_to collection_path(@collection)
   end
 
   def destroy
@@ -43,4 +54,5 @@ class CollectionsController < ApplicationController
   def collection_params
     params.require(:collection).permit(:name, :description)
   end
+
 end
