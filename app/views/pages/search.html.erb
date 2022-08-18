@@ -8,4 +8,15 @@
     %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
+  <% if @results.present? %>
+    <p>Results: <%= @results.size %></p>
+    <% @results.each do |result| %>
+      <h3><%= result.searchable.name %></h3>
+      <p><%= result.searchable.description %></p>
+    <% end %>
+  <% elsif @results.empty? %>
+    <p>No results found. Please try something else</p>
+  <% else %>
+    <p>Please enter something.</p>
+  <% end %>
 </div>
