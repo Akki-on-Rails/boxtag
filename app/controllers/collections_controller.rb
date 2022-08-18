@@ -22,6 +22,9 @@ class CollectionsController < ApplicationController
   end
 
   def show
+    @user_collections = UserCollection.where(id: @collection.id)
+    @users = User.joins(user_collections: :collection)
+
   end
 
   def edit

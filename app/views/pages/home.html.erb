@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-<div class="container"> 
+<div class="container">
   <h1>my Dashboard</h1>
   <div class="bg-light m-4 p-3 rounded-3">
     <h4>Your collections:</h4>
@@ -8,7 +8,8 @@
           <h3 class="collection-name"><%= collection.name %></h3>
           <div class="box-info">
             <p class="boxcount"><%= collection.boxes.count %> Boxes inside</p>
-            <i class="fas fa-user"></i>
+            <span class="bg-secondary rounded-circle p-2"><%= collection.owner.first_name[0].capitalize %><%= collection.owner.last_name[0].capitalize %></span>
+
           </div>
         </div>
       <% end %>
