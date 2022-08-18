@@ -24,6 +24,16 @@ class CollectionsController < ApplicationController
   def show
   end
 
+  def edit
+    @collection = Collection.find(params[:id])
+  end
+
+  def update
+    @collection = Collection.find(params[:id])
+    @collection.update(collection_params)
+    redirect_to collection_path(@collection)
+  end
+
   def destroy
     if @collection.destroy
       redirect_to collections_path
@@ -41,4 +51,5 @@ class CollectionsController < ApplicationController
   def collection_params
     params.require(:collection).permit(:name, :description)
   end
+
 end
