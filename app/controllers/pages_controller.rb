@@ -9,8 +9,8 @@ class PagesController < ApplicationController
   def search
     if params[:query].present?
       @results = PgSearch.multisearch(params[:query])
-    else
-      render :new
+    # else
+      # render :new
     end
   end
 end
