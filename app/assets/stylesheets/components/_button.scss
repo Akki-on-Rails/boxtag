@@ -1,11 +1,25 @@
+
 .button-round {
   background-color: $main;
   width: 80px;
   height: 80px;
   border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-button {
+.fa-search{
+// maybe a bit dirty? !important
+  color: $white !important;
+}
+
+.button-round:hover, .button-round:active{
+  border: 2px solid $main;
+  color: $main;
+}
+
+.button {
   border: 2px solid $main;
   border-radius: 8px;
   padding: 10px 20px;
@@ -17,12 +31,16 @@ button {
   box-sizing: border-box;
 }
 
+button:hover, button:active{
+  background-color: $main;
+  color: $white;
+}
+
 
 .button-main {
   color: $white;
   background-color: $main;
 }
-
 
 .button-main:hover, .button-main:active{
   color: $main;
@@ -30,6 +48,13 @@ button {
 }
 
 
+.button-third{
+margin-top: 1em;
+color: $neutral50;
+border: none;
+}
 
-// transform: translateY(-0.2em);
-// transition: transform 0.1s ease;
+.button-third:hover, .button-third:active{
+color: $warning;
+border:solid;
+}
