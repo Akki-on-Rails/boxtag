@@ -8,7 +8,9 @@ class PagesController < ApplicationController
 
   def search
     if params[:query].present?
-      @results = PgSearch.multisearch(params[:query])
+      @collection_results = PgSearch.multisearch(params[:query]).where(searchable_type: "Collection")
+      @box_results = PgSearch.multisearch(params[:query]).where(searchable_type: "Box")
+      @item_results = PgSearch.multisearch(params[:query]).where(searchable_type: "Item")
     # else
       # render :new
     end

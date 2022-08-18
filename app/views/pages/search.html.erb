@@ -7,6 +7,7 @@
     %>
     <%= submit_tag "Search", class: "button-main" %>
   <% end %>
+  <%# change all to @controller_results, @box_results and @item-results!!! %>
   <% if @results.present? %>
     <p>Results: <%= @results.size %></p>
     <% @results.each do |result| %>
