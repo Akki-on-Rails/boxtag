@@ -3,7 +3,8 @@ class PagesController < ApplicationController
 
   def home
     @user = current_user
-    @collections = Collection.joins(user_collections: :user)
+    @collections = Collection.joins(user_collections: :user).to_a
+
   end
 
   def search

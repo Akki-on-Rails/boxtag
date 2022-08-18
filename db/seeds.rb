@@ -45,7 +45,8 @@ collection1 = Collection.create!(
 
 user_collection1 = UserCollection.create!(
   user: user1,
-  collection: collection1
+  collection: collection1,
+  kind: 0
 )
 
 
