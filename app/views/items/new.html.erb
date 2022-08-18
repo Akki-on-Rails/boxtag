@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-6">
-        <%= simple_form_for(@item) do |f| %>
+        <%= simple_form_for [@box, @item] do |f| %>
           <%= f.input :name %>
           <%= f.submit %>
         <% end %>

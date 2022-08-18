@@ -1,12 +1,18 @@
 <h1><%= @box.name %></h1>
-<p>@box.description</p>
 
-<% @box.items.each do |box| %>
-    <%# wrong path(box_path)? %>
-    <%#= link_to box_path(box) do %>
+<% @box.items.each do |item| %>
+
+
       <div class="box">
-        <h3><%= box.name %></h3>
-        <p><%#= box.description %></p>
-        <%# <p class="box-count"><%= box.count %>
-      </div> %>
-    <% end %>
+        <h3><%= item.name %></h3>
+        <%= link_to "delete", item_path(item), method: :delete, data: { confirm: "Are you sure?" }%>
+        <%#= item.destroy %>
+      </div>
+
+        <%= link_to "add an Item", new_box_item_path(@box) %>
+
+
+
+
+
+<% end %>
