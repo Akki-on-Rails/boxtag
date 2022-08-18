@@ -1,8 +1,10 @@
 <div class="footer-navigation">
   <div class="button-container">
     <i class="fas fa-qrcode"></i>
-    <div class="button-round"></div>
-    <i class="fas fa-search position-absolute z-index-10"></i>
+    <%= link_to search_path do %>
+      <div class="button-round fas fa-search"></div>
+      <%# <i class="fas fa-search position-absolute z-index-10"></i> %>
+    <% end %>
     <i class="fas fa-plus"></i>
   </div>
 </div>
