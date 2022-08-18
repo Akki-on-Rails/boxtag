@@ -17,7 +17,8 @@ class CollectionsController < ApplicationController
   end
 
   def index
-    @collections = Collection.all
+    @user = current_user
+    @collections = Collection.joins(user_collections: :user)
   end
 
   def show
