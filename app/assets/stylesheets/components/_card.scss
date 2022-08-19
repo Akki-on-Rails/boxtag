@@ -27,6 +27,17 @@ a:link, a:visited, a:hover, a:active{
   color: $neutral50;
 }
 
+.add-new-box {
+  margin-top: 16px;
+  padding: 16px 16px;
+  background-color: $white;
+  height: auto;
+  width: auto;
+  border-radius: 8px;
+  border: dashed;
+  border-color: rgba(84,84,81,0.28);
+}
+
 .collections{
   margin-top: 16px;
   padding: 16px 16px;
