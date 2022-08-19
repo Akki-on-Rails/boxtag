@@ -21,6 +21,14 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def update
+    @item = Item.find(params[:id])
+    @box = @item[:box_id]
+    # @item.box = @box
+    @item.update(item_params)
+    redirect_to box_path(@box)
+  end
+
   def destroy
     # raise
     # @box = @item # @box = Box.find(params[:box_id])

@@ -3,6 +3,7 @@
       <div class="box">
         <h3><%= item.name %></h3>
         <%= link_to "delete", item_path(item), method: :delete, data: { confirm: "sure?" }%>
+        <%= link_to "edit", edit_item_path(item) %>
       </div>
 <% end %>
 
