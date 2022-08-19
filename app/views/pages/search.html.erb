@@ -8,14 +8,28 @@
     <%= submit_tag "Search", class: "button-main" %>
   <% end %>
   <%# change all to @controller_results, @box_results and @item-results!!! %>
-  <% if @results.present? %>
-    <p>Results: <%= @results.size %></p>
-    <% @results.each do |result| %>
-      <h3><%= result.searchable.name %></h3>
-      <p><%= result.searchable.try(:description) %></p>
+  <% if @collection_results.present? || @box_results.present? || @item_results.present? %>
+    <p>Results: <%= @collection_results.size + @box_results.size + @item_results.size %></p>
+    <% @collection_results.each do |collection| %>
+      <h2>Collections (<%= @collection_results.size %>)</h2>
+      <h3><%= collection.searchable.name %></h3>
+      <p><%= collection.searchable.description %></p>
+    <% end %>
+
+    <% @box_results.each do |box| %>
+      <h2>Boxes (<%= @box_results.size %>)</h2>
+      <h3><%= box.searchable.name %></h3>
+      <p><%= box.searchable.description %></p>
+    <% end %>
+
+    <% @item_results.each do |item| %>
+      <h2>Items (<%= @item_results.size %>)</h2>
+      <h3><%= item.searchable.name %></h3>
     <% end %>
   <% end %>
-  <% if @results.empty? %>
-      <p>No results found. Please try something else</p>
-  <% end %>
+
+  <%# .empty? doesn't work because of Nil Class. What to use then? %>
+  <%# <% if @collection_results.empty? && @box_results.empty? && @item_results.empty? %>
+      <%# <p>No results found. Please try something else</p> %>
+  <%# <% end %>
 </div>
