@@ -1,9 +1,13 @@
 <div class="container">
-  <h2><%= @collection.name %></h2>
+  <div class="d-flex">
+    <%= link_to collections_path do %>
+      <i class="fas fa-arrow-left m-1 p-1"></i>
+    <% end %>
+    <h2><%= @collection.name %></h2>
+  </div>
   <p><%= @collection.description %></p>
   <p>Owner: <span class="bg-secondary rounded-circle p-2"><%= @collection.owner.first_name[0].capitalize %><%= @collection.owner.last_name[0].capitalize %></span></p>
   <p>Shared with</p>
-    <%# show the creator of the collection if it's not current_user %>
     <div class="users">
       <ul class="d-flex list-unstyled">
         <% @collection.collaborators.each do |collaborator| %>
@@ -13,10 +17,8 @@
         <% end %>
       </ul>
     </div>
-    <%# show all other users sharing that collection %>
     <%# button for adding/deleting users %>
   <% @collection.boxes.each do |box| %>
-    <%# wrong path? %>
     <%= link_to box_path(box) do %>
       <div class="box">
         <h3><%= box.name %></h3>
