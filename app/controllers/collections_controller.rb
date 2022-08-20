@@ -18,13 +18,11 @@ class CollectionsController < ApplicationController
 
   def index
     @user = current_user
-    @collections = Collection.joins(user_collections: :user)
+    @collections = Collection.joins(:user_collections)
   end
 
   def show
-    @user_collections = UserCollection.where(id: @collection.id)
-    @users = User.joins(user_collections: :collection)
-
+    @user_collection = UserCollection.new
   end
 
   def edit

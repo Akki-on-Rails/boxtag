@@ -3,7 +3,6 @@
   <p><%= @collection.description %></p>
   <p>Owner: <span class="bg-secondary rounded-circle p-2"><%= @collection.owner.first_name[0].capitalize %><%= @collection.owner.last_name[0].capitalize %></span></p>
   <p>Shared with</p>
-    <%# show the creator of the collection if it's not current_user %>
     <div class="users">
       <ul class="d-flex list-unstyled">
         <% @collection.collaborators.each do |collaborator| %>
@@ -11,12 +10,13 @@
             <span class="bg-secondary rounded-circle p-2"><%= collaborator.first_name[0].capitalize %><%= collaborator.last_name[0].capitalize %></span>
           </li>
         <% end %>
+          <%= link_to new_collection_user_collection_path(@collection, @user_collection) do %>
+            <i class="fas fa-plus"></i>
+          <% end %>
       </ul>
     </div>
-    <%# show all other users sharing that collection %>
-    <%# button for adding/deleting users %>
+
   <% @collection.boxes.each do |box| %>
-    <%# wrong path(box_path)? %>
     <%= link_to box_path(box) do %>
       <div class="box">
         <h3><%= box.name %></h3>
