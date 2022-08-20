@@ -68,7 +68,13 @@ user_collection2 = UserCollection.create!(
 )
 
 user_collection3 = UserCollection.create!(
-  user: user1,
+  user: user2,
+  collection: collection1,
+  kind: 1
+)
+
+user_collection4 = UserCollection.create!(
+  user: user2,
   collection: collection3,
   kind: 0
 )
