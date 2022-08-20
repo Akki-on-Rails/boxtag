@@ -55,7 +55,7 @@
           <%= link_to box_path(item.box_id) do %>
             <div class="result-card">
               <h3><%= item.name %></h3>
-              <p>Stored in: <%= @box.find_by(id: item.box_id).name %></p>
+              <p>Stored in: <%= item.box.name %></p>
             </div>
           <% end %>
         <% end %>
