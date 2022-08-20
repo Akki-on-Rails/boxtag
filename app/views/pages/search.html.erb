@@ -12,7 +12,7 @@
 
   <div class="results-container">
     <hr>
-    <% @all_results = @collection_results.size + @box_results.size + @item_results.size  %>
+    <% @all_results = @collection_results.to_a.size + @box_results.to_a.size + @item_results.to_a.size  %>
     <% if @all_results == 0 %>
       <p>No results found. Please try something else.</p>
     <% else %>
@@ -25,7 +25,7 @@
       <% if @collection_results.present? %>
         <h2>Collections (<%= @collection_results.size %>)</h2>
         <% @collection_results.each do |collection| %>
-          <% link_to collection_path(collection.searchable) do %>
+          <%= link_to collection_path(collection.searchable.id) do %>
             <div class="result-card">
               <h3><%= collection.searchable.name %></h3>
               <p><%= collection.searchable.description %></p>
@@ -39,10 +39,12 @@
       <% if @box_results.present? %>
         <h2>Boxes (<%= @box_results.size %>)</h2>
         <% @box_results.each do |box| %>
-          <% link_to  %><div class="result-card">
-            <h3><%= box.searchable.name %></h3>
-            <p><%= box.searchable.description %></p>
-          </div>
+          <%= link_to box_path(box.searchable.id) do %>
+            <div class="result-card">
+              <h3><%= box.searchable.name %></h3>
+              <p><%= box.searchable.description %></p>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
@@ -51,9 +53,13 @@
       <% if @item_results.present? %>
         <h2>Items (<%= @item_results.size %>)</h2>
         <% @item_results.each do |item| %>
-          <div class="result-card">
-            <h3><%= item.searchable.name %></h3>
-          </div>
+          <%= link_to box_path(item.searchable.box_id) do %>
+            <div class="result-card">
+              <h3><%= item.searchable.name %></h3>
+              <p>Stored in: <%= item.searchable.box_id %>
+              <p>Stored in: <%= @box.find_by(id: 7).name %></p>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
