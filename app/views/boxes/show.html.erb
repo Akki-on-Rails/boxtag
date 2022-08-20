@@ -1,2 +1,10 @@
-<h1><%= @box.name %></h1>
-<p><%= @box.description %></p>
+<% @box.items.each do |item| %>
+
+      <div class="box">
+        <h3><%= item.name %></h3>
+        <%= link_to "delete", item_path(item), method: :delete, data: { confirm: "sure?" }%>
+        <%= link_to "edit", edit_item_path(item) %>
+      </div>
+<% end %>
+
+<%= link_to "add an Item", new_box_item_path(@box)%>

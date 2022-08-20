@@ -39,7 +39,7 @@ user3 = User.create!(
 
 collection1 = Collection.create!(
   name: "My storage room",
-  description: "All boxes are inside this room",
+  description: "All boxes are inside this room"
   # user_id: user1.id
 )
 
