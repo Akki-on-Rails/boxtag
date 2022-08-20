@@ -16,11 +16,11 @@
     <%# show all other users sharing that collection %>
     <%# button for adding/deleting users %>
   <% @collection.boxes.each do |box| %>
-    <%# wrong path? %>
+    <%# wrong path(box_path)? %>
     <%= link_to box_path(box) do %>
       <div class="box">
         <h3><%= box.name %></h3>
-        <p><%= box.description %></p>
+        <p><%#= box.description %></p>
         <p class="box-count"><%= box.items.size %> items inside</p>
       </div>
     <% end %>
