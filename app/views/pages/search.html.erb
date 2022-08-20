@@ -18,15 +18,19 @@
     <% else %>
       <p>Results: <%= @all_results %></p>
     <% end %>
-
+    <%# To Do: %>
+    <%# add links with link_to and _path %>
+    <%# for link grab the :id with .searchable.id %>
     <div class="result-chapter">
       <% if @collection_results.present? %>
         <h2>Collections (<%= @collection_results.size %>)</h2>
         <% @collection_results.each do |collection| %>
-          <div class="result-card">
-            <h3><%= collection.searchable.name %></h3>
-            <p><%= collection.searchable.description %></p>
-          </div>
+          <% link_to collection_path(collection.searchable) do %>
+            <div class="result-card">
+              <h3><%= collection.searchable.name %></h3>
+              <p><%= collection.searchable.description %></p>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
@@ -35,7 +39,7 @@
       <% if @box_results.present? %>
         <h2>Boxes (<%= @box_results.size %>)</h2>
         <% @box_results.each do |box| %>
-          <div class="result-card">
+          <% link_to  %><div class="result-card">
             <h3><%= box.searchable.name %></h3>
             <p><%= box.searchable.description %></p>
           </div>
