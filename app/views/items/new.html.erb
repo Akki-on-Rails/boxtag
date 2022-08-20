@@ -1,10 +1,10 @@
 <div class="container">
+<h2>Add an item</h2>
   <div class="row justify-content-center">
-    <div class="col-6">
-        <%= simple_form_for [@box, @item] do |f| %>
-          <%= f.input :name %>
-          <%= f.submit %>
-        <% end %>
-    </div>
+    <%= simple_form_for [@box, @item] do |f| %>
+      <%= f.input :name %>
+      <%= f.submit "create", class: "button-main button" %>
+      <%= link_to "Cancel", box_path(@box), class: "button" %>
+    <% end %>
   </div>
 </div>
