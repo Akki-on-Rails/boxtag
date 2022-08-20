@@ -1,10 +1,28 @@
-<% @box.items.each do |item| %>
-
-      <div class="box">
-        <h3><%= item.name %></h3>
-        <%= link_to "delete", item_path(item), method: :delete, data: { confirm: "sure?" }%>
-        <%= link_to "edit", edit_item_path(item) %>
+<div class="container">
+  <div class="d-flex justify-content-between">
+      <div class="d-flex">
+        <%= link_to collection_path(@box.collection) do %>
+          <i class="fas fa-arrow-left m-1 p-1"></i>
+        <% end %>
+        <h1><%= @box.name.capitalize %></h1>
       </div>
-<% end %>
-
-<%= link_to "add an Item", new_box_item_path(@box)%>
+      <div>
+        <%= link_to edit_box_path(@box) do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+    </div>
+  <p><%= @box.description %></p>
+  <% @box.items.each do |item| %>
+    <div class="box">
+      <h3><%= item.name %></h3>
+      <%= link_to "delete", item_path(item), method: :delete, data: { confirm: "sure?" }%>
+      <%= link_to "edit", edit_item_path(item) %>
+    </div>
+  <% end %>
+  <%= link_to new_box_item_path(@box, @item) do %>
+    <div class="add-new-box text-center">
+      <i class="fas fa-plus"></i>
+    </div>
+  <% end %>
+</div>
