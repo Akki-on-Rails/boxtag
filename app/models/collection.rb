@@ -4,12 +4,6 @@ class Collection < ApplicationRecord
   has_many :user_collections
   has_many :boxes
 
-  # include PgSearch::Model
-  # multisearchable against: [:name]
-  # PgSearch.multisearch_options = {
-  #   using: {:tsearch => { :prefix => true }}
-  # }
-
   include PgSearch::Model
   pg_search_scope :search_name,
     against: [ :name ],
