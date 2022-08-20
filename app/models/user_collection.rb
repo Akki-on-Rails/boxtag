@@ -3,6 +3,7 @@ class UserCollection < ApplicationRecord
   belongs_to :collection
 
   # add valiadtions for sharing with other users
+  validates :user, uniqueness: { scope: :collection }
 
   attr_accessor :email
 
