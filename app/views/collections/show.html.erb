@@ -1,19 +1,21 @@
 <div class="container">
   <h2><%= @collection.name %></h2>
   <p><%= @collection.description %></p>
-  <p>Owner: <span class="bg-secondary rounded-circle p-2"><%= @collection.owner.first_name[0].capitalize %><%= @collection.owner.last_name[0].capitalize %></span></p>
+  <p>Owner: <span class="avatar"><%= @collection.owner.avatar.attached? ? cl_image_tag(@collection.owner.avatar.key, class: "avatar-pic") : "#{@collection.owner.first_name[0].capitalize}  #{@collection.owner.last_name[0].capitalize}" %></span></P>
   <p>Shared with</p>
     <%# show the creator of the collection if it's not current_user %>
     <div class="users">
       <ul class="d-flex list-unstyled">
         <% @collection.collaborators.each do |collaborator| %>
           <li class="mx-1">
-            <span class="bg-secondary rounded-circle p-2"><%= collaborator.first_name[0].capitalize %><%= collaborator.last_name[0].capitalize %></span>
+              <span class="avatar">
+                <%= collaborator.avatar.attached? ? cl_image_tag(collaborator.avatar.key, class: "avatar-pic") : "#{collaborator.first_name[0].capitalize}  #{collaborator.last_name[0].capitalize}" %>
+              </span>
           </li>
         <% end %>
       </ul>
     </div>
-    <%# show all other users sharing that collection %>
+    <%# show all other users sharing that  %>
     <%# button for adding/deleting users %>
   <% @collection.boxes.each do |box| %>
     <%# wrong path(box_path)? %>

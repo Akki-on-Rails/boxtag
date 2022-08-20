@@ -55,6 +55,13 @@ collection3 = Collection.create!(
   # user_id: user2.id
 )
 
+collection3 = Collection.create!(
+  name: "kim's storage room",
+  description: "All boxes are inside this room"
+  # user_id: user1.id
+
+)
+
 user_collection1 = UserCollection.create!(
   user: user1,
   collection: collection1,
