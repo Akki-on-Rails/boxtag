@@ -6,7 +6,8 @@
     <%= simple_form_for [ @collection] do |f| %>
       <%= f.input :name %>
       <%= f.input :description %>
-      <%= f.submit "create" %>
+      <%= f.submit "create", class: "button-main button" %>
       <%# button style needs to be defined! %>
+    <%= link_to "Cancel", root_path, class: "button" %>
     <% end%>
   </div>

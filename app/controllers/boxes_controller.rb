@@ -3,16 +3,18 @@ class BoxesController < ApplicationController
 
   def new
     @box = Box.new
+    @collection = Collection.find(params[:collection_id])
   end
 
   def create
-    @box = Box.new(params[box_params])
-    @box.collection = Box.find(params[:collection_id])
-    if @box.save
-      redirect_to box_path(@box)
-    else
-      redirect_to collection_path(@collection)
-    end
+    @box = Box.new(box_params)
+    @collection = Collection.find(params[:collection_id])
+    @box.collection = @collection
+    @box.save
+    redirect_to box_path(@box)
+    # else
+    #   redirect_to collection_path(@collection)
+    # end
   end
 
   def show

@@ -1,8 +1,9 @@
 <div class="container">
-    <%= simple_form_for [ @box] do |f| %>
-      <%= f.input :name %>
-      <%= f.input :description %>
-      <%= f.submit "create" %>
-      <%# button style needs to be defined! %>
-    <% end%>
-  </div>
+<h2>Add a box</h2>
+  <%= simple_form_for [ @collection, @box] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.submit "create" %>
+    <%# button style needs to be defined! %>
+  <% end%>
+</div>
