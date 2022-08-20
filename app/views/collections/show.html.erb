@@ -12,9 +12,10 @@
         <i class="fas fa-edit"></i>
       <% end %>
       <% if @collection.owner == current_user %>
-        <%= link_to collection_path, method: :delete do %>
-          <i class="fas fa-trash-alt"></i>
-        <% end %>
+        <% if @collection.boxes.any? %>
+          <%= link_to collection_path, method: :delete do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
       <% end %>
      </div>
     </div>
