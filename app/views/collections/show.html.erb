@@ -6,26 +6,33 @@
       <% end %>
       <h2><%= @collection.name.capitalize %></h2>
     </div>
-     <div>
+    <div>
+     <div class="d-flex">
       <%= link_to edit_collection_path(@collection) do %>
         <i class="fas fa-edit"></i>
       <% end %>
+      <% if @collection.owner == current_user %>
+        <%= link_to collection_path, method: :delete do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      <% end %>
      </div>
+    </div>
   </div>
   <p><%= @collection.description %></p>
-  <p>Owner: <span class="avatar"><%= @collection.owner.avatar.attached? ? cl_image_tag(@collection.owner.avatar.key, class: "avatar-pic") : "#{@collection.owner.first_name[0].capitalize}  #{@collection.owner.last_name[0].capitalize}" %></span></P>
+  <p>Owner: <span class="avatar"><%= @collection.owner.avatar.attached? ? cl_image_tag(@collection.owner.avatar.key, class: "avatar-pic") : "#{@collection.owner.first_name[0].capitalize}  #{@collection.owner.last_name[0].capitalize}" %></span></p>
   <p>Shared with</p>
-    <div class="users">
-      <ul class="d-flex list-unstyled">
-        <% @collection.collaborators.each do |collaborator| %>
-          <li class="mx-1">
-              <span class="avatar">
-                <%= collaborator.avatar.attached? ? cl_image_tag(collaborator.avatar.key, class: "avatar-pic") : "#{collaborator.first_name[0].capitalize}  #{collaborator.last_name[0].capitalize}" %>
-              </span>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+  <div class="users">
+    <ul class="d-flex list-unstyled">
+      <% @collection.collaborators.each do |collaborator| %>
+        <li class="mx-1">
+            <span class="avatar">
+              <%= collaborator.avatar.attached? ? cl_image_tag(collaborator.avatar.key, class: "avatar-pic") : "#{collaborator.first_name[0].capitalize}  #{collaborator.last_name[0].capitalize}" %>
+            </span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
   <% @collection.boxes.each do |box| %>
     <%= link_to box_path(box) do %>
       <div class="box">
