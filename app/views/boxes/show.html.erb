@@ -3,7 +3,7 @@
     <%= link_to collection_path(@box.collection) do %>
         <i class="fas fa-arrow-left m-1 p-1"></i>
       <% end %>
-    <h1><%= @box.name %></h1>
+    <h1><%= @box.name.capitalize %></h1>
   </div>
   <p><%= @box.description %></p>
   <% @box.items.each do |item| %>

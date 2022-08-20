@@ -1,9 +1,16 @@
 <div class="container">
-  <div class="d-flex">
-    <%= link_to root_path do %>
-      <i class="fas fa-arrow-left m-1 p-1"></i>
-    <% end %>
-    <h2><%= @collection.name %></h2>
+  <div class="d-flex justify-content-between">
+    <div class="d-flex">
+      <%= link_to root_path do %>
+        <i class="fas fa-arrow-left m-1 p-1"></i>
+      <% end %>
+      <h2><%= @collection.name.capitalize %></h2>
+    </div>
+     <div>
+      <%= link_to edit_collection_path(@collection) do %>
+        <i class="fas fa-edit"></i>
+      <% end %>
+     </div>
   </div>
   <p><%= @collection.description %></p>
   <p>Owner: <span class="bg-secondary rounded-circle p-2"><%= @collection.owner.first_name[0].capitalize %><%= @collection.owner.last_name[0].capitalize %></span></p>
