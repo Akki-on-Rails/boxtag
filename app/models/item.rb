@@ -3,8 +3,9 @@ class Item < ApplicationRecord
   belongs_to :box
 
   include PgSearch::Model
-  multisearchable against: [:name]
-  PgSearch.multisearch_options = {
-    using: {:tsearch => { :prefix => true }}
-  }
+  pg_search_scope :search_name,
+    against: [ :name ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end

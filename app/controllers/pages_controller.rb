@@ -8,11 +8,14 @@ class PagesController < ApplicationController
 
   def search
     if params[:query].present?
-      @collection_results = PgSearch.multisearch(params[:query]).where(searchable_type: "Collection")
-      @box_results = PgSearch.multisearch(params[:query]).where(searchable_type: "Box")
-      @item_results = PgSearch.multisearch(params[:query]).where(searchable_type: "Item")
-    # else
-      # render :new
+      @collections = current_user.collections.search_name(params[:query])
+      @boxes = current_user.boxes.search_name(params[:query])
+      @items = current_user.items.search_name(params[:query])
+    else
+      @collections = Collection.none
+      @box_results = Box.none
+      @item_results = Item.none
     end
+    @results_count = @collections.size + @boxes.size + @items.size
   end
 end

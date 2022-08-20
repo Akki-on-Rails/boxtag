@@ -12,23 +12,22 @@
 
   <div class="results-container">
     <hr>
-    <% @all_results = @collection_results.to_a.size + @box_results.to_a.size + @item_results.to_a.size  %>
-    <% if @all_results == 0 %>
+    <% if @results_count.zero? %>
       <p>No results found. Please try something else.</p>
     <% else %>
-      <p>Results: <%= @all_results %></p>
+      <p>Results: <%= @results_count %></p>
     <% end %>
     <%# To Do: %>
     <%# add links with link_to and _path %>
     <%# for link grab the :id with .searchable.id %>
     <div class="result-chapter">
-      <% if @collection_results.present? %>
-        <h2>Collections (<%= @collection_results.size %>)</h2>
-        <% @collection_results.each do |collection| %>
-          <%= link_to collection_path(collection.searchable.id) do %>
+      <% if @collections.any? %>
+        <h2>Collections (<%= @collections.size %>)</h2>
+        <% @collections.each do |collection| %>
+          <%= link_to collection_path(collection) do %>
             <div class="result-card">
-              <h3><%= collection.searchable.name %></h3>
-              <p><%= collection.searchable.description %></p>
+              <h3><%= collection.name %></h3>
+              <p><%= collection.description %></p>
             </div>
           <% end %>
         <% end %>
@@ -36,13 +35,13 @@
     </div>
 
     <div class="result-chapter">
-      <% if @box_results.present? %>
-        <h2>Boxes (<%= @box_results.size %>)</h2>
-        <% @box_results.each do |box| %>
-          <%= link_to box_path(box.searchable.id) do %>
+      <% if @boxes.any? %>
+        <h2>Boxes (<%= @boxes.size %>)</h2>
+        <% @boxes.each do |box| %>
+          <%= link_to box_path(box) do %>
             <div class="result-card">
-              <h3><%= box.searchable.name %></h3>
-              <p><%= box.searchable.description %></p>
+              <h3><%= box.name %></h3>
+              <p><%= box.description %></p>
             </div>
           <% end %>
         <% end %>
@@ -50,14 +49,13 @@
     </div>
 
     <div class="result-chapter">
-      <% if @item_results.present? %>
-        <h2>Items (<%= @item_results.size %>)</h2>
-        <% @item_results.each do |item| %>
-          <%= link_to box_path(item.searchable.box_id) do %>
+      <% if @items.any? %>
+        <h2>Items (<%= @items.size %>)</h2>
+        <% @items.each do |item| %>
+          <%= link_to box_path(item.box_id) do %>
             <div class="result-card">
-              <h3><%= item.searchable.name %></h3>
-              <p>Stored in: <%= item.searchable.box_id %>
-              <p>Stored in: <%= @box.find_by(id: 7).name %></p>
+              <h3><%= item.name %></h3>
+              <p>Stored in: <%= @box.find_by(id: item.box_id).name %></p>
             </div>
           <% end %>
         <% end %>
