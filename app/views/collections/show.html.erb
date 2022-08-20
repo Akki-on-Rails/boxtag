@@ -1,6 +1,6 @@
 <div class="container">
   <div class="d-flex">
-    <%= link_to collections_path do %>
+    <%= link_to root_path do %>
       <i class="fas fa-arrow-left m-1 p-1"></i>
     <% end %>
     <h2><%= @collection.name %></h2>
@@ -19,10 +19,11 @@
     </div>
     <%# button for adding/deleting users %>
   <% @collection.boxes.each do |box| %>
+    <%# wrong path(box_path)? %>
     <%= link_to box_path(box) do %>
       <div class="box">
         <h3><%= box.name %></h3>
-        <p><%= box.description %></p>
+        <p><%#= box.description %></p>
         <p class="box-count"><%= box.items.size %> items inside</p>
       </div>
     <% end %>
