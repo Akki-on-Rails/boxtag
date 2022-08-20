@@ -28,6 +28,7 @@ user2 = User.create!(
   password: "123456",
   password_confirmation: "123456"
 )
+
 user3 = User.create!(
   email: "kimoliverm@gmail.com",
   first_name: "kim-Oliver",
@@ -40,7 +41,18 @@ collection1 = Collection.create!(
   name: "My storage room",
   description: "All boxes are inside this room"
   # user_id: user1.id
+)
 
+collection2 = Collection.create!(
+  name: "My storage room",
+  description: "All boxes are inside this room",
+  # user_id: user2.id
+)
+
+collection3 = Collection.create!(
+  name: "test collection",
+  description: "Here I stored some boxes to test the display as well as the search funktion. To test if all is displayed well I added a pretty long text. I mean... it is really long...! ",
+  # user_id: user2.id
 )
 
 user_collection1 = UserCollection.create!(
@@ -49,6 +61,23 @@ user_collection1 = UserCollection.create!(
   kind: 0
 )
 
+user_collection2 = UserCollection.create!(
+  user: user2,
+  collection: collection2,
+  kind: 0
+)
+
+user_collection3 = UserCollection.create!(
+  user: user2,
+  collection: collection1,
+  kind: 1
+)
+
+user_collection4 = UserCollection.create!(
+  user: user2,
+  collection: collection3,
+  kind: 0
+)
 
 box1 = Box.create!(
   name: "white box",
@@ -62,7 +91,18 @@ box2 = Box.create!(
   collection: collection1
 )
 
+box3 = Box.create!(
+  name: "all stuff",
+  description: "All different stuff inside the box",
+  collection: collection3
+)
+
 item1 = Item.create!(
   name: "toy",
   box: box1
+)
+
+item2 = Item.create!(
+  name: "box item",
+  box: box3
 )
