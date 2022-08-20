@@ -1,5 +1,5 @@
 class BoxesController < ApplicationController
-  before_action :set_box, only: [:show, :destroy]
+  before_action :set_box, only: [:show, :edit, :update, :destroy]
 
   def new
     @box = Box.new
@@ -18,6 +18,14 @@ class BoxesController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    @box.update(box_params)
+    redirect_to box_path(@box)
   end
 
   def index
