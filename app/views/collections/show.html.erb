@@ -27,6 +27,7 @@
       </ul>
     </div>
   <% @collection.boxes.each do |box| %>
+    <%= link_to "show QRCODE", box_qrcode_path(box) %>
     <%= link_to box_path(box) do %>
       <div class="box">
         <h3><%= box.name %></h3>

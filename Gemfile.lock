@@ -89,6 +89,7 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     childprocess (4.1.0)
+    chunky_png (1.4.0)
     cloudinary (1.16.1)
       aws_cf_signer
       rest-client
@@ -109,6 +110,8 @@ GEM
       railties (>= 3.2)
     erubi (1.11.0)
     execjs (2.7.0)
+    faker (2.22.0)
+      i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     font-awesome-sass (5.6.1)
       sassc (>= 1.11)
@@ -213,6 +216,10 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rexml (3.2.5)
+    rqrcode (2.1.2)
+      chunky_png (~> 1.0)
+      rqrcode_core (~> 1.0)
+    rqrcode_core (1.2.0)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -285,6 +292,7 @@ DEPENDENCIES
   cloudinary
   devise
   dotenv-rails
+  faker
   font-awesome-sass (~> 5.6.1)
   jbuilder (~> 2.7)
   listen (~> 3.3)
@@ -297,6 +305,7 @@ DEPENDENCIES
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.6, >= 6.1.6.1)
   redis (~> 4.0)
+  rqrcode
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
   simple_form!
