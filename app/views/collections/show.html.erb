@@ -13,6 +13,10 @@
       <% end %>
       <% if @collection.owner == current_user %>
         <% if @collection.boxes.any? %>
+          <%= link_to collection_path, method: :delete, disabled: true do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+        <% else %>
           <%= link_to collection_path, method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
