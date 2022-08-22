@@ -13,19 +13,9 @@ class Collection < ApplicationRecord
   end
 
   include PgSearch::Model
-  multisearchable against: [:name]
-  PgSearch.multisearch_options = {
-    using: {:tsearch => { :prefix => true }}
-  }
-
-  # include PgSearch::Model
-  # pg_search_scope :global_search,
-  #   against: [ :name ],
-  #   associated_against: {
-  #     box: [ :name ],
-  #     item: [ :name ]
-  #   },
-  #   using: {
-  #     tsearch: { prefix: true }
-  #   }
+  pg_search_scope :search_name,
+    against: [ :name ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end
