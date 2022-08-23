@@ -12,17 +12,20 @@
         <% end %>
       </div>
     </div>
-  <p><%= @box.description %></p>
-  <% @box.items.each do |item| %>
-    <div class="box">
-      <h3><%= item.name %></h3>
-      <%= link_to "delete", item_path(item), method: :delete, data: { confirm: "sure?" }%>
-      <%= link_to "edit", edit_item_path(item) %>
+    <p><%= @box.description %></p>
+    <div class="bg-light m-2 p-3 rounded-3">
+      <h4>In this box:</h4>
+      <% @box.items.each do |item| %>
+        <div class="box">
+          <h3><%= item.name %></h3>
+          <%= link_to "delete", item_path(item), method: :delete, data: { confirm: "sure?" }%>
+          <%= link_to "edit", edit_item_path(item) %>
+        </div>
+      <% end %>
+      <%= link_to new_box_item_path(@box, @item) do %>
+        <div class="add-new-box text-center">
+          <i class="fas fa-plus"></i>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-  <%= link_to new_box_item_path(@box, @item) do %>
-    <div class="add-new-box text-center">
-      <i class="fas fa-plus"></i>
-    </div>
-  <% end %>
 </div>
