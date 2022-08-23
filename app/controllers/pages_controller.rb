@@ -14,8 +14,8 @@ class PagesController < ApplicationController
       @items = current_user.items.search_name(params[:query])
     else
       @collections = Collection.none
-      @box_results = Box.none
-      @item_results = Item.none
+      @boxes = Box.none
+      @items = Item.none
     end
     @results_count = @collections.size + @boxes.size + @items.size
   end
