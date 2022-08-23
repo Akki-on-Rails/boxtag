@@ -4,7 +4,7 @@
       <%= link_to root_path do %>
         <i class="fas fa-arrow-left m-1 p-1"></i>
       <% end %>
-      <h2><%= @collection.name.capitalize %></h2>
+      <h1><%= @collection.name.capitalize %></h1>
     </div>
      <div>
       <%= link_to edit_collection_path(@collection) do %>
@@ -26,19 +26,25 @@
         <% end %>
       </ul>
     </div>
-  <% @collection.boxes.each do |box| %>
-    <%= link_to "show QRCODE", box_qrcode_path(box) %>
-    <%= link_to box_path(box) do %>
-      <div class="box">
-        <h3><%= box.name %></h3>
-        <p><%#= box.description %></p>
-        <p class="box-count"><%= box.items.size %> items inside</p>
-      </div>
-    <% end %>
-  <% end %>
-  <%= link_to new_collection_box_path(@collection, @box) do %>
-    <div class="add-new-box text-center">
-      <i class="fas fa-plus"></i>
+    <div class="bg-light m-2 p-3 rounded-3">
+      <h4>In this collection:</h4>
+
+      <% @collection.boxes.each do |box| %>
+        <%= link_to box_path(box) do %>
+          <div class="box">
+            <h3><%= box.name %></h3>
+            <p><%#= box.description %></p>
+            <p class="box-count"><%= box.items.size %> items inside</p>
+            <%= link_to box_qrcode_path(box) do %>
+                  <i class="fas fa-qrcode"></i>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+      <%= link_to new_collection_box_path(@collection, @box) do %>
+        <div class="add-new-box text-center">
+          <i class="fas fa-plus"></i>
+        </div>
+      <% end %>
     </div>
-  <% end %>
 </div>
