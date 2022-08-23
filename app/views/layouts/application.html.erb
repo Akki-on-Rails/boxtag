@@ -13,18 +13,19 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <%= render 'shared/navbar' %>
-    <%end%>
+    <div class="d-flex flex-column min-vh-100">
+      <% if user_signed_in? %>
+        <%= render 'shared/navbar' %>
+      <%end%>
 
-    <%= render 'shared/flashes' %>
+      <%= render 'shared/flashes' %>
 
-
-    <%= yield %>
-
-    <% if user_signed_in? %>
-      <%= render 'shared/footer-navigation' %>
-    <%end%>
-
+      <div class="flex-grow-1">
+        <%= yield %>
+      </div>
+      <% if user_signed_in? %>
+        <%= render 'shared/footer-navigation' %>
+      <%end%>
+    </div>
   </body>
 </html>
