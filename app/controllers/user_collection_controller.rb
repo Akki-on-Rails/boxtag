@@ -7,7 +7,7 @@ class UserCollectionController < ApplicationController
     @user_collection = UserCollection.new(params[user_collection_params])
     @collection = UserCollection.find(params[:collection_id])
     @user_collection.collection = @collection
-    # @user_collection.kind = "collaborator"
+    @user_collection.kind = "collaborator"
     @user_collection.save
     redirect_to collection_path(@collection)
   end
