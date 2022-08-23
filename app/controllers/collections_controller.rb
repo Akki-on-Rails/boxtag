@@ -39,7 +39,7 @@ class CollectionsController < ApplicationController
 
   def destroy
     if @collection.destroy
-      redirect_to collections_path
+      redirect_to root_path
     else
       render :index
     end
