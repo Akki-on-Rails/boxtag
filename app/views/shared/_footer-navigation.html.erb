@@ -1,6 +1,6 @@
 <script>
     document
-      // .getElementById("cameraFileInput").style.display.visibility = "none";
+      .getElementById("cameraFileInput").style.visibility = "none"
       .getElementById("cameraFileInput")
       .addEventListener("change", function () {
     document
@@ -13,18 +13,8 @@
 <div class="footer-navigation">
   <div class="button-container">
 
-    <%# <%= link_to do %>
-      <%# <% <i class="fas fa-qrcode"></i> %>
-    <%# <% end %>
-<label class="fas fa-qrcode">
-    <input
-         id="cameraFileInput"
-         type="file"
-         style="display"
-         visibility="none"
-         accept="image/*"
-         capture="environment"
-       />
+<label class="cameraButton">SCAN
+    <input type="File" accept="image/*;capture=camera" />
 </label>
 
 
