@@ -51,3 +51,26 @@ h2 {
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
 }
+
+.header{
+  padding: 8px;
+  color:$main;
+  font-size:4.5rem;
+  font-weight:bold;
+  text-align:center;
+  font-family: $headers-font;
+  line-height: 0.8;
+}
+
+.slogan{
+  color:$main70;
+  text-align:center
+}
+
+.boxtag{
+padding-top: 6rem;
+}
+
+.button{
+  color: $white;
+}

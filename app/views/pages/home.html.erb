@@ -42,6 +42,18 @@
         <% link_to "Login", new_user_session_path %>
       <% end %>
     </div>
+
+        <div class="vertical-center">
+              <%= button_tag :class => "button" do %>
+                <% link_to "Sign Up", new_user_registration_path %>
+              <% end %>
+
+              <%= button_tag :class => "button button-main" do %>
+                <% link_to "Login", new_user_session_path %>
+              <% end %>
+
+        </div>
+
   </div>
 
 <%end%>
