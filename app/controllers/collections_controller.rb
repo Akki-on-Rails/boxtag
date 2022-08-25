@@ -9,7 +9,8 @@ class CollectionsController < ApplicationController
     @collection = Collection.new(collection_params)
     @collection.save
     if @collection.save
-      UserCollection.create(user: current_user, collection: @collection, kind: "owner")
+
+      UserCollection.create(user: current_user, collection: @collection, kind: :owner)
       redirect_to collection_path(@collection)
     else
       render :new
@@ -22,7 +23,9 @@ class CollectionsController < ApplicationController
   end
 
   def show
-    @user_collection = UserCollection.new
+    @user_collections = UserCollection.where(id: @collection.id)
+    @users = User.joins(user_collections: :collection)
+    @box = Box.new
   end
 
   def edit
@@ -37,7 +40,7 @@ class CollectionsController < ApplicationController
 
   def destroy
     if @collection.destroy
-      redirect_to collections_path
+      redirect_to root_path
     else
       render :index
     end

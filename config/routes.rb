@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :user_collections, only: :destroy
   resources :boxes, except: [:new, :create] do
     resources :items, only: [:new, :create]
+    resource :qrcode, only: [:show]
   end
   resources :items, except: [:new, :create]
   resources :collections do

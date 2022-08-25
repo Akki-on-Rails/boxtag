@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+
 puts 'Seed: Deleting existing records...'
 UserCollection.delete_all
 User.delete_all
@@ -12,6 +15,7 @@ Item.delete_all
 Box.delete_all
 Collection.delete_all
 
+############## User ###################
 
 user1 = User.create!(
   email: "menakadevisundaramoorthy@gmail.com",
@@ -30,79 +34,62 @@ user2 = User.create!(
 )
 
 user3 = User.create!(
-  email: "kimoliverm@gmail.com",
+  email: "kimoliverhein@yahoo.de",
   first_name: "kim-Oliver",
   last_name: "Hein",
   password: "123456",
   password_confirmation: "123456"
 )
 
-collection1 = Collection.create!(
-  name: "My storage room",
-  description: "All boxes are inside this room"
-  # user_id: user1.id
+user4 = User.create!(
+  email: "johndoe@gmail.com",
+  first_name: "john",
+  last_name: "Doe",
+  password: "123456",
+  password_confirmation: "123456"
 )
 
-collection2 = Collection.create!(
-  name: "My storage room",
-  description: "All boxes are inside this room",
-  # user_id: user2.id
+user5 = User.create!(
+  email: "big@lebowski.de",
+  first_name: "Big",
+  last_name: "Lebowski",
+  password: "123456",
+  password_confirmation: "123456"
 )
 
-collection3 = Collection.create!(
-  name: "test collection",
-  description: "Here I stored some boxes to test the display as well as the search funktion. To test if all is displayed well I added a pretty long text. I mean... it is really long...! ",
-  # user_id: user2.id
-)
+###### genereate collections / Boxes and Items
 
-user_collection1 = UserCollection.create!(
-  user: user1,
-  collection: collection1,
-  kind: 0
-)
+5.times do |i|
+  collection = Collection.create(
+        name: Faker::Beer.brand,
+        description: Faker::ChuckNorris.fact
+      )
+    10.times do |i|
+      box = Box.create(
+        name: Faker::DcComics.villain,
+        description: Faker::DcComics.title,
+        collection: collection
+      )
+      5.times do |i|
+        Item.create(
+          name: Faker::Hipster.word,
+          box: box
+        )
+    end
+  end
+end
 
-user_collection2 = UserCollection.create!(
-  user: user2,
-  collection: collection2,
-  kind: 0
-)
+##### generating User Collections
 
-user_collection3 = UserCollection.create!(
-  user: user2,
-  collection: collection1,
-  kind: 1
-)
-
-user_collection4 = UserCollection.create!(
-  user: user2,
-  collection: collection3,
-  kind: 0
-)
-
-box1 = Box.create!(
-  name: "white box",
-  description: "This is my first box",
-  collection: collection1
-)
-
-box2 = Box.create!(
-  name: "black box",
-  description: "All my kids toys inside the box",
-  collection: collection1
-)
-
-box3 = Box.create!(
-  name: "all stuff",
-  description: "All different stuff inside the box",
-  collection: collection3
-)
-
-item1 = Item.create!(
-  name: "toy",
-  box: box1
-)
-
-item2 = Item.create!(
-  name: "box item",
-  box: box3
-)
+Collection.all.each do |collection|
+  UserCollection.create(
+    user: User.all.sample,
+    collection: collection,
+    kind: 0
+  )
+  UserCollection.create(
+    user: User.all.sample,
+    collection: collection,
+    kind: 1
+  )
+end

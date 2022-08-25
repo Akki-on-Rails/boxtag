@@ -1,55 +1,65 @@
 <div class="container">
-  <%= form_tag search_path, method: :get do %>
-    <div class="d-flex">
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find collections, boxes or items"
-      %>
-      <%= submit_tag "Search", class: "button-main" %>
-    </div>
-  <% end %>
+  <div class="d-flex">
+    <%= link_to 'javascript:history.go(-1);' do %>
+      <i class="fas fa-arrow-left m-1 p-1 me-3"></i>
+    <% end %>
+    <%= form_tag search_path, method: :get do %>
+      <div class="d-flex">
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find collections, boxes or items"
+        %>
+        <%= submit_tag "Search", class: "button-main" %>
+      </div>
+    <% end %>
+  </div>
 
   <div class="results-container">
     <hr>
-    <% @all_results = @collection_results.size + @box_results.size + @item_results.size  %>
-    <% if @all_results == 0 %>
+    <% if @results_count.zero? %>
       <p>No results found. Please try something else.</p>
     <% else %>
-      <p>Results: <%= @all_results %></p>
+      <p>Results: <%= @results_count %></p>
     <% end %>
-
     <div class="result-chapter">
-      <% if @collection_results.present? %>
-        <h2>Collections (<%= @collection_results.size %>)</h2>
-        <% @collection_results.each do |collection| %>
-          <div class="result-card">
-            <h3><%= collection.searchable.name %></h3>
-            <p><%= collection.searchable.description %></p>
-          </div>
+      <% if @collections.any? %>
+        <h2>Collections (<%= @collections.size %>)</h2>
+        <% @collections.each do |collection| %>
+          <%= link_to collection_path(collection) do %>
+            <div class="result-card">
+              <h3><%= collection.name %></h3>
+              <p><%= collection.description %></p>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
 
     <div class="result-chapter">
-      <% if @box_results.present? %>
-        <h2>Boxes (<%= @box_results.size %>)</h2>
-        <% @box_results.each do |box| %>
-          <div class="result-card">
-            <h3><%= box.searchable.name %></h3>
-            <p><%= box.searchable.description %></p>
-          </div>
+      <% if @boxes.any? %>
+        <h2>Boxes (<%= @boxes.size %>)</h2>
+        <% @boxes.each do |box| %>
+          <%= link_to box_path(box) do %>
+            <div class="result-card">
+              <h3><%= box.name %></h3>
+              <p><%= box.description %></p>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
 
     <div class="result-chapter">
-      <% if @item_results.present? %>
-        <h2>Items (<%= @item_results.size %>)</h2>
-        <% @item_results.each do |item| %>
-          <div class="result-card">
-            <h3><%= item.searchable.name %></h3>
-          </div>
+      <% if @items.any? %>
+        <h2>Items (<%= @items.size %>)</h2>
+        <% @items.each do |item| %>
+          <%= link_to box_path(item.box_id) do %>
+            <div class="result-card">
+              <h3><%= item.name %></h3>
+              <p>Stored in: <%= item.box.name %></p>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>

@@ -1,21 +1,31 @@
 class BoxesController < ApplicationController
-  before_action :set_box, only: [:show, :destroy]
+  before_action :set_box, only: [:show, :edit, :update, :destroy]
 
   def new
     @box = Box.new
+    @collection = Collection.find(params[:collection_id])
   end
 
   def create
-    @box = Box.new(params[box_params])
-    @box.collection = Box.find(params[:collection_id])
-    if @box.save
-      redirect_to box_path(@box)
-    else
-      redirect_to collection_path(@collection)
-    end
+    @box = Box.new(box_params)
+    @collection = Collection.find(params[:collection_id])
+    @box.collection = @collection
+    @box.save
+    redirect_to box_path(@box)
+    # else
+    #   redirect_to collection_path(@collection)
+    # end
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    @box.update(box_params)
+    redirect_to box_path(@box)
   end
 
   def index
@@ -24,7 +34,7 @@ class BoxesController < ApplicationController
 
   def destroy
     if @box.destroy
-      redirect_to boxes_path
+      redirect_to collection_path(@box.collection)
     else
       render :index
     end
