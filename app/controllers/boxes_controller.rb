@@ -34,7 +34,7 @@ class BoxesController < ApplicationController
 
   def destroy
     if @box.destroy
-      redirect_to boxes_path
+      redirect_to collection_path(@box.collection)
     else
       render :index
     end

@@ -10,6 +10,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <%= favicon_link_tag asset_path('boxtag-logo-favicon.ico') %>
   </head>
 
   <body>
@@ -18,13 +19,13 @@
     <%end%>
 
     <%= render 'shared/flashes' %>
-
-
-    <%= yield %>
-
+    <div class="d-flex flex-column min-vh-100">
+      <div class="flex-grow-1">
+        <%= yield %>
+      </div>
+    </div>
     <% if user_signed_in? %>
       <%= render 'shared/footer-navigation' %>
     <%end%>
-
   </body>
 </html>
