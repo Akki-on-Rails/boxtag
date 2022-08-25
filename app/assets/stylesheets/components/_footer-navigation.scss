@@ -1,5 +1,5 @@
 .footer-navigation {
-  position: fixed;
+  position: sticky;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -14,4 +14,11 @@
   justify-content: space-evenly;
   position: relative;
   margin: 10px 0;
+}
+
+
+
+/* This is the part that actually hides the 'Choose file' text box for camera inputs */
+label.cameraButton input[accept*="camera"] {
+  display: none;
 }

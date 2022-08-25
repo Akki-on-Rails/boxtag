@@ -1,6 +1,27 @@
+<script>
+    document
+      .getElementById("cameraFileInput").style.visibility = "none"
+      .getElementById("cameraFileInput")
+      .addEventListener("change", function () {
+    document
+      .getElementById("pictureFromCamera")
+      .setAttribute("src", window.URL.createObjectURL(this.files[0]));
+  });
+</script>
+
+
 <div class="footer-navigation">
   <div class="button-container">
-    <i class="fas fa-qrcode"></i>
+
+
+
+<label class="cameraButton"><i class="fas fa-qrcode"></i>
+    <input type="File" accept="image/*;capture=camera" capture/>
+</label>
+
+
+
+
     <%= link_to search_path do %>
       <div class="button-round fas fa-search"></div>
       <%# <i class="fas fa-search position-absolute z-index-10"></i> %>

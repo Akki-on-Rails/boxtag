@@ -30,22 +30,17 @@
 
   <div class="first-image">
 
-    <div class="boxtag">
-          <h1 class="header">BOX</h1>
-          <h1 class="header">TAG</h1>
-          <h2 class="slogan">store it, find it.</h2>
-    </div>
+    <h1>BOX</h1>
+    <h1 class="second-line">TAG</h1>
+    <h2>store it, find it.</h2>
+    <div class="vertical-center">
+      <%= button_tag class:"button button-main" do %>
+        <% link_to "Sign Up", new_user_registration_path %>
+      <% end %>
 
-        <div class="vertical-center">
-              <%= button_tag :class => "button" do %>
-                <% link_to "Sign Up", new_user_registration_path %>
-              <% end %>
-
-              <%= button_tag :class => "button button-main" do %>
-                <% link_to "Login", new_user_session_path %>
-              <% end %>
-
-        </div>
+      <%= button_tag class:"ms-3 button" do %>
+        <% link_to "Login", new_user_session_path %>
+      <% end %>
 
   </div>
 

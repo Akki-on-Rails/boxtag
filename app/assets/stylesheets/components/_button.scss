@@ -15,12 +15,14 @@
 }
 
 .button-round:hover, .button-round:active{
-  border: 2px solid $main;
-  color: $main;
+  border: 1px solid $main;
+  color: $white;
+  background-color: $main50;
 }
 
 .button {
-  border: 2px solid $main;
+  border: 1px solid $main;
+
   border-radius: 8px;
   padding: 10px 20px;
   display: inline-block;
@@ -31,22 +33,27 @@
   box-sizing: border-box;
 }
 
-button:hover, button:active{
-  background-color: $main;
-  color: $white;
-}
-
 
 .button-main {
   color: $white;
   background-color: $main;
 }
 
-.button-main:hover, .button-main:active{
-  color: $main;
-  background-color: $white;
+.button-main:hover, .button-main:active {
+  color: $white;
+  background-color: $main50;
 }
 
+.button-secondary {
+  color: $neutral90;
+  background-color: $white;
+  border-color: $neutral90;
+}
+
+.button-secondary:hover, .button-secondary:active {
+  color: $neutral90;
+  background-color: $main50;
+  border-color: $main;
 
 .button-third{
 margin-top: 1em;
@@ -57,4 +64,8 @@ border: none;
 .button-third:hover, .button-third:active{
 color: $warning;
 border:solid;
+}
+
+.button-gray {
+  color: $neutral50;
 }
