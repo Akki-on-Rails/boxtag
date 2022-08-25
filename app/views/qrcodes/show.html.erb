@@ -1,3 +1,38 @@
-<div id="qrcode"><%= raw @qrcode.as_html %></div>
-<%= @box %>
-<%= @box.name %>
+<div class="container mt-4">
+    <div id="qrcode"><%= raw @qrcode.as_html %></div>
+    <%= @box %>
+    <%= @box.name %>
+
+    <button class="button button-print" id="print">print me</button>
+</div>
+
+<script>
+const printBtn = document.getElementById("print");
+
+const print = () => {
+  const printFrame = document.createElement("iframe");
+  printFrame.style.display = "none";
+  printFrame.src = "/boxes/636/qrcode";
+
+  document.body.appendChild(printFrame);
+
+  printFrame.contentWindow.focus();
+  printFrame.contentWindow.print();
+}
+
+printBtn.addEventListener("click", function(){
+  print();
+})
+
+
+</script>
+
+<style>
+ @media print{
+.navbar, .footer-navigation, #print, .button-print *{
+  display: none;
+}
+
+}
+
+</style>
