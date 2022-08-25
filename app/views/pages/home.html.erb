@@ -30,14 +30,15 @@
 
   <div class="first-image">
 
-    <h1 style=color:black;font-size:70px;font-weight:bold;text-align:center;padding:80px>BOX TAG</h1>
-    <h2 style=color:white;text-align:center>store it, find it.</h2>
+    <h1>BOX</h1>
+    <h1 class="second-line">TAG</h1>
+    <h2>store it, find it.</h2>
     <div class="vertical-center">
-      <%= button_tag :class => "button button-main" do %>
+      <%= button_tag class:"button button-main" do %>
         <% link_to "Sign Up", new_user_registration_path %>
       <% end %>
 
-      <%= button_tag :class => "button button-main" do %>
+      <%= button_tag class:"ms-3 button" do %>
         <% link_to "Login", new_user_session_path %>
       <% end %>
     </div>
