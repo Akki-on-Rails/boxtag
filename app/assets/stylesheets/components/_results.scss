@@ -1,0 +1,19 @@
+.results-container {
+  margin-top: 10px;
+}
+
+.result-card {
+  background-color: white;
+  border: 1px solid $neutral50;
+  border-radius: 2px;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+}
+
+.result-card :where(p, h3) {
+  margin-bottom: 3px;
+}
+
+.result-chapter {
+  margin-top: 15px;
+}

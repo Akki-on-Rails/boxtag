@@ -1,7 +1,22 @@
 .avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 40px;
+  height: 40px;
   border-radius: 50%;
+  color: $white;
+  background-color: $main;
+  border: solid 2px $main;
 }
+
+.avatar-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .avatar-large {
   width: 56px;
   border-radius: 50%;

@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+
 puts 'Seed: Deleting existing records...'
 UserCollection.delete_all
 User.delete_all
@@ -12,6 +15,7 @@ Item.delete_all
 Box.delete_all
 Collection.delete_all
 
+############## User ###################
 
 user1 = User.create!(
   email: "menakadevisundaramoorthy@gmail.com",
@@ -28,40 +32,64 @@ user2 = User.create!(
   password: "123456",
   password_confirmation: "123456"
 )
+
 user3 = User.create!(
-  email: "kimoliverm@gmail.com",
+  email: "kimoliverhein@yahoo.de",
   first_name: "kim-Oliver",
   last_name: "Hein",
   password: "123456",
   password_confirmation: "123456"
 )
 
-collection1 = Collection.create!(
-  name: "My storage room",
-  description: "All boxes are inside this room",
-  # user_id: user1.id
-
+user4 = User.create!(
+  email: "johndoe@gmail.com",
+  first_name: "john",
+  last_name: "Doe",
+  password: "123456",
+  password_confirmation: "123456"
 )
 
-user_collection1 = UserCollection.create!(
-  user: user1,
-  collection: collection1
+user5 = User.create!(
+  email: "big@lebowski.de",
+  first_name: "Big",
+  last_name: "Lebowski",
+  password: "123456",
+  password_confirmation: "123456"
 )
 
+###### genereate collections / Boxes and Items
 
-box1 = Box.create!(
-  name: "white box",
-  description: "This is my first box",
-  collection: collection1
-)
+5.times do |i|
+  collection = Collection.create(
+        name: Faker::Beer.brand,
+        description: Faker::ChuckNorris.fact
+      )
+    10.times do |i|
+      box = Box.create(
+        name: Faker::DcComics.villain,
+        description: Faker::DcComics.title,
+        collection: collection
+      )
+      5.times do |i|
+        Item.create(
+          name: Faker::Hipster.word,
+          box: box
+        )
+    end
+  end
+end
 
-box2 = Box.create!(
-  name: "black box",
-  description: "All my kids toys inside the box",
-  collection: collection1
-)
+##### generating User Collections
 
-item1 = Item.create!(
-  name: "toy",
-  box: box1
-)
+Collection.all.each do |collection|
+  UserCollection.create(
+    user: User.all.sample,
+    collection: collection,
+    kind: 0
+  )
+  UserCollection.create(
+    user: User.all.sample,
+    collection: collection,
+    kind: 1
+  )
+end

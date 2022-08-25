@@ -1,17 +1,28 @@
+
 .button-round {
   background-color: $main;
   width: 80px;
   height: 80px;
   border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.button-round:hover, .button-round:active {
+.fa-search{
+// maybe a bit dirty? !important
+  color: $white !important;
+}
+
+.button-round:hover, .button-round:active{
+  border: 1px solid $main;
   color: $white;
   background-color: $main50;
 }
 
-button {
+.button {
   border: 1px solid $main;
+
   border-radius: 8px;
   padding: 10px 20px;
   display: inline-block;
@@ -21,6 +32,7 @@ button {
   font-weight: 500;
   box-sizing: border-box;
 }
+
 
 .button-main {
   color: $white;
@@ -42,7 +54,18 @@ button {
   color: $neutral90;
   background-color: $main50;
   border-color: $main;
+
+.button-third{
+margin-top: 1em;
+color: $neutral50;
+border: none;
 }
 
-// transform: translateY(-0.2em);
-// transition: transform 0.1s ease;
+.button-third:hover, .button-third:active{
+color: $warning;
+border:solid;
+}
+
+.button-gray {
+  color: $neutral50;
+}

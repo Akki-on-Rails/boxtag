@@ -1,49 +1,59 @@
 <% if user_signed_in? %>
 <div class="container">
-  <h1>My Dashboard</h1>
+  <h1>my Dashboard</h1>
+  <div class="bg-light m-4 p-3 rounded-3">
+    <h4>Your collections:</h4>
+      <% @collections.each do |collection| %>
 
-  <%= button_tag :class => "button button-main" do %>
-    <%= t('done')%>
-  <% end %>
 
-  <%= button_tag :class => "button button-secondary" do %>
-    <%= t('store it')%>
-  <% end %>
 
-  <div class="box">
-    <h2 class="title">shoe box</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-    <div class="box-info">
-      <p class="boxcount">19 items inside</p>
-      <i class="fas fa-user"></i>
-    </div>
+        <%= link_to collection_path(collection) do %>
+          <div class="collections">
+            <h3 class="collection-name"><%= collection.name %></h3>
+            <div class="box-info">
+              <p class="boxcount"><%= collection.boxes.count %> Boxes inside</p>
+
+               <span class="avatar">
+                <%= collection.owner.avatar.attached? ? cl_image_tag(collection.owner.avatar.key, class: "avatar-pic") : "#{collection.owner.first_name[0].capitalize}  #{collection.owner.last_name[0].capitalize}" %>
+              </span>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+
+
   </div>
-
-  <div class="collections">
-    <H3 class="collection-name">my storage room</H3>
-      <div class="box-info">
-        <p class="boxcount">19 Boxes inside</p>
-        <i class="fas fa-user"></i>
-      </div>
-  </div>
-
 </div>
 
 <%else%>
 
   <div class="first-image">
 
-    <h1 style=color:black;font-size:70px;font-weight:bold;text-align:center;padding:80px>BOX TAG</h1>
-    <h2 style=color:white;text-align:center>store it, find it.</h2>
+    <h1>BOX</h1>
+    <h1 class="second-line">TAG</h1>
+    <h2>store it, find it.</h2>
     <div class="vertical-center">
-      <%= button_tag :class => "button button-main" do %>
+      <%= button_tag class:"button button-main" do %>
         <% link_to "Sign Up", new_user_registration_path %>
       <% end %>
 
-      <%= button_tag :class => "button button-main" do %>
+      <%= button_tag class:"ms-3 button" do %>
         <% link_to "Login", new_user_session_path %>
       <% end %>
     </div>
+
+        <div class="vertical-center">
+              <%= button_tag :class => "button" do %>
+                <% link_to "Sign Up", new_user_registration_path %>
+              <% end %>
+
+              <%= button_tag :class => "button button-main" do %>
+                <% link_to "Login", new_user_session_path %>
+              <% end %>
+
+        </div>
+
   </div>
 
 <%end%>

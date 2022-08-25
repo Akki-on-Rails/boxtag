@@ -1,5 +1,10 @@
 * { margin: 0; padding: 0; }
 
+a:link, a:visited, a:hover, a:active{
+  text-decoration: none;
+  color: $black;
+}
+
 .box{
   margin-top: 16px;
   padding: 16px 16px;
@@ -20,6 +25,17 @@
 
 .boxcount{
   color: $neutral50;
+}
+
+.add-new-box {
+  margin-top: 16px;
+  padding: 16px 16px;
+  background-color: $white;
+  height: auto;
+  width: auto;
+  border-radius: 8px;
+  border: dashed;
+  border-color: rgba(84,84,81,0.28);
 }
 
 .collections{
