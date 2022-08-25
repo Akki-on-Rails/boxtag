@@ -10,13 +10,16 @@
         <%= link_to edit_box_path(@box) do %>
           <i class="fas fa-edit"></i>
         <% end %>
+        <%= link_to box_path, method: :delete, data: { confirm: "Are you sure?" } do %>
+          <i class="ms-2 fas fa-trash-alt"></i>
+        <% end %>
       </div>
     </div>
   <p><%= @box.description %></p>
   <% @box.items.each do |item| %>
     <div class="box">
       <h3><%= item.name %></h3>
-      <%= link_to "delete", item_path(item), method: :delete, data: { confirm: "sure?" }%>
+      <%= link_to "delete", item_path(item), method: :delete, data: { confirm: "Are you sure?" }%>
       <%= link_to "edit", edit_item_path(item) %>
     </div>
   <% end %>
