@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
 <div class="container">
   <h1>my Dashboard</h1>
-  <div class="bg-light m-4 p-3 rounded-3">
+  <div class="bg-light m-2 p-3 rounded-3">
     <h4>Your collections:</h4>
       <% @collections.each do |collection| %>
 
@@ -30,9 +30,9 @@
 
   <div class="first-image">
 
-    <h1>BOX</h1>
+    <h1 class="first-line">BOX</h1>
     <h1 class="second-line">TAG</h1>
-    <h2>store it, find it.</h2>
+    <h2 class="subline">store it, find it.</h2>
     <div class="vertical-center">
       <%= button_tag class:"button button-main" do %>
         <% link_to "Sign Up", new_user_registration_path %>
