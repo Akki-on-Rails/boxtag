@@ -3,24 +3,27 @@ a {
   text-decoration: none;
 }
 
-h1 {
+.first-line {
   color: $white;
   font-size: 70px;
   font-weight: 800;
   text-align: center;
-  padding: 80px 80px 0 80px;
-  margin-top: 80px;
+  padding: 160px 80px 0 80px;
   line-height: .85;
 }
 
 .second-line {
-  padding-top: 0;
-  margin-top: 0;
+  color: $white;
+  font-size: 70px;
+  font-weight: 800;
+  text-align: center;
+  padding: 0px 80px 0 80px;
   margin-bottom: 20px;
   letter-spacing: 4px;
+  line-height: .85;
 }
 
-h2 {
+.subline {
   color: $white;
   text-align: center
 }
