@@ -39,25 +39,25 @@
         <% end %>
       </ul>
     </div>
-    <div class="bg-light m-2 p-3 rounded-3">
-      <h4>In this collection:</h4>
+</div>
+<div class="bg-light p-3 rounded-3">
+  <h4>In this collection:</h4>
 
-      <% @collection.boxes.each do |box| %>
-        <%= link_to box_path(box) do %>
-          <div class="box">
-            <h3><%= box.name %></h3>
-            <p><%#= box.description %></p>
-            <p class="box-count"><%= box.items.size %> items inside</p>
-            <%= link_to box_qrcode_path(box) do %>
-                  <i class="fas fa-qrcode"></i>
-            <% end %>
-          </div>
+  <% @collection.boxes.each do |box| %>
+    <%= link_to box_path(box) do %>
+      <div class="box">
+        <h3><%= box.name %></h3>
+        <p><%#= box.description %></p>
+        <p class="box-count"><%= box.items.size %> items inside</p>
+        <%= link_to box_qrcode_path(box) do %>
+              <i class="fas fa-qrcode"></i>
         <% end %>
-      <% end %>
-      <%= link_to new_collection_box_path(@collection, @box) do %>
-        <div class="add-new-box text-center">
-          <i class="fas fa-plus"></i>
-        </div>
-      <% end %>
+      </div>
+    <% end %>
+  <% end %>
+  <%= link_to new_collection_box_path(@collection, @box) do %>
+    <div class="add-new-box text-center">
+      <i class="fas fa-plus"></i>
     </div>
+  <% end %>
 </div>
