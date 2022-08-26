@@ -1,21 +1,11 @@
-// .navbar-lewagon {
-//   justify-content: space-between;
-// }
-
-// .navbar-lewagon .navbar-collapse {
-//   flex-grow: 0;
-// }
-
-// .navbar-lewagon .navbar-brand img {
-//   width: 40px;
-// }
-
-// maybe a bit dirty? !important
-
 .navbar{
   background-color: $main80 !important;
 }
 
 .navbar .fas {
+  color: $white;
+}
+
+.nav-link {
   color: $white;
 }
