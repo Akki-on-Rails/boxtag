@@ -21,10 +21,11 @@
     </div>
   </div>
   <p><%= @collection.description %></p>
-  <p>Owner: <span class="avatar"><%= @collection.owner.avatar.attached? ? cl_image_tag(@collection.owner.avatar.key, class: "avatar-pic") : "#{@collection.owner.first_name[0].capitalize}  #{@collection.owner.last_name[0].capitalize}" %></span></p>
+
   <p>Shared with</p>
     <div class="users">
       <ul class="d-flex list-unstyled">
+        <li class="avatar"><%= @collection.owner.avatar.attached? ? cl_image_tag(@collection.owner.avatar.key, class: "avatar-pic") : "#{@collection.owner.first_name[0].capitalize}  #{@collection.owner.last_name[0].capitalize}" %></li>
         <% @collection.collaborators.each do |collaborator| %>
           <li class="mx-1">
               <span class="avatar">
