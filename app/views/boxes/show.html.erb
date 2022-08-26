@@ -20,10 +20,13 @@
   </div>
   <% end %>
   <% @box.items.each do |item| %>
-  <div class="list-item">
-    <h3><%= item.name %></h3>
-    <%= link_to "delete", item_path(item), method: :delete, data: { confirm: "sure?" }%>
-    <%= link_to "edit", edit_item_path(item) %>
-  </div>
+    <%= link_to edit_item_path(item) do %>
+      <div class="list-item">
+        <h3><%= item.name %></h3>
+        <%= link_to item_path(item), method: :delete, data: { confirm: "Are you sure?" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+    <% end %>
   <% end %>
 </div>
