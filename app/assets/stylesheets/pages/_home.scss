@@ -8,7 +8,7 @@ a {
   font-size: 70px;
   font-weight: 800;
   text-align: center;
-  padding: 160px 80px 0 80px;
+  padding: 25vh 80px 0 80px;
   margin-top: 0px;
   line-height: .85;
 }
@@ -30,7 +30,7 @@ a {
 }
 
 .vertical-center {
-  margin-top: 220px;
+  margin-top: 20vh;
   display: flex;
   justify-content: center;
   // position: absolute;
@@ -50,7 +50,7 @@ a {
   radial-gradient(at 91% 99%, hsla(289,81%,60%,1) 0px, transparent 50%),
   radial-gradient(at 6% 7%, hsla(266,83%,41%,1) 0px, transparent 50%),
   radial-gradient(at 21% 94%, hsla(242,100%,70%,1) 0px, transparent 50%);
-  height: 844px; /* You must set a specified height */
+  height: 100vh; /* You must set a specified height */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;  /* Resize the background image to cover the entire container */
