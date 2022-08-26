@@ -1,12 +1,10 @@
-<%# app/views/basic_qr_codes/index.html.erb%>
-
-<h1>QR Code Reader Demo</h1>
+<h1>scan your QR-Code</h1>
 
 <div>
-  <video id="video" width="500" height="400"></video>
+  <video id="video" width="600" height="400"></video>
 </div>
 
-<label>Result:</label>
-<pre><code id="result"></code></pre>
+<label>hit the link:</label>
+<a><code id="result"></code></a>
 
 <%= javascript_pack_tag("basic-qr-code-reader") %>

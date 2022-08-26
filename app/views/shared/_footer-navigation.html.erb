@@ -1,4 +1,4 @@
-<script>
+<%# <script>
     document
       .getElementById("cameraFileInput")
       .addEventListener("change", function () {
@@ -6,21 +6,21 @@
       .getElementById("pictureFromCamera")
       .setAttribute("src", window.URL.createObjectURL(this.files[0]));
   });
-</script>
+</script> %>
 
 
 <div class="footer-navigation">
   <div class="button-container">
 
 
-
-<label class="cameraButton"><i class="fas fa-qrcode"></i>
+<%# non scaning camera activation %>
+<%# <label class="cameraButton"><i class="fas fa-qrcode"></i>
     <input type="File" accept="image/*;capture=camera" capture/>
-</label>
+</label> %>
 
 
 <%= link_to basic_qr_code_reader_path do%>
-  <i class="fas fa-plus"></i>
+  <i class="fas fa-qrcode"></i>
     <% end %>
 
     <%= link_to search_path do %>
