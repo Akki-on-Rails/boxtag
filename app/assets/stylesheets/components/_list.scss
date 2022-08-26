@@ -1,0 +1,48 @@
+.list {
+  padding: 1rem;
+}
+
+.list a {
+  text-decoration: none;
+  color: $white;
+}
+
+.list-header {
+  padding-bottom: 25px;
+  color: white;
+  background-color: $main80;
+}
+
+.list-header .fas {
+  color: white;
+}
+
+.list-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-item {
+  margin-top: 16px;
+  padding: 16px 16px;
+  color: $white;
+  background-color: $main60;
+  height: auto;
+  width: auto;
+  border-radius: 8px;
+  // border: 2px solid $neutral50;
+  -webkit-box-shadow: 2px 3px 4px 0px rgba(84,84,81,0.28);
+  box-shadow: 2px 3px 4px 0px rgba(84,84,81,0.28);
+}
+
+.add-new {
+  border: 3px dashed;
+  border-color: rgba(84,84,81,0.28);
+  text-align: center;
+  background-color: $main50;
+}
+
+.list-item-info{
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="d-flex justify-content-between">
+<div class="container list-header">
+  <div class="list-title">
     <div class="d-flex">
       <%= link_to root_path do %>
         <i class="fas fa-arrow-left m-1 p-1"></i>
@@ -40,24 +40,23 @@
       </ul>
     </div>
 </div>
-<div class="bg-light p-3 rounded-3">
+<div class="list">
   <h4>In this collection:</h4>
-
+  <%= link_to new_collection_box_path(@collection, @box) do %>
+    <div class="list-item add-new">
+      <i class="fas fa-plus"></i>
+    </div>
+  <% end %>
   <% @collection.boxes.each do |box| %>
     <%= link_to box_path(box) do %>
-      <div class="box">
+      <div class="list-item">
         <h3><%= box.name %></h3>
         <p><%#= box.description %></p>
-        <p class="box-count"><%= box.items.size %> items inside</p>
+        <p><%= box.items.size %> items inside</p>
         <%= link_to box_qrcode_path(box) do %>
               <i class="fas fa-qrcode"></i>
         <% end %>
       </div>
     <% end %>
-  <% end %>
-  <%= link_to new_collection_box_path(@collection, @box) do %>
-    <div class="add-new-box text-center">
-      <i class="fas fa-plus"></i>
-    </div>
   <% end %>
 </div>
