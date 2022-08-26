@@ -1,6 +1,5 @@
 <script>
     document
-      .getElementById("cameraFileInput").style.visibility = "none"
       .getElementById("cameraFileInput")
       .addEventListener("change", function () {
     document
@@ -20,7 +19,9 @@
 </label>
 
 
-
+<%= link_to basic_qr_code_reader_path do%>
+  <i class="fas fa-plus"></i>
+    <% end %>
 
     <%= link_to search_path do %>
       <div class="button-round fas fa-search"></div>
