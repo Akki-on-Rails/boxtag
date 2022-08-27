@@ -1,5 +1,5 @@
 class CollectionsController < ApplicationController
-  before_action :set_collection, only: [:show, :destroy]
+  before_action :set_collection, only: [:show, :destroy, :edit, :update]
 
   def new
     @collection = Collection.new
@@ -28,11 +28,9 @@ class CollectionsController < ApplicationController
   end
 
   def edit
-    @collection = Collection.find(params[:id])
   end
 
   def update
-    @collection = Collection.find(params[:id])
     @collection.update(collection_params)
     redirect_to collection_path(@collection)
   end

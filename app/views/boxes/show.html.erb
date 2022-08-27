@@ -1,21 +1,27 @@
-<div class="container">
-  <div class="d-flex justify-content-between">
-    <div class="d-flex">
-      <%= link_to collection_path(@box.collection) do %>
-        <i class="fas fa-arrow-left m-1 p-1"></i>
-      <% end %>
-      <h1><%= @box.name.capitalize %></h1>
+<div class="container" data-controller="edit-resource">
+  <div class="edit-resource" data-edit-resource-target="infos">
+    <div class="d-flex justify-content-between">
+      <div class="d-flex">
+        <%= link_to collection_path(@box.collection) do %>
+          <i class="fas fa-arrow-left m-1 p-1"></i>
+        <% end %>
+        <h1><%= @box.name.capitalize %></h1>
+      </div>
+      <div>
+        <i class="fas fa-edit" data-action="click->edit-resource#displayForm"></i>
+        <%= link_to box_path, method: :delete, data: { confirm: "Are you sure?" } do %>
+          <i class="ms-2 fas fa-trash-alt"></i>
+        <% end %>
+      </div>
     </div>
-    <div>
-      <%= link_to edit_box_path(@box) do %>
-        <i class="fas fa-edit"></i>
-      <% end %>
-      <%= link_to box_path, method: :delete, data: { confirm: "Are you sure?" } do %>
-        <i class="ms-2 fas fa-trash-alt"></i>
-      <% end %>
-    </div>
+    <p data-edit-resource-target="infos"><%= @box.description %></p>
   </div>
-    <p><%= @box.description %></p>
+    <%= simple_form_for [ @box ], html: { class: 'd-none', data: { edit_resource_target: 'form' } } do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.submit "Update", class: "button-main button" %>
+      <%= link_to "Cancel", box_path(@box), class: "button" %>
+    <% end%>
     <div class="bg-light m-2 p-3 rounded-3">
       <h4>In this box:</h4>
       <% @box.items.each do |item| %>
