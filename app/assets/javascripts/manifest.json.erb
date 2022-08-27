@@ -1,0 +1,23 @@
+<% icon_sizes = Rails.configuration.serviceworker.icon_sizes %>
+{
+  "name": "BoxTag - Store it, find it!",
+  "short_name": "BoxTag",
+  "description": "You have loads of things all stored in boxes in different places? With BoxTag you can manage your stuff easily. Don't search for things - find them!",
+  "start_url": "/",
+  "icons": [
+    <% files =
+  Dir.entries(Rails.root.join("app/assets/images/icons/")).select {|f| !File.directory? f} %>
+    <% files.each_with_index do |file, index| %>
+      <% match = file.match(/.+-(?<size>\d{2,3}x\d{2,3}).png/) %>
+    {
+      "src": "<%= image_path "icons/#{file}" %>",
+      "sizes": "<%= match && match[:size] %>",
+      "type": "image/png"
+    }<%= "," unless (files.size - 1) == index %>
+  <% end %>
+  ],
+  "theme_color": "#000000",
+  "background_color": "$white",
+  "display": "fullscreen",
+  "orientation": "portrait"
+}
