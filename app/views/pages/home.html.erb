@@ -1,29 +1,28 @@
 <% if user_signed_in? %>
-<div class="container">
+<div class="container list-header">
   <h1>my Dashboard</h1>
-  <div class="bg-light m-2 p-3 rounded-3">
-    <h4>Your collections:</h4>
-      <% @collections.each do |collection| %>
+</div>
+<div class="list">
+  <h4>Your collections:</h4>
+    <% @collections.each do |collection| %>
 
 
 
-        <%= link_to collection_path(collection) do %>
-          <div class="collections">
-            <h3 class="collection-name"><%= collection.name %></h3>
-            <div class="box-info">
-              <p class="boxcount"><%= collection.boxes.count %> Boxes inside</p>
-
-               <span class="avatar">
-                <%= collection.owner.avatar.attached? ? cl_image_tag(collection.owner.avatar.key, class: "avatar-pic") : "#{collection.owner.first_name[0].capitalize}  #{collection.owner.last_name[0].capitalize}" %>
-              </span>
-            </div>
+      <%= link_to collection_path(collection) do %>
+        <div class="list-item">
+          <h3><%= collection.name %></h3>
+          <div class="list-item-info">
+            <p><%= collection.boxes.count %> Boxes inside</p>
+              <span class="avatar">
+              <%= collection.owner.avatar.attached? ? cl_image_tag(collection.owner.avatar.key, class: "avatar-pic") : "#{collection.owner.first_name[0].capitalize}  #{collection.owner.last_name[0].capitalize}" %>
+            </span>
           </div>
-        <% end %>
+        </div>
       <% end %>
+    <% end %>
 
 
 
-  </div>
 </div>
 
 <%else%>
@@ -34,14 +33,8 @@
     <h1 class="second-line">TAG</h1>
     <h2 class="subline">store it, find it.</h2>
     <div class="vertical-center">
-      <%= button_tag class:"button button-main" do %>
-        <% link_to "Sign Up", new_user_registration_path %>
-      <% end %>
-
-      <%= button_tag class:"ms-3 button" do %>
-        <% link_to "Login", new_user_session_path %>
-      <% end %>
-
+      <%= link_to "Sign Up", new_user_registration_path, class:"button button-main" %>
+      <%= link_to "Login", new_user_session_path, class:"ms-3 button button-secondary" %>
   </div>
 
 <%end%>
