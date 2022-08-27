@@ -1,4 +1,4 @@
-<script>
+<%# <script>
     document
       .getElementById("cameraFileInput").style.visibility = "none"
       .getElementById("cameraFileInput")
@@ -7,7 +7,7 @@
       .getElementById("pictureFromCamera")
       .setAttribute("src", window.URL.createObjectURL(this.files[0]));
   });
-</script>
+</script> %>
 
 
 <div class="footer-navigation">
@@ -15,11 +15,13 @@
 
 
 
-<label class="cameraButton"><i class="fas fa-qrcode"></i>
+<%# <label class="cameraButton"><i class="fas fa-qrcode"></i>
     <input type="File" accept="image/*;capture=camera" capture/>
-</label>
+</label> %>
 
-
+<%= link_to basic_qr_code_reader_path do%>
+  <i class="fas fa-qrcode"></i>
+    <% end %>
 
 
     <%= link_to search_path do %>

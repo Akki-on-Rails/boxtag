@@ -14,4 +14,3 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
-//= require serviceworker-companion
