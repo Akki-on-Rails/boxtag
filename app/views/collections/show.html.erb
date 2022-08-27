@@ -2,30 +2,30 @@
   <div class="edit-resource" data-edit-resource-target="infos">
     <div class="list-title">
       <h1><%= @collection.name.capitalize %></h1>
-    </div>
-    <div>
-      <i class="fas fa-edit" data-action="click->edit-resource#displayForm"></i>
-      <% if @collection.owner == current_user %>
-        <% if @collection.boxes.any? %>
-          <%= link_to "#" do %>
-            <i class="ms-2 fas fa-trash-alt button-gray"></i>
-          <% end %>
-        <% else %>
-          <%= link_to collection_path, method: :delete, data: { confirm: "Are you sure?" } do %>
-            <i class="fas fa-trash-alt"></i>
+      <div>
+        <i class="fas fa-edit" data-action="click->edit-resource#displayForm"></i>
+        <% if @collection.owner == current_user %>
+          <% if @collection.boxes.any? %>
+            <%= link_to "#" do %>
+              <i class="ms-2 fas fa-trash-alt button-gray"></i>
+            <% end %>
+          <% else %>
+            <%= link_to collection_path, method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
           <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
+    <p><%= @collection.description %></p>
   </div>
-  <p><%= @collection.description %></p>
+  <%= simple_form_for [ @collection ], html: { class: 'd-none', data: { edit_resource_target: 'form' } } do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.submit "Update", class: "button-main button" %>
+    <%= link_to "Cancel", collection_path(@collection), class: "button" %>
+  <% end%>
 </div>
-<%= simple_form_for [ @collection ], html: { class: 'd-none', data: { edit_resource_target: 'form' } } do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.submit "Update", class: "button-main button" %>
-  <%= link_to "Cancel", collection_path(@collection), class: "button" %>
-<% end%>
 <p>Shared with</p>
 
 <div class="users">
