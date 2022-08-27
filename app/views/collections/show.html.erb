@@ -23,18 +23,23 @@
   <p><%= @collection.description %></p>
 
   <p>Shared with</p>
-  <div class="users">
-    <ul class="d-flex list-unstyled">
-      <li class="avatar"><%= @collection.owner.avatar.attached? ? cl_image_tag(@collection.owner.avatar.key, class: "avatar-pic") : "#{@collection.owner.first_name[0].capitalize}  #{@collection.owner.last_name[0].capitalize}" %></li>
-      <% @collection.collaborators.each do |collaborator| %>
-        <li class="mx-1">
-            <span class="avatar">
-              <%= collaborator.avatar.attached? ? cl_image_tag(collaborator.avatar.key, class: "avatar-pic") : "#{collaborator.first_name[0].capitalize}  #{collaborator.last_name[0].capitalize}" %>
-            </span>
-        </li>
+
+    <div class="users">
+      <ul class="d-flex list-unstyled">
+        <% @collection.collaborators.each do |collaborator| %>
+          <li class="mx-1">
+              <span class="avatar">
+                <%= collaborator.avatar.attached? ? cl_image_tag(collaborator.avatar.key, class: "avatar-pic") : "#{collaborator.first_name[0].capitalize}  #{collaborator.last_name[0].capitalize}" %>
+              </span>
+
+             <%= link_to user_collection_path(UserCollection.find_by(user: collaborator, collection: params[:id])), method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+          </li>
       <% end %>
         <%= link_to new_collection_user_collection_path(@collection, @user_collection) do %>
           <i class="fas fa-plus  mx-1 avatar avatar-add"></i>
+
         <% end %>
     </ul>
   </div>
