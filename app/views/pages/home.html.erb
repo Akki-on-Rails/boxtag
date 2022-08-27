@@ -1,35 +1,34 @@
 <% if user_signed_in? %>
-<div class="container">
-  <h1>my Dashboard</h1>
-  <div class="bg-light m-2 p-3 rounded-3">
+  <div class="container list-header">
+    <h1>my Dashboard</h1>
+  </div>
+  <div class="list">
     <h4>Your collections:</h4>
     <div data-controller="edit-resource">
-      <div class="card add-new-box text-center" data-edit-resource-target="infos">
+      <div class="list-item add-new" data-edit-resource-target="infos">
         <i class="fas fa-plus" data-action="click->edit-resource#displayForm"></i>
       </div>
-      <%= simple_form_for [@collection] , html: { class: 'd-none add-new-box', data: { edit_resource_target: 'form' } } do |f| %>
+      <%= simple_form_for [@collection] , html: { class: 'd-none list-item add-new', data: { edit_resource_target: 'form' } } do |f| %>
         <%= f.input :name %>
         <%= f.input :description %>
         <%= f.submit "Create", class: "button-main button" %>
         <%= link_to "Cancel", root_path, class: "button" %>
       <% end %>
     </div>
-
-    <% @collections.each do |collection| %>
-      <%= link_to collection_path(collection) do %>
-        <div class="collections">
-          <h3 class="collection-name"><%= collection.name %></h3>
-          <div class="box-info">
-            <p class="boxcount"><%= collection.boxes.count %> Boxes inside</p>
-              <span class="avatar">
-              <%= collection.owner.avatar.attached? ? cl_image_tag(collection.owner.avatar.key, class: "avatar-pic") : "#{collection.owner.first_name[0].capitalize}  #{collection.owner.last_name[0].capitalize}" %>
-            </span>
+      <% @collections.each do |collection| %>
+        <%= link_to collection_path(collection) do %>
+          <div class="list-item">
+            <h3><%= collection.name %></h3>
+            <div class="list-item-info">
+              <p><%= collection.boxes.count %> Boxes inside</p>
+                <span class="avatar">
+                <%= collection.owner.avatar.attached? ? cl_image_tag(collection.owner.avatar.key, class: "avatar-pic") : "#{collection.owner.first_name[0].capitalize}  #{collection.owner.last_name[0].capitalize}" %>
+              </span>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
   </div>
-</div>
 
 <%else%>
 
@@ -39,14 +38,8 @@
     <h1 class="second-line">TAG</h1>
     <h2 class="subline">store it, find it.</h2>
     <div class="vertical-center">
-      <%= button_tag class:"button button-main" do %>
-        <% link_to "Sign Up", new_user_registration_path %>
-      <% end %>
-
-      <%= button_tag class:"ms-3 button" do %>
-        <% link_to "Login", new_user_session_path %>
-      <% end %>
-
+      <%= link_to "Sign Up", new_user_registration_path, class:"button button-main" %>
+      <%= link_to "Login", new_user_session_path, class:"ms-3 button button-secondary" %>
   </div>
 
 <%end%>

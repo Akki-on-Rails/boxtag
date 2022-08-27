@@ -1,0 +1,55 @@
+.list {
+  padding: $spacer;
+}
+
+.list a {
+  text-decoration: none;
+  color: $black;
+}
+
+.list-header {
+  padding-bottom: $spacer * 2;
+  color: $white;
+  background-color: $main80;
+}
+
+.list-header .fas {
+  color: $white;
+}
+
+.list-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-item {
+  margin-top: $spacer;
+  padding: $spacer $spacer;
+  color: $black;
+  background-color: $main50;
+  height: auto;
+  width: auto;
+  border-radius: $border-radius * 4;
+  // border: 2px solid $neutral50;
+  -webkit-box-shadow: 2px 3px 4px 0px rgba(84,84,81,0.28);
+  box-shadow: 2px 3px 4px 0px rgba(84,84,81,0.28);
+}
+
+.add-new {
+  border: 3px dashed;
+  border-color: rgba(84,84,81,0.28);
+  text-align: center;
+  background-color: $white;
+  color: rgba(84,84,81,0.28);
+  box-shadow: none;
+}
+
+.list-item-info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-name {
+  margin: 0;
+}

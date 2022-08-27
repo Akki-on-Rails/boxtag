@@ -1,79 +1,80 @@
-<div class="container" data-controller="edit-resource">
+<div class="container list-header" data-controller="edit-resource">
   <div class="edit-resource" data-edit-resource-target="infos">
-    <div class="d-flex justify-content-between" >
-      <div class="d-flex">
-        <%= link_to root_path do %>
-          <i class="fas fa-arrow-left m-1 p-1"></i>
-        <% end %>
-        <h1><%= @collection.name.capitalize %></h1>
-      </div>
-      <div>
-        <i class="fas fa-edit" data-action="click->edit-resource#displayForm"></i>
-        <% if @collection.owner == current_user %>
-          <% if @collection.boxes.any? %>
-            <%= link_to "#" do %>
-              <i class="ms-2 fas fa-trash-alt button-gray"></i>
-            <% end %>
-          <% else %>
-            <%= link_to collection_path, method: :delete, data: { confirm: "Are you sure?" } do %>
-              <i class="fas fa-trash-alt"></i>
-            <% end %>
-          <% end %>
-        <% end %>
-      </div>
+    <div class="list-title">
+      <h1><%= @collection.name.capitalize %></h1>
     </div>
-    <p><%= @collection.description %></p>
-  </div>
-  <%= simple_form_for [ @collection ], html: { class: 'd-none', data: { edit_resource_target: 'form' } } do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.submit "Update", class: "button-main button" %>
-    <%= link_to "Cancel", collection_path(@collection), class: "button" %>
-  <% end%>
-  <p>Owner: <span class="avatar"><%= @collection.owner.avatar.attached? ? cl_image_tag(@collection.owner.avatar.key, class: "avatar-pic") : "#{@collection.owner.first_name[0].capitalize}  #{@collection.owner.last_name[0].capitalize}" %></span></p>
-  <p>Shared with</p>
-    <div class="users">
-      <ul class="d-flex list-unstyled">
-        <% @collection.collaborators.each do |collaborator| %>
-          <li class="mx-1">
-              <span class="avatar">
-                <%= collaborator.avatar.attached? ? cl_image_tag(collaborator.avatar.key, class: "avatar-pic") : "#{collaborator.first_name[0].capitalize}  #{collaborator.last_name[0].capitalize}" %>
-              </span>
-          </li>
-        <% end %>
-          <%= link_to new_collection_user_collection_path(@collection, @user_collection) do %>
-            <i class="fas fa-plus  mx-1 avatar avatar-add"></i>
+    <div>
+      <i class="fas fa-edit" data-action="click->edit-resource#displayForm"></i>
+      <% if @collection.owner == current_user %>
+        <% if @collection.boxes.any? %>
+          <%= link_to "#" do %>
+            <i class="ms-2 fas fa-trash-alt button-gray"></i>
           <% end %>
-      </ul>
-    </div>
-
-    <div class="bg-light m-2 p-3 rounded-3">
-      <h4>In this collection:</h4>
-
-      <% @collection.boxes.each do |box| %>
-        <%= link_to box_path(box) do %>
-          <div class="box">
-            <h3><%= box.name %></h3>
-            <p><%#= box.description %></p>
-            <p class="box-count"><%= box.items.size %> items inside</p>
-            <%= link_to box_qrcode_path(box) do %>
-                  <i class="fas fa-qrcode"></i>
-            <% end %>
-          </div>
+        <% else %>
+          <%= link_to collection_path, method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
       <% end %>
+    </div>
+  </div>
+  <p><%= @collection.description %></p>
+</div>
+<%= simple_form_for [ @collection ], html: { class: 'd-none', data: { edit_resource_target: 'form' } } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.submit "Update", class: "button-main button" %>
+  <%= link_to "Cancel", collection_path(@collection), class: "button" %>
+<% end%>
+<p>Shared with</p>
 
-      <div data-controller="edit-resource">
-          <div class="add-new-box text-center" data-edit-resource-target="infos">
-            <i class="fas fa-plus" data-action="click->edit-resource#displayForm"></i>
-          </div>
-        <%= simple_form_for [@collection, @box], html: { class: 'd-none add-new-box', data: { edit_resource_target: 'form' } } do |f| %>
-          <%= f.input :name %>
-          <%= f.input :description %>
-          <%= f.submit "Create", class: "button-main button" %>
-          <%= link_to "Cancel", collection_path(@collection), class: "button" %>
+<div class="users">
+  <ul class="d-flex list-unstyled">
+    <li>
+      <span class="avatar">
+        <%= @collection.owner.avatar.attached? ? cl_image_tag(@collection.owner.avatar.key, class: "avatar-pic") : "#{@collection.owner.first_name[0].capitalize}  #{@collection.owner.last_name[0].capitalize}" %>
+      </span>
+    </li>
+    <% @collection.collaborators.each do |collaborator| %>
+      <li class="mx-1">
+        <span class="avatar">
+          <%= collaborator.avatar.attached? ? cl_image_tag(collaborator.avatar.key, class: "avatar-pic") : "#{collaborator.first_name[0].capitalize}  #{collaborator.last_name[0].capitalize}" %>
+        </span>
+        <%= link_to user_collection_path(UserCollection.find_by(user: collaborator, collection: params[:id])), method: :delete, data: { confirm: "Are you sure?" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </li>
+    <% end %>
+    <%= link_to new_collection_user_collection_path(@collection, @user_collection) do %>
+      <i class="fas fa-plus mx-1 avatar avatar-add"></i>
+    <% end %>
+  </ul>
+</div>
+
+
+<div class="list">
+  <h4>In this collection:</h4>
+  <div data-controller="edit-resource">
+    <div class="list-item add-new" data-edit-resource-target="infos">
+      <i class="fas fa-plus" data-action="click->edit-resource#displayForm"></i>
+    </div>
+    <%= simple_form_for [@collection, @box], html: { class: 'd-none list-item add-new', data: { edit_resource_target: 'form' } } do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.submit "Create", class: "button-main button" %>
+      <%= link_to "Cancel", collection_path(@collection), class: "button" %>
+    <% end %>
+  </div>
+  <% @collection.boxes.each do |box| %>
+    <%= link_to box_path(box) do %>
+      <div class="list-item">
+        <h3><%= box.name %></h3>
+        <p><%#= box.description %></p>
+        <p><%= box.items.size %> items inside</p>
+        <%= link_to box_qrcode_path(box) do %>
+          <i class="fas fa-qrcode"></i>
         <% end %>
       </div>
-
-    </div>
+    <% end %>
+  <% end %>
 </div>
