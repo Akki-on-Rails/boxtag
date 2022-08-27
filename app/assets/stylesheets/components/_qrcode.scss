@@ -1,4 +1,7 @@
 #qrcode {
+  display: grid;
+  justify-content: center;
+  padding: $spacer;
   table {
     border-width: 0;
     border-style: none;

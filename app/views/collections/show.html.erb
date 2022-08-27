@@ -1,11 +1,6 @@
-<div class="container">
-  <div class="d-flex justify-content-between">
-    <div class="d-flex">
-      <%= link_to root_path do %>
-        <i class="fas fa-arrow-left m-1 p-1"></i>
-      <% end %>
-      <h1><%= @collection.name.capitalize %></h1>
-    </div>
+<div class="container list-header">
+  <div class="list-title">
+    <h1><%= @collection.name.capitalize %></h1>
     <div>
      <div class="d-flex">
       <%= link_to edit_collection_path(@collection) do %>
@@ -26,8 +21,9 @@
     </div>
   </div>
   <p><%= @collection.description %></p>
-  <p>Owner: <span class="avatar"><%= @collection.owner.avatar.attached? ? cl_image_tag(@collection.owner.avatar.key, class: "avatar-pic") : "#{@collection.owner.first_name[0].capitalize}  #{@collection.owner.last_name[0].capitalize}" %></span></p>
+
   <p>Shared with</p>
+
     <div class="users">
       <ul class="d-flex list-unstyled">
         <% @collection.collaborators.each do |collaborator| %>
@@ -35,33 +31,36 @@
               <span class="avatar">
                 <%= collaborator.avatar.attached? ? cl_image_tag(collaborator.avatar.key, class: "avatar-pic") : "#{collaborator.first_name[0].capitalize}  #{collaborator.last_name[0].capitalize}" %>
               </span>
-          </li>
-        <% end %>
-          <%= link_to new_collection_user_collection_path(@collection, @user_collection) do %>
-            <i class="fas fa-plus  mx-1 avatar avatar-add"></i>
+
+             <%= link_to user_collection_path(UserCollection.find_by(user: collaborator, collection: params[:id])), method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="fas fa-trash-alt"></i>
           <% end %>
-      </ul>
-    </div>
+          </li>
+      <% end %>
+        <%= link_to new_collection_user_collection_path(@collection, @user_collection) do %>
+          <i class="fas fa-plus  mx-1 avatar avatar-add"></i>
 
-    <div class="bg-light m-2 p-3 rounded-3">
-      <h4>In this collection:</h4>
-
-      <% @collection.boxes.each do |box| %>
-        <%= link_to box_path(box) do %>
-          <div class="box">
-            <h3><%= box.name %></h3>
-            <p><%#= box.description %></p>
-            <p class="box-count"><%= box.items.size %> items inside</p>
-            <%= link_to box_qrcode_path(box) do %>
-                  <i class="fas fa-qrcode"></i>
-            <% end %>
-          </div>
         <% end %>
-      <% end %>
-      <%= link_to new_collection_box_path(@collection, @box) do %>
-        <div class="add-new-box text-center">
-          <i class="fas fa-plus"></i>
-        </div>
-      <% end %>
+    </ul>
+  </div>
+</div>
+<div class="list">
+  <h4>In this collection:</h4>
+  <%= link_to new_collection_box_path(@collection, @box) do %>
+    <div class="list-item add-new">
+      <i class="fas fa-plus"></i>
     </div>
+  <% end %>
+  <% @collection.boxes.each do |box| %>
+    <%= link_to box_path(box) do %>
+      <div class="list-item">
+        <h3><%= box.name %></h3>
+        <p><%#= box.description %></p>
+        <p><%= box.items.size %> items inside</p>
+        <%= link_to box_qrcode_path(box) do %>
+              <i class="fas fa-qrcode"></i>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
 </div>
