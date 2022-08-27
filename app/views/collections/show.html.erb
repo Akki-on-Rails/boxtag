@@ -37,8 +37,12 @@
               </span>
           </li>
         <% end %>
+          <%= link_to new_collection_user_collection_path(@collection, @user_collection) do %>
+            <i class="fas fa-plus  mx-1 avatar avatar-add"></i>
+          <% end %>
       </ul>
     </div>
+
     <div class="bg-light m-2 p-3 rounded-3">
       <h4>In this collection:</h4>
 
