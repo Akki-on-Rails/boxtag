@@ -8,6 +8,7 @@ class UserCollectionsController < ApplicationController
   def create
     user = User.find_by(email: params.dig(:user_collection, :email))
     if user.nil?
+
       # handle non existing user (send email invite)
     else
       @collection = Collection.find(params[:collection_id])
@@ -17,6 +18,18 @@ class UserCollectionsController < ApplicationController
       else
         render :new
       end
+    end
+  end
+
+  def edit
+  end
+
+  def destroy
+    @user_collection = UserCollection.find(params[:id])
+    if @user_collection.destroy
+      redirect_to collection_path(@user_collection.collection)
+    else
+      render :new
     end
   end
 

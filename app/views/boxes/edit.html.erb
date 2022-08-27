@@ -3,7 +3,7 @@
     <%= simple_form_for [ @box ] do |f| %>
       <%= f.input :name %>
       <%= f.input :description %>
-      <%= f.submit "Create", class: "button-main button" %>
+      <%= f.submit "Update", class: "button-main button" %>
       <%= link_to "Cancel", box_path(@box), class: "button" %>
     <% end%>
   </div>
