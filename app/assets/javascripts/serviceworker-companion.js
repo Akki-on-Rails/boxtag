@@ -4,3 +4,6 @@ if (navigator.serviceWorker) {
       console.log('[Companion]', 'Service worker registered!');
     });
 }
+
+//= require serviceworker-companion
+// app/assets/javascripts/application.js
