@@ -3,11 +3,11 @@
   <h1>my Dashboard</h1>
   <div class="bg-light m-2 p-3 rounded-3">
     <h4>Your collections:</h4>
-    <div data-controller="new-resource">
-      <div class="card add-new-box text-center" data-new-resource-target="infos">
-        <i class="fas fa-plus" data-action="click->new-resource#displayForm"></i>
+    <div data-controller="edit-resource">
+      <div class="card add-new-box text-center" data-edit-resource-target="infos">
+        <i class="fas fa-plus" data-action="click->edit-resource#displayForm"></i>
       </div>
-      <%= simple_form_for [@collection] , html: { class: 'd-none add-new-box', data: { new_resource_target: 'form' } } do |f| %>
+      <%= simple_form_for [@collection] , html: { class: 'd-none add-new-box', data: { edit_resource_target: 'form' } } do |f| %>
         <%= f.input :name %>
         <%= f.input :description %>
         <%= f.submit "Create", class: "button-main button" %>

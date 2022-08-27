@@ -25,8 +25,11 @@ class BoxesController < ApplicationController
   end
 
   def update
-    @box.update(box_params)
-    redirect_to box_path(@box)
+    if @box.update(box_params)
+      redirect_to box_path(@box)
+    else
+      render :edit
+    end
   end
 
   def index

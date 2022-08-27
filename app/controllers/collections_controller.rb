@@ -31,8 +31,11 @@ class CollectionsController < ApplicationController
   end
 
   def update
-    @collection.update(collection_params)
-    redirect_to collection_path(@collection)
+    if @collection.update(collection_params)
+      redirect_to collection_path(@collection)
+    else
+      render :edit
+    end
   end
 
   def destroy

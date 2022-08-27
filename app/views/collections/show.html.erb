@@ -8,20 +8,18 @@
         <h1><%= @collection.name.capitalize %></h1>
       </div>
       <div>
-        <div class="d-flex">
-          <i class="fas fa-edit" data-action="click->edit-resource#displayForm"></i>
-          <% if @collection.owner == current_user %>
-            <% if @collection.boxes.any? %>
-              <%= link_to "#" do %>
-                <i class="ms-2 fas fa-trash-alt button-gray"></i>
-              <% end %>
-            <% else %>
-              <%= link_to collection_path, method: :delete, data: { confirm: "Are you sure?" } do %>
-                <i class="fas fa-trash-alt"></i>
-              <% end %>
+        <i class="fas fa-edit" data-action="click->edit-resource#displayForm"></i>
+        <% if @collection.owner == current_user %>
+          <% if @collection.boxes.any? %>
+            <%= link_to "#" do %>
+              <i class="ms-2 fas fa-trash-alt button-gray"></i>
+            <% end %>
+          <% else %>
+            <%= link_to collection_path, method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="fas fa-trash-alt"></i>
             <% end %>
           <% end %>
-        </div>
+        <% end %>
       </div>
     </div>
     <p><%= @collection.description %></p>
@@ -65,11 +63,11 @@
         <% end %>
       <% end %>
 
-      <div data-controller="new-resource">
-          <div class="add-new-box text-center" data-new-resource-target="infos">
-            <i class="fas fa-plus" data-action="click->new-resource#displayForm"></i>
+      <div data-controller="edit-resource">
+          <div class="add-new-box text-center" data-edit-resource-target="infos">
+            <i class="fas fa-plus" data-action="click->edit-resource#displayForm"></i>
           </div>
-        <%= simple_form_for [@collection, @box], html: { class: 'd-none add-new-box', data: { new_resource_target: 'form' } } do |f| %>
+        <%= simple_form_for [@collection, @box], html: { class: 'd-none add-new-box', data: { edit_resource_target: 'form' } } do |f| %>
           <%= f.input :name %>
           <%= f.input :description %>
           <%= f.submit "Create", class: "button-main button" %>

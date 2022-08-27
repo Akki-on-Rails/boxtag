@@ -14,7 +14,7 @@
         <% end %>
       </div>
     </div>
-    <p data-edit-resource-target="infos"><%= @box.description %></p>
+    <p><%= @box.description %></p>
   </div>
     <%= simple_form_for [ @box ], html: { class: 'd-none', data: { edit_resource_target: 'form' } } do |f| %>
       <%= f.input :name %>
@@ -33,11 +33,11 @@
       <% end %>
 
 
-      <div data-controller="new-resource">
-          <div class="card add-new-box text-center" data-new-resource-target="infos">
-            <i class="fas fa-plus" data-action="click->new-resource#displayForm"></i>
+      <div data-controller="edit-resource">
+          <div class="card add-new-box text-center" data-edit-resource-target="infos">
+            <i class="fas fa-plus" data-action="click->edit-resource#displayForm"></i>
           </div>
-        <%= simple_form_for [@box, @item], html: { class: 'd-none add-new-box', data: { new_resource_target: 'form' } } do |f| %>
+        <%= simple_form_for [@box, @item], html: { class: 'd-none add-new-box', data: { edit_resource_target: 'form' } } do |f| %>
           <%= f.input :name %>
           <%= f.submit "Create", class: "button-main button" %>
           <%= link_to "Cancel", box_path(@box), class: "button" %>
