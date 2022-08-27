@@ -9,5 +9,6 @@ codeReader
     console.log(result.text)
 
     document.getElementById('result').textContent = result.text
+    window.location.replace(result.text)
   })
   .catch(err => console.error(err));
