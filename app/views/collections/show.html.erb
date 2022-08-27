@@ -58,10 +58,18 @@
           </div>
         <% end %>
       <% end %>
-      <%= link_to new_collection_box_path(@collection, @box) do %>
-        <div class="add-new-box text-center">
-          <i class="fas fa-plus"></i>
-        </div>
-      <% end %>
+
+      <div data-controller="new-resource">
+          <div class="card add-new-box text-center" data-new-resource-target="infos">
+            <i class="fas fa-plus" data-action="click->new-resource#displayForm"></i>
+          </div>
+        <%= simple_form_for [@collection, @box], html: { class: 'd-none add-new-box', data: { new_resource_target: 'form' } } do |f| %>
+          <%= f.input :name %>
+          <%= f.input :description %>
+          <%= f.submit "Create", class: "button-main button" %>
+          <%= link_to "Cancel", collection_path(@collection), class: "button" %>
+        <% end %>
+      </div>
+
     </div>
 </div>

@@ -9,7 +9,6 @@ class CollectionsController < ApplicationController
     @collection = Collection.new(collection_params)
     @collection.save
     if @collection.save
-
       UserCollection.create(user: current_user, collection: @collection, kind: :owner)
       redirect_to collection_path(@collection)
     else
