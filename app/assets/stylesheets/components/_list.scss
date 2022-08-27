@@ -4,7 +4,7 @@
 
 .list a {
   text-decoration: none;
-  color: $white;
+  color: $black;
 }
 
 .list-header {
@@ -47,4 +47,9 @@
 .list-item-info{
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.item-name {
+  margin: 0;
 }

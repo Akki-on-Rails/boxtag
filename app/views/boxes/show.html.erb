@@ -21,8 +21,8 @@
   <% end %>
   <% @box.items.each do |item| %>
     <%= link_to edit_item_path(item) do %>
-      <div class="list-item">
-        <h3><%= item.name %></h3>
+      <div class="list-item list-item-info">
+        <h3 class="item-name"><%= item.name %></h3>
         <%= link_to item_path(item), method: :delete, data: { confirm: "Are you sure?" } do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
