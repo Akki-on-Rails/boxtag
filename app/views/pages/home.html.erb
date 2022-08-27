@@ -33,14 +33,8 @@
     <h1 class="second-line">TAG</h1>
     <h2 class="subline">store it, find it.</h2>
     <div class="vertical-center">
-      <%= button_tag class:"button button-main" do %>
-        <% link_to "Sign Up", new_user_registration_path %>
-      <% end %>
-
-      <%= button_tag class:"ms-3 button button-secondary" do %>
-        <% link_to "Login", new_user_session_path %>
-      <% end %>
-
+      <%= link_to "Sign Up", new_user_registration_path, class:"button button-main" %>
+      <%= link_to "Login", new_user_session_path, class:"ms-3 button button-secondary" %>
   </div>
 
 <%end%>
