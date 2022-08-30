@@ -22,7 +22,7 @@
   </div>
   <p><%= @collection.description %></p>
 
-  <p>Shared with</p>
+  <p>shared with</p>
 
     <div class="users">
       <ul class="d-flex list-unstyled">
@@ -45,7 +45,7 @@
   </div>
 </div>
 <div class="list">
-  <h4>In this collection:</h4>
+  <h4>in this collection</h4>
   <%= link_to new_collection_box_path(@collection, @box) do %>
     <div class="list-item add-new">
       <i class="fas fa-plus"></i>
@@ -54,8 +54,22 @@
   <% @collection.boxes.each do |box| %>
     <%= link_to box_path(box) do %>
       <div class="list-item">
+
         <h3><%= box.name %></h3>
-        <p><%#= box.description %></p>
+            <div class="d-flex justify-content-end">
+              <%= link_to edit_box_path(box) do %>
+                <i class="fas fa-edit"></i>
+              <% end %>
+
+              <%= link_to box_path, method: :delete, data: { confirm: "Are you sure?" } do %>
+                <i class="ms-2 fas fa-trash-alt"></i>
+              <% end %>
+            </div>
+
+
+
+
+
         <p><%= box.items.size %> items inside</p>
         <%= link_to box_qrcode_path(box) do %>
               <i class="fas fa-qrcode"></i>
