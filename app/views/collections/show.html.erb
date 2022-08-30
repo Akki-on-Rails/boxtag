@@ -53,14 +53,14 @@
 
 
 <div class="list">
-  <h4>In this collection:</h4>
+  <h4>Boxes in this collection:</h4>
   <div data-controller="edit-resource">
     <div class="list-item add-new" data-edit-resource-target="infos">
       <i class="fas fa-plus" data-action="click->edit-resource#displayForm"></i>
     </div>
     <%= simple_form_for [@collection, @box], html: { class: 'd-none list-item add-new', data: { edit_resource_target: 'form' } } do |f| %>
-      <%= f.input :name %>
-      <%= f.input :description %>
+      <%= f.input :name, label: "Box name" %>
+      <%= f.input :description, label: "Box description" %>
       <%= f.submit "Create", class: "button-main button" %>
       <%= link_to "Cancel", collection_path(@collection), class: "button" %>
     <% end %>

@@ -25,13 +25,13 @@
   </div>
 
 <div class="list" >
-  <h4>In this box:</h4>
+  <h4>Items in this box:</h4>
   <div data-controller="edit-resource">
     <div class="list-item add-new" data-edit-resource-target="infos">
       <i class="fas fa-plus" data-action="click->edit-resource#displayForm"></i>
     </div>
     <%= simple_form_for [@box, @item], html: { class: 'list-item add-new d-none', data: { edit_resource_target: 'form' } } do |f| %>
-      <%= f.input :name %>
+      <%= f.input :name, label: "Item name" %>
       <%= f.submit "Create", class: "button-main button" %>
       <%= link_to "Cancel", box_path(@box), class: "button" %>
     <% end %>
