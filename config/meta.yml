@@ -1,0 +1,5 @@
+meta_product_name: "BoxTag"
+meta_title: "BoxTag - Store it, find it!"
+meta_description: "You have loads of things all stored in boxes in different places? With BoxTag you can manage your stuff easily. Don't search for things - find them!"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
