@@ -9,8 +9,8 @@
         <i class="fas fa-plus" data-action="click->edit-resource#displayForm"></i>
       </div>
       <%= simple_form_for [@collection] , html: { class: 'd-none list-item add-new', data: { edit_resource_target: 'form' } } do |f| %>
-        <%= f.input :name %>
-        <%= f.input :description %>
+        <%= f.input :name, input_html: { required: true } %>
+        <%= f.input :description, input_html: { required: true, minlength: 8 } %>
         <%= f.submit "Create", class: "button-main button" %>
         <%= link_to "Cancel", root_path, class: "button" %>
       <% end %>

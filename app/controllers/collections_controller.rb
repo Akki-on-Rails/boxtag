@@ -12,7 +12,7 @@ class CollectionsController < ApplicationController
       UserCollection.create(user: current_user, collection: @collection, kind: :owner)
       redirect_to collection_path(@collection)
     else
-      render :new
+      render 'pages/home'
     end
   end
 

@@ -20,8 +20,8 @@
     <p><%= @collection.description %></p>
   </div>
   <%= simple_form_for [ @collection ], html: { class: 'd-none', data: { edit_resource_target: 'form' } } do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description %>
+    <%= f.input :name, input_html: { required: true } %>
+    <%= f.input :description, input_html: { required: true, minlength: 8 } %>
     <%= f.submit "Update", class: "button-main button" %>
     <%= link_to "Cancel", collection_path(@collection), class: "button" %>
   <% end%>
@@ -59,8 +59,8 @@
       <i class="fas fa-plus" data-action="click->edit-resource#displayForm"></i>
     </div>
     <%= simple_form_for [@collection, @box], html: { class: 'd-none list-item add-new', data: { edit_resource_target: 'form' } } do |f| %>
-      <%= f.input :name, label: "Box name" %>
-      <%= f.input :description, label: "Box description" %>
+      <%= f.input :name, label: "Box name", input_html: { required: true } %>
+      <%= f.input :description, label: "Box description", input_html: { required: true, minlength: 8 } %>
       <%= f.submit "Create", class: "button-main button" %>
       <%= link_to "Cancel", collection_path(@collection), class: "button" %>
     <% end %>

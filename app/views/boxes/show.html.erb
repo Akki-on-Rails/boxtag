@@ -16,9 +16,9 @@
       <% end %>
       </p>
     </div>
-    <%= simple_form_for [ @box ], html: { class: 'd-none', data: { edit_resource_target: 'form' } } do |f| %>
-      <%= f.input :name %>
-      <%= f.input :description %>
+    <%= simple_form_for [ @box ], html: { class: 'd-none', data: { edit_resource_target: 'form', action: 'submit->edit_resource#update' } } do |f| %>
+      <%= f.input :name, input_html: { required: true } %>
+      <%= f.input :description, input_html: { required: true, minlength: 8 } %>
       <%= f.submit "Update", class: "button-main button" %>
       <%= link_to "Cancel", box_path(@box), class: "button" %>
     <% end%>
@@ -31,7 +31,7 @@
       <i class="fas fa-plus" data-action="click->edit-resource#displayForm"></i>
     </div>
     <%= simple_form_for [@box, @item], html: { class: 'list-item add-new d-none', data: { edit_resource_target: 'form' } } do |f| %>
-      <%= f.input :name, label: "Item name" %>
+      <%= f.input :name, label: "Item name", input_html: { required: true} %>
       <%= f.submit "Create", class: "button-main button" %>
       <%= link_to "Cancel", box_path(@box), class: "button" %>
     <% end %>
@@ -45,7 +45,7 @@
         <% end %>
       </div>
       <%= simple_form_for [item], html: { class: 'list-item d-none', data: { edit_resource_target: 'form' } } do |f| %>
-        <%= f.input :name %>
+        <%= f.input :name, input_html: { required: true} %>
         <%= f.submit "Update", class:"button button-main" %>
         <%= link_to "Cancel", box_path(@box), class: "button" %>
       <% end %>

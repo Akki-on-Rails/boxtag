@@ -28,7 +28,7 @@ class BoxesController < ApplicationController
     if @box.update(box_params)
       redirect_to box_path(@box)
     else
-      render :edit
+      # render :edit
     end
   end
 
