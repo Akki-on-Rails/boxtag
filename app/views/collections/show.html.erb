@@ -56,16 +56,11 @@
       <div class="list-item">
         <h3><%= box.name %></h3>
         <p><%#= box.description %></p>
-<<<<<<< HEAD
         <p class="box-count"><%= box.items.size %> items inside</p>
-            <%= link_to "show QRCODE", box_qrcode_path(box) %>
-
-=======
-        <p><%= box.items.size %> items inside</p>
+            <%# <%= link_to "show QRCODE", box_qrcode_path(box) %>
         <%= link_to box_qrcode_path(box) do %>
               <i class="fas fa-qrcode"></i>
         <% end %>
->>>>>>> 642ce25e4011035da45aa5fd26f9fec83f421957
       </div>
     <% end %>
   <% end %>

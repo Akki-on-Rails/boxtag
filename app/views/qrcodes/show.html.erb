@@ -1,10 +1,12 @@
-<<<<<<< HEAD
 <div class="container mt-4">
     <div id="qrcode"><%= raw @qrcode.as_html %></div>
-    <%= @box %>
-    <%= @box.name %>
-
-    <button class="button button-print" id="print">print me</button>
+      <div class="d-flex justify-content-center ">
+        <%= @box %>
+          <%= @box.name %>
+      </div>
+    <div class="text-center">
+    <button class="button button-print " id="print">print me</button>
+    </div>
 </div>
 
 <script>
@@ -33,13 +35,19 @@ printBtn.addEventListener("click", function(){
 .navbar, .footer-navigation, .button, .button-print *{
   display: none;
   color:white;
+
 }
+
+   html, body, .button {
+        width: 210mm;
+        /* height: 297mm; */
+        height: 282mm;
+        background: #FFF;
+        overflow:visible;
+        size: A4; /* DIN A4 standard, Europe */
+        margin:0;
+    }
 
 }
 
 </style>
-=======
-<div id="qrcode"><%= raw @qrcode.as_html %></div>
-<%= @heroku.to_s %> <%= @box.name %>
-
->>>>>>> 642ce25e4011035da45aa5fd26f9fec83f421957
