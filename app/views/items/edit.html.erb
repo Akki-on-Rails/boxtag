@@ -1,6 +1,7 @@
 <div class="container">
     <%= simple_form_for [@box, @item] do |f| %>
       <%= f.input :name %>
-      <%= f.submit "update" %>
+      <%= f.submit "update", class:"button button-main" %>
+      <%= link_to "Cancel", box_path(@item.box), class: "button" %>
     <% end%>
   </div>

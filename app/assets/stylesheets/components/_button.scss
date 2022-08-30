@@ -1,3 +1,19 @@
+.button {
+  border: 1px solid $main;
+  border-radius: $border-radius * 4;
+  padding: 10px 20px;
+  display: inline-block;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  color: $main;
+  font-weight: 500;
+  box-sizing: border-box;
+}
+
+.button a {
+  text-decoration: none;
+  // color: $white;
+}
 
 .button-round {
   background-color: $main;
@@ -15,41 +31,35 @@
 }
 
 .button-round:hover, .button-round:active{
-  border: 2px solid $main;
-  color: $main;
-}
-
-.button {
-  border: 2px solid $main;
-  border-radius: 8px;
-  padding: 10px 20px;
-  display: inline-block;
-  text-decoration: none;
-  font-family: "Open Sans", sans-serif;
-  color: $main;
-  font-weight: 500;
-  box-sizing: border-box;
-}
-
-button:hover, button:active{
-  background-color: $main;
+  border: 1px solid $main;
   color: $white;
+  background-color: $main50;
 }
-
 
 .button-main {
   color: $white;
   background-color: $main;
 }
 
-.button-main:hover, .button-main:active{
-  color: $main;
-  background-color: $white;
+.button-main:hover, .button-main:active {
+  color: $white;
+  background-color: $main50;
 }
 
+.button-secondary {
+  color: $neutral90;
+  background-color: $white;
+  border-color: $neutral90;
+}
+
+.button-secondary:hover, .button-secondary:active {
+  color: $neutral90;
+  background-color: $main50;
+  border-color: $main;
+}
 
 .button-third{
-margin-top: 1em;
+margin-top: $spacer;
 color: $neutral50;
 border: none;
 }
@@ -59,6 +69,7 @@ color: $warning;
 border:solid;
 }
 
+<<<<<<< HEAD
 .button-print{
   color: $main !important;
 }
@@ -67,3 +78,12 @@ border:solid;
 .button-print:hover, .button-print:active{
   color: $white !important;
   }
+=======
+.button-gray {
+  color: $neutral50;
+}
+
+.search-button {
+  border-radius: 0 $border-radius $border-radius 0 ;
+}
+>>>>>>> 642ce25e4011035da45aa5fd26f9fec83f421957

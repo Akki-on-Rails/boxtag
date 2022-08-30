@@ -1,28 +1,38 @@
-<div class="container">
-  <div class="d-flex justify-content-between">
-      <div class="d-flex">
-        <%= link_to collection_path(@box.collection) do %>
-          <i class="fas fa-arrow-left m-1 p-1"></i>
+
+<div class="container list-header">
+  <div class="list-title">
+    <h1><%= @box.name.capitalize %></h1>
+    <div>
+      <%= link_to edit_box_path(@box) do %>
+      <i class="fas fa-edit"></i>
+
         <% end %>
-        <h1><%= @box.name.capitalize %></h1>
-      </div>
-      <div>
-        <%= link_to edit_box_path(@box) do %>
-          <i class="fas fa-edit"></i>
+        <%= link_to box_path, method: :delete, data: { confirm: "Are you sure?" } do %>
+          <i class="ms-2 fas fa-trash-alt"></i>
         <% end %>
       </div>
     </div>
-  <p><%= @box.description %></p>
-  <% @box.items.each do |item| %>
-    <div class="box">
-      <h3><%= item.name %></h3>
-      <%= link_to "delete", item_path(item), method: :delete, data: { confirm: "sure?" }%>
-      <%= link_to "edit", edit_item_path(item) %>
-    </div>
-  <% end %>
+    <p><%= @box.description %></p>
+
+    <%= link_to collection_path(@box.collection) do %>
+           <p><i class="fas fa-arrow-left m-1 p-1"></i> <%=@box.collection.name %></p>
+    <% end %>
+    
+<div class="list">
+  <h4>In this box:</h4>
   <%= link_to new_box_item_path(@box, @item) do %>
-    <div class="add-new-box text-center">
-      <i class="fas fa-plus"></i>
-    </div>
+  <div class="list-item add-new">
+    <i class="fas fa-plus"></i>
+  </div>
+  <% end %>
+  <% @box.items.each do |item| %>
+    <%= link_to edit_item_path(item) do %>
+      <div class="list-item list-item-info">
+        <h3 class="item-name"><%= item.name %></h3>
+        <%= link_to item_path(item), method: :delete, data: { confirm: "Are you sure?" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+    <% end %>
   <% end %>
 </div>

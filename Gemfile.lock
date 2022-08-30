@@ -239,6 +239,8 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.0.0)
+    serviceworker-rails (0.6.0)
+      railties (>= 3.1)
     spring (4.0.0)
     sprockets (4.1.1)
       concurrent-ruby (~> 1.0)
@@ -323,6 +325,7 @@ DEPENDENCIES
   rqrcode
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
+  serviceworker-rails
   simple_form!
   spring
   tty-box

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Boxtag</title>
+    <title>BoxTag</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +12,9 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <%= favicon_link_tag asset_path('favicon.ico') %>
+    <link rel="manifest" href="<%= asset_path '/manifest.json.erb' %>">
+    <%= render 'shared/ios_pwa_links' %>
   </head>
 
   <body>
@@ -18,13 +23,13 @@
     <%end%>
 
     <%= render 'shared/flashes' %>
-
-
-    <%= yield %>
-
+    <div class="d-flex flex-column min-vh-100">
+      <div class="flex-grow-1">
+        <%= yield %>
+      </div>
+    </div>
     <% if user_signed_in? %>
       <%= render 'shared/footer-navigation' %>
     <%end%>
-
   </body>
 </html>
