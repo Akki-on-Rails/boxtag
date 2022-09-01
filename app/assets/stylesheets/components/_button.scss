@@ -27,7 +27,7 @@
 
 .fa-search{
 // maybe a bit dirty? !important
-  color: $white !important;
+  color: black;
 }
 
 .button-round:hover, .button-round:active{
@@ -68,6 +68,15 @@ border: none;
 color: $warning;
 border:solid;
 }
+
+.button-print{
+  color: $main !important;
+}
+
+
+.button-print:hover, .button-print:active{
+  color: $white !important;
+  }
 
 .button-gray {
   color: $neutral50;
