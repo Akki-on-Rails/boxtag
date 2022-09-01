@@ -1,5 +1,5 @@
 <div class="container">
-    <%= simple_form_for [@box, @item] do |f| %>
+    <%= simple_form_for [@item] do |f| %>
       <%= f.input :name %>
       <%= f.submit "update", class:"button button-main" %>
       <%= link_to "Cancel", box_path(@item.box), class: "button" %>

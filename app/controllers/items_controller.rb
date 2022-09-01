@@ -15,10 +15,16 @@ class ItemsController < ApplicationController
     redirect_to box_path(@box)
   end
 
+  def edit
+  end
+
   def update
     @box = @item[:box_id]
-    @item.update(item_params)
-    redirect_to box_path(@box)
+    if @item.update(item_params)
+      redirect_to box_path(@box)
+    else
+      render :edit
+    end
   end
 
   def destroy
