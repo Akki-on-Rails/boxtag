@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>You are not connected to the Internet</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+  body {
+    background-color:hsla(270,65%,60%,1);
+    background-image:
+      radial-gradient(at 39% 30%, hsla(268,56%,60%,1) 0px, transparent 50%),
+      radial-gradient(at 34% 71%, hsla(300,100%,93%,0.5) 0px, transparent 50%),
+      radial-gradient(at 96% 96%, hsla(289,81%,60%,1) 0px, transparent 50%),
+      radial-gradient(at 8% 3%, hsla(266,83%,41%,1) 0px, transparent 50%),
+      radial-gradient(at 22% 93%, hsla(241,100%,70%,1) 0px, transparent 50%);
+    color: #EBEBEB;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
+
+  .dialog {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    max-width: 33em;
+    margin: 8em auto 0em;
+  }
+
+  .dialog h1 {
+    font-size: 150%;
+    color: #EBEBEB;
+    line-height: 1.5em;
+    font-family: 'Lato', sans-serif;
+  }
+
+  .dialog p {
+    font-size: 0.9em;
+  }
+  </style>
+</head>
+
+<body>
+  <!-- This file lives in public/offline.html -->
+  <div class="dialog">
+    <div>
+      <h1>It looks like you've lost your Internet connection</h1>
+      <img src="../app/assets/images/334.png" alt="a power plug with no connection" width="100%">
+      <p>You may need to reconnect to Wi-Fi.</p>
+    </div>
+  </div>
+</body>
+</html>

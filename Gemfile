@@ -7,6 +7,8 @@ gem 'faker'
 gem 'rqrcode'
 gem 'cloudinary'
 gem 'dotenv-rails', groups: [:development, :test]
+# Serviceworker for PWA
+gem 'serviceworker-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.6', '>= 6.1.6.1'

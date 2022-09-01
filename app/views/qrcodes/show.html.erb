@@ -1,2 +1,57 @@
-  <div id="qrcode"><%= raw @qrcode.as_html %></div>
-  <%= @heroku.to_s %> <%= @box.name %>
+
+<div class="container mt-4">
+    <div id="qrcode"><%= raw @qrcode.as_html %></div>
+      <div class="d-flex justify-content-center ">
+        <%= @box %>
+          <%= @box.name %>
+      </div>
+    <div class="text-center">
+    <button class="button button-print " id="print">print me</button>
+    </div>
+</div>
+
+<script>
+const printBtn = document.getElementById("print");
+
+const print = () => {
+  const printFrame = document.createElement("iframe");
+  printFrame.style.display = "none";
+  printFrame.src = "/boxes/636/qrcode";
+
+  document.body.appendChild(printFrame);
+
+  printFrame.contentWindow.focus();
+  printFrame.contentWindow.print();
+}
+
+printBtn.addEventListener("click", function(){
+  print();
+})
+
+
+</script>
+
+<style>
+ @media print{
+.navbar, .footer-navigation, .button, .button-print *{
+  display: none;
+  color:white;
+
+}
+
+   html, body, .button {
+        width: 210mm;
+        /* height: 297mm; */
+        height: 282mm;
+        background: #FFF;
+        overflow:visible;
+        size: A4; /* DIN A4 standard, Europe */
+        margin:0;
+    }
+
+}
+
+</style>
+
+<div id="qrcode"><%= raw @qrcode.as_html %></div>
+<%= @heroku.to_s %> <%= @box.name %>
