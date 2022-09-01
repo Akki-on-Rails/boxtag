@@ -5,5 +5,4 @@ if (navigator.serviceWorker) {
     });
 }
 
-//= require serviceworker-companion
 // app/assets/javascripts/application.js
