@@ -44,25 +44,29 @@
   </div>
   <% @collection.boxes.each do |box| %>
     <%= link_to box_path(box) do %>
-      <div class="list-item" data-controller="edit-resource" data-edit-resource-target="infos">
-        <h3><%= box.name %></h3>
+      <div data-controller="edit-resource">
+        <div class="list-item" data-edit-resource-target="infos">
+          <h3><%= box.name %></h3>
             <div class="d-flex justify-content-end">
+            <%= link_to '#' do %>
               <i class="fas fa-edit" data-action="click->edit-resource#displayForm"></i>
+              <% end %>
               <%= link_to box_path, method: :delete, data: { confirm: "Are you sure?" } do %>
                 <i class="ms-2 fas fa-trash-alt"></i>
               <% end %>
             </div>
+          <p><%= box.items.size %> items inside</p>
+          <%= link_to box_qrcode_path(box) do %>
+            <i class="fas fa-qrcode"></i>
+          <% end %>
+        </div>
+    <% end %>
         <%= simple_form_for [ box ], html: { class: 'd-none list-item', data: { edit_resource_target: 'form' } } do |f| %>
           <%= f.input :name, label: "Box name", input_html: { required: true } %>
           <%= f.input :description, label: "Box description", input_html: { required: true, minlength: 8 } %>
           <%= f.submit "Create", class: "button-main button" %>
           <%= link_to "Cancel", collection_path(@collection), class: "button" %>
         <% end %>
-        <p><%= box.items.size %> items inside</p>
-        <%= link_to box_qrcode_path(box) do %>
-          <i class="fas fa-qrcode"></i>
-        <% end %>
-      </div>
-    <% end %>
+    </div>
   <% end %>
 </div>
