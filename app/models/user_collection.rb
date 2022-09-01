@@ -1,7 +1,6 @@
 class UserCollection < ApplicationRecord
   belongs_to :user
   belongs_to :collection
-
   # add valiadtions for sharing with other users
   validates :user, uniqueness: { scope: :collection }
 

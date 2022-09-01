@@ -14,6 +14,7 @@
   </head>
 
   <body>
+   <% if browser.device.mobile? %>
     <% if user_signed_in? %>
       <%= render 'shared/navbar' %>
     <%end%>
@@ -27,5 +28,8 @@
     <% if user_signed_in? %>
       <%= render 'shared/footer-navigation' %>
     <%end%>
+    <% else %>
+    <%= render "shared/non_mobile" %>
+  <%end %>
   </body>
 </html>

@@ -19,4 +19,6 @@ class PagesController < ApplicationController
     end
     @results_count = @collections.size + @boxes.size + @items.size
   end
+
+
 end

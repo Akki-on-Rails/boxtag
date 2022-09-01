@@ -1,6 +1,7 @@
-import { BrowserQRCodeReader } from '@zxing/library';
+import { BrowserQRCodeReader } from '@zxing/browser';
 
-const codeReader = new BrowserQRCodeReader();
+try {
+  const codeReader = new BrowserQRCodeReader();
 
 codeReader
   .decodeFromInputVideoDevice(undefined, 'video')
@@ -12,3 +13,7 @@ codeReader
     window.location.replace(result.text)
   })
   .catch(err => console.error(err));
+
+} catch (error) {
+  throw "Not supported";
+}

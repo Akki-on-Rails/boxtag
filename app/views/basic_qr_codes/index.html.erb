@@ -1,5 +1,7 @@
 <h1 style="font-weight:600;">QRCODE SCAN</h1>
 
+
+<% begin %>
 <div>
   <video id="video" width="100%" height="100%" style="object-fit: contain;"></video>
 </div>
@@ -11,3 +13,6 @@
 
 
 <%= javascript_pack_tag("basic-qr-code-reader") %>
+<% rescue => e%>
+  <p class="disclaimer">We are working on this. Soon this feature will be available in this device!</p>
+<% end %>
