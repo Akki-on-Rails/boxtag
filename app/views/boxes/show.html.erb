@@ -1,6 +1,10 @@
 <div class="container list-header">
   <div class="list-title">
-    <h1><%= @box.name.capitalize %></h1>
+    <div class="d-flex align-items-center">
+      <span class="material-symbols-outlined">inventory_2</span>
+      <h1><%= @box.name.capitalize %></h1>
+    </div>
+
     <div>
       <p><%= @box.description %></p>
       <p>In collection:

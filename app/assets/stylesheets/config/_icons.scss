@@ -1,0 +1,26 @@
+// import Google Material Symbols
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+
+// for boxes: 'Inventory 2'
+// for collections: 'widgets'
+// for qr code: 'qr_code_2'
+// for scanning qr codes: 'qr_code_scanner'
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 600,
+  'GRAD' 0,
+  'opsz' 50;
+  width: 50px;
+  margin: 0;
+  padding: 3px 5px 0 0;
+  height: 30px;
+  background-color: #b399cc;
+  border-radius: 3px;
+  color: #3c3b39;
+  text-align: end;
+  position: relative;
+  left: -22px;
+  top: -3px;
+}
