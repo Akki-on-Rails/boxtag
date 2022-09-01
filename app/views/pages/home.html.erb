@@ -1,9 +1,7 @@
 <% if user_signed_in? %>
-  <div class="container list-header">
-    <h1>my Dashboard</h1>
-  </div>
+
   <div class="list">
-    <h4>Your collections:</h4>
+    <h4>your collections</h4>
     <div data-controller="edit-resource">
       <div class="list-item add-new" data-edit-resource-target="infos">
         <i class="fas fa-plus" data-action="click->edit-resource#displayForm"></i>
