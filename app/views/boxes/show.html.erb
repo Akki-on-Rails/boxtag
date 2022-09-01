@@ -1,14 +1,7 @@
-<div class=" list-header" data-controller="edit-resource" >
-  <div class="edit-resource" data-edit-resource-target="infos">
-    <div class="list-title">
-      <h1><%= @box.name.capitalize %></h1>
-      <div>
-        <i class="fas fa-edit" data-action="click->edit-resource#displayForm"></i>
-          <%= link_to box_path, method: :delete, data: { confirm: "Are you sure?" } do %>
-            <i class="ms-2 fas fa-trash-alt"></i>
-          <% end %>
-        </div>
-      </div>
+<div class="container list-header">
+  <div class="list-title">
+    <h1><%= @box.name.capitalize %></h1>
+    <div>
       <p><%= @box.description %></p>
       <p>In collection:
       <%= link_to collection_path(@box.collection), class:"text-white text-decoration-underline" do %>
@@ -16,13 +9,12 @@
       <% end %>
       </p>
     </div>
-    <%= simple_form_for [ @box ], html: { class: 'd-none', data: { edit_resource_target: 'form' } } do |f| %>
-      <%= f.input :name %>
-      <%= f.input :description %>
-      <%= f.submit "Update", class: "button-main button" %>
-      <%= link_to "Cancel", box_path(@box), class: "button" %>
-    <% end%>
   </div>
+
+
+//    <%# <%= link_to collection_path(@box.collection) do %>
+//           <%# <p><i class="fas fa-arrow-left m-1 p-1"></i> <%=@box.collection.name %></p>
+//    <%# <% end %>
 
 <div class="list" >
   <h4>Items in this box:</h4>
