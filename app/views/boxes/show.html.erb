@@ -1,38 +1,55 @@
-
-<div class="container list-header">
-  <div class="list-title">
-    <h1><%= @box.name.capitalize %></h1>
-    <div>
-      <%= link_to edit_box_path(@box) do %>
-      <i class="fas fa-edit"></i>
-
-        <% end %>
-        <%= link_to box_path, method: :delete, data: { confirm: "Are you sure?" } do %>
-          <i class="ms-2 fas fa-trash-alt"></i>
-        <% end %>
+<div class=" list-header" data-controller="edit-resource" >
+  <div class="edit-resource" data-edit-resource-target="infos">
+    <div class="list-title">
+      <h1><%= @box.name.capitalize %></h1>
+      <div>
+        <i class="fas fa-edit" data-action="click->edit-resource#displayForm"></i>
+          <%= link_to box_path, method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="ms-2 fas fa-trash-alt"></i>
+          <% end %>
+        </div>
       </div>
+      <p><%= @box.description %></p>
+      <p>In collection:
+      <%= link_to collection_path(@box.collection), class:"text-white text-decoration-underline" do %>
+            <%=@box.collection.name %>
+      <% end %>
+      </p>
     </div>
-    <p><%= @box.description %></p>
-
-    <%= link_to collection_path(@box.collection) do %>
-           <p><i class="fas fa-arrow-left m-1 p-1"></i> <%=@box.collection.name %></p>
-    <% end %>
-    
-<div class="list">
-  <h4>In this box:</h4>
-  <%= link_to new_box_item_path(@box, @item) do %>
-  <div class="list-item add-new">
-    <i class="fas fa-plus"></i>
+    <%= simple_form_for [ @box ], html: { class: 'd-none', data: { edit_resource_target: 'form' } } do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.submit "Update", class: "button-main button" %>
+      <%= link_to "Cancel", box_path(@box), class: "button" %>
+    <% end%>
   </div>
-  <% end %>
+
+<div class="list" >
+  <h4>Items in this box:</h4>
+  <div data-controller="edit-resource">
+    <div class="list-item add-new" data-edit-resource-target="infos">
+      <i class="fas fa-plus" data-action="click->edit-resource#displayForm"></i>
+    </div>
+    <%= simple_form_for [@box, @item], html: { class: 'list-item add-new d-none', data: { edit_resource_target: 'form' } } do |f| %>
+      <%= f.input :name, label: "Item name" %>
+      <%= f.submit "Create", class: "button-main button" %>
+      <%= link_to "Cancel", box_path(@box), class: "button" %>
+    <% end %>
+  </div>
   <% @box.items.each do |item| %>
-    <%= link_to edit_item_path(item) do %>
-      <div class="list-item list-item-info">
+    <div data-controller="edit-resource">
+      <div class="list-item list-item-info" data-edit-resource-target="infos" data-action="click->edit-resource#displayForm">
         <h3 class="item-name"><%= item.name %></h3>
         <%= link_to item_path(item), method: :delete, data: { confirm: "Are you sure?" } do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-    <% end %>
+      <%= simple_form_for [item], html: { class: 'list-item d-none', data: { edit_resource_target: 'form' } } do |f| %>
+        <%= f.input :name %>
+        <%= f.submit "Update", class:"button button-main" %>
+        <%= link_to "Cancel", box_path(@box), class: "button" %>
+      <% end %>
+    </div>
   <% end %>
+
 </div>

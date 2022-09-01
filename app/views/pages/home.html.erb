@@ -1,29 +1,34 @@
 <% if user_signed_in? %>
-<div class="container list-header">
-  <h1>my Dashboard</h1>
-</div>
-<div class="list">
-  <h4>Your collections:</h4>
-    <% @collections.each do |collection| %>
-
-
-
-      <%= link_to collection_path(collection) do %>
-        <div class="list-item">
-          <h3><%= collection.name %></h3>
-          <div class="list-item-info">
-            <p><%= collection.boxes.count %> Boxes inside</p>
-              <span class="avatar">
-              <%= collection.owner.avatar.attached? ? cl_image_tag(collection.owner.avatar.key, class: "avatar-pic") : "#{collection.owner.first_name[0].capitalize}  #{collection.owner.last_name[0].capitalize}" %>
-            </span>
-          </div>
-        </div>
+  <div class="container list-header">
+    <h1>my Dashboard</h1>
+  </div>
+  <div class="list">
+    <h4>Your collections:</h4>
+    <div data-controller="edit-resource">
+      <div class="list-item add-new" data-edit-resource-target="infos">
+        <i class="fas fa-plus" data-action="click->edit-resource#displayForm"></i>
+      </div>
+      <%= simple_form_for [@collection] , html: { class: 'd-none list-item add-new', data: { edit_resource_target: 'form' } } do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.submit "Create", class: "button-main button" %>
+        <%= link_to "Cancel", root_path, class: "button" %>
       <% end %>
-    <% end %>
-
-
-
-</div>
+    </div>
+      <% @collections.each do |collection| %>
+        <%= link_to collection_path(collection) do %>
+          <div class="list-item">
+            <h3><%= collection.name %></h3>
+            <div class="list-item-info">
+              <p><%= collection.boxes.count %> Boxes inside</p>
+                <span class="avatar">
+                <%= collection.owner.avatar.attached? ? cl_image_tag(collection.owner.avatar.key, class: "avatar-pic") : "#{collection.owner.first_name[0].capitalize}  #{collection.owner.last_name[0].capitalize}" %>
+              </span>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+  </div>
 
 <%else%>
 

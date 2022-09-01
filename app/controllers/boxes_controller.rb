@@ -10,22 +10,26 @@ class BoxesController < ApplicationController
     @box = Box.new(box_params)
     @collection = Collection.find(params[:collection_id])
     @box.collection = @collection
-    @box.save
-    redirect_to box_path(@box)
-    # else
-    #   redirect_to collection_path(@collection)
-    # end
+    if @box.save
+      redirect_to box_path(@box)
+    else
+      render :new
+    end
   end
 
   def show
+    @item = Item.new
   end
 
   def edit
   end
 
   def update
-    @box.update(box_params)
-    redirect_to box_path(@box)
+    if @box.update(box_params)
+      redirect_to box_path(@box)
+    else
+      render :edit
+    end
   end
 
   def index

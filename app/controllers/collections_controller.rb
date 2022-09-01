@@ -1,5 +1,5 @@
 class CollectionsController < ApplicationController
-  before_action :set_collection, only: [:show, :destroy]
+  before_action :set_collection, only: [:show, :destroy, :edit, :update]
 
   def new
     @collection = Collection.new
@@ -9,7 +9,6 @@ class CollectionsController < ApplicationController
     @collection = Collection.new(collection_params)
     @collection.save
     if @collection.save
-
       UserCollection.create(user: current_user, collection: @collection, kind: :owner)
       redirect_to collection_path(@collection)
     else
@@ -29,13 +28,14 @@ class CollectionsController < ApplicationController
   end
 
   def edit
-    @collection = Collection.find(params[:id])
   end
 
   def update
-    @collection = Collection.find(params[:id])
-    @collection.update(collection_params)
-    redirect_to collection_path(@collection)
+    if @collection.update(collection_params)
+      redirect_to collection_path(@collection)
+    else
+      render :edit
+    end
   end
 
   def destroy
