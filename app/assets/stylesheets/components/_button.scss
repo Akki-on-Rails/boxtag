@@ -1,3 +1,12 @@
+a{
+    color: $white;
+  }
+
+  a:active, a:visited{
+    color: $white;
+  }
+
+
 .button {
   border: 1px solid $main;
   border-radius: $border-radius * 4;
@@ -12,7 +21,7 @@
 
 .button a {
   text-decoration: none;
-  // color: $white;
+  color: $main !important;
 }
 
 .button-round {
@@ -84,4 +93,12 @@ border:solid;
 
 .search-button {
   border-radius: 0 $border-radius $border-radius 0 ;
+}
+
+.button-dashboard{
+  color: $white;
+}
+
+.button-dashboard:active, .button-dashboard:visited{
+  color: $white;
 }
