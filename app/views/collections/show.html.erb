@@ -11,7 +11,11 @@
 
   <div class="users">
     <ul class="d-flex list-unstyled">
-      <%= @collection.owner.avatar.attached? ? cl_image_tag(@collection.owner.avatar.key, class: "avatar-pic") : "#{@collection.owner.first_name[0].capitalize}  #{@collection.owner.last_name[0].capitalize}" %>
+      <% unless @collection.owner == current_user %>
+        <span class="avatar me-1">
+          <%= @collection.owner.avatar.attached? ? cl_image_tag(@collection.owner.avatar.key, class: "avatar-pic") : "#{@collection.owner.first_name[0].capitalize}  #{@collection.owner.last_name[0].capitalize}" %>
+        </span>
+      <% end %>
       <% @collection.collaborators.each do |collaborator| %>
         <li class="mx-1">
           <span class="avatar">
