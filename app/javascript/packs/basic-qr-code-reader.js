@@ -8,8 +8,9 @@ codeReader
     // process the result
     console.log(result.text)
 
-    // document.getElementById('beep-audio').play()
     document.getElementById('result').textContent = result.text
     window.location.replace(result.text)
+    document.getElementById('beep-audio').play()
+
   })
   .catch(err => console.error(err));
