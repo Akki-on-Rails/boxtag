@@ -31,6 +31,10 @@
   // border: 2px solid $neutral50;
   -webkit-box-shadow: 2px 3px 4px 0px rgba(84,84,81,0.28);
   box-shadow: 2px 3px 4px 0px rgba(84,84,81,0.28);
+
+  p {
+    margin-bottom: 0;
+  }
 }
 
 .add-new {
@@ -50,4 +54,16 @@
 
 .item-name {
   margin: 0;
+}
+
+.list-container {
+  position: relative;
+}
+
+.icons-container {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  line-height: 0;
 }
