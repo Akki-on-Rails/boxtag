@@ -16,12 +16,12 @@ const printBtn = document.getElementById("print");
 const print = () => {
   const printFrame = document.createElement("iframe");
   printFrame.style.display = "none";
-  printFrame.src = "/boxes/636/qrcode";
+  // printFrame.src = "/boxes/1/qrcode";
+  window.print()
 
   document.body.appendChild(printFrame);
 
   printFrame.contentWindow.focus();
-  printFrame.contentWindow.print();
 }
 
 printBtn.addEventListener("click", function(){
@@ -39,14 +39,17 @@ printBtn.addEventListener("click", function(){
 
 }
 
-   html, body, .button {
-        width: 210mm;
-        /* height: 297mm; */
-        height: 282mm;
+ @page {
+    margin-top: 0;
+    margin-left: 0;
+    padding: auto;
+ }
+
+   html, body, #qrcode {
         background: #FFF;
-        overflow:visible;
-        size: A4; /* DIN A4 standard, Europe */
-        margin:0;
+        size: auto;  margin: 0mm;
+        display: table;
+        table-layout: fixed;
     }
 
 }
