@@ -25,8 +25,9 @@ class BoxesController < ApplicationController
   end
 
   def update
+    @collection = @box[:collection_id]
     if @box.update(box_params)
-      redirect_to box_path(@box)
+      redirect_to collection_path(@collection)
     else
       # render :edit
     end

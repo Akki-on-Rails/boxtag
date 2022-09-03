@@ -5,17 +5,15 @@
       <h1><%= @box.name.capitalize %></h1>
     </div>
   </div>
-
   <div>
     <p><%= @box.description %></p>
     <p>In collection:
-    <%= link_to collection_path(@box.collection), class:"text-white text-decoration-underline" do %>
-          <%=@box.collection.name %>
-    <% end %>
+      <%= link_to collection_path(@box.collection), class:"text-white text-decoration-underline" do %>
+        <%=@box.collection.name %>
+      <% end %>
     </p>
   </div>
 </div>
-
 <div class="list" >
   <h4>Items in this box:</h4>
   <div data-controller="edit-resource">
@@ -27,21 +25,18 @@
       <%= f.submit "Create", class: "button-main button" %>
       <%= link_to "Cancel", box_path(@box), class: "button" %>
     <% end %>
-  </div>
-  <% @box.items.each do |item| %>
-    <div data-controller="edit-resource">
-      <div class="list-item list-item-info" data-edit-resource-target="infos" data-action="click->edit-resource#displayForm">
+    <% @box.items.each_with_index do |item, index| %>
+      <div class="list-item list-item-info" data-edit-resource-target="infos" data-index='<%= index %>' data-action="click->edit-resource#displayForm">
         <h3 class="item-name"><%= item.name %></h3>
         <%= link_to item_path(item), method: :delete, data: { confirm: "Are you sure?" } do %>
           <span class="material-symbols-outlined card-icon">delete</span>
         <% end %>
       </div>
       <%= simple_form_for [item], html: { class: 'list-item d-none', data: { edit_resource_target: 'form' } } do |f| %>
-        <%= f.input :name, input_html: { required: true} %>
+        <%= f.input :name, label: false, input_html: { required: true} %>
         <%= f.submit "Update", class:"button button-main" %>
         <%= link_to "Cancel", box_path(@box), class: "button" %>
       <% end %>
-    </div>
-  <% end %>
-
+    <% end %>
+  </div>
 </div>
