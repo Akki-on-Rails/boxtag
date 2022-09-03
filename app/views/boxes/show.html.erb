@@ -4,21 +4,17 @@
       <span class="material-symbols-outlined">inventory_2</span>
       <h1><%= @box.name.capitalize %></h1>
     </div>
+  </div>
 
-    <div>
-      <p><%= @box.description %></p>
-      <p>In collection:
-      <%= link_to collection_path(@box.collection), class:"text-white text-decoration-underline" do %>
-            <%=@box.collection.name %>
-      <% end %>
-      </p>
-    </div>
+  <div>
+    <p><%= @box.description %></p>
+    <p>In collection:
+    <%= link_to collection_path(@box.collection), class:"text-white text-decoration-underline" do %>
+          <%=@box.collection.name %>
+    <% end %>
+    </p>
   </div>
 </div>
-
-    <%# <%= link_to collection_path(@box.collection) do %>
-<%#           <p><i class="fas fa-arrow-left m-1 p-1"></i> <%=@box.collection.name </p> %>
-    <%# <% end %>
 
 <div class="list" >
   <h4>Items in this box:</h4>
