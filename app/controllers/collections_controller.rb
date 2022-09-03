@@ -32,7 +32,7 @@ class CollectionsController < ApplicationController
 
   def update
     if @collection.update(collection_params)
-      redirect_to collection_path(@collection)
+      redirect_to root_path
     else
       render :edit
     end

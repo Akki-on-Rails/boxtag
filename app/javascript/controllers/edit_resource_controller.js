@@ -4,16 +4,12 @@ export default class extends Controller {
   static targets = [ "infos", "form", "icons" ]
 
   connect() {
-    this.myNumber = 1
-    console.log(this)
   }
   displayForm(e) {
     // this.infosTarget.classList.add('d-none');
     // this.formTarget.classList.remove('d-none');
     const index = e.currentTarget.dataset.index
-    console.log(this.infosTargets[0])
-    console.log(this.iconsTargets)
-    console.log(index,typeof index)
+
     if(!index) {
       this.infosTargets[0].classList.add('d-none');
       this.formTargets[0].classList.remove('d-none');
