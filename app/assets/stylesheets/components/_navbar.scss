@@ -1,11 +1,15 @@
 .navbar{
-  background-color: $main80 !important;
+  background-color: lightgray;
 }
 
 .navbar .fas {
-  color: $white;
+  color: black;
 }
 
 .nav-link {
-  color: $white;
+  color: black;
+}
+
+a {
+  color: black;
 }

@@ -1,14 +1,14 @@
 a{
-    color: $white;
+    color: black;
   }
 
   a:active, a:visited{
-    color: $white;
+    color: black;
   }
 
 
 .button {
-  border: 1px solid $main;
+  border: 1px solid black;
   border-radius: $border-radius * 4;
   padding: 10px 20px;
   display: inline-block;
@@ -21,7 +21,7 @@ a{
 
 .button a {
   text-decoration: none;
-  color: $main !important;
+  color: black;
 }
 
 .button-round {
@@ -79,12 +79,12 @@ border:solid;
 }
 
 .button-print{
-  color: $main !important;
+  color: $main;
 }
 
 
 .button-print:hover, .button-print:active{
-  color: $white !important;
+  color: $white;
   }
 
 .button-gray {

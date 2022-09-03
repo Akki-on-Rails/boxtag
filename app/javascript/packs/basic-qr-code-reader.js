@@ -10,5 +10,7 @@ codeReader
 
     document.getElementById('result').textContent = result.text
     window.location.replace(result.text)
+    // document.getElementById('beep-audio').play()
+
   })
   .catch(err => console.error(err));
