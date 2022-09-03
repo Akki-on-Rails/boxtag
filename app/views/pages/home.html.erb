@@ -3,7 +3,7 @@
     <h4>Your collections</h4>
     <div data-controller="edit-resource">
       <div class="list-item add-new" data-edit-resource-target="infos">
-        <i class="fas fa-plus" data-action="click->edit-resource#displayForm"></i>
+        <span class="material-symbols-outlined card-icon add-icon" data-action="click->edit-resource#displayForm">add</span>
       </div>
       <%= simple_form_for [@collection] , html: { class: 'd-none list-item add-new', data: { edit_resource_target: 'form' } } do |f| %>
         <%= f.input :name, input_html: { required: true } %>
