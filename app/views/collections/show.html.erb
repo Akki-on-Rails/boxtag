@@ -37,7 +37,7 @@
       <%= f.submit "Create", class: "button-main button" %>
       <%= link_to "Cancel", collection_path(@collection), class: "button" %>
     <% end %>
-    <% @collection.boxes.each do |box| %>
+    <% @collection.boxes.each_with_index do |box, index| %>
       <div class="card-container">
         <%= link_to box_path(box) do %>
           <div class="list-item" data-edit-resource-target="infos">
@@ -48,8 +48,8 @@
             <% end %>
           </div>
         <% end %>
-        <div class="icons-container">
-          <i class="fas fa-edit" data-action="click->edit-resource#displayForm"></i>
+        <div class="icons-container" data-edit-resource-target="icons">
+          <i class="fas fa-edit" data-index='<%= index %>' data-action="click->edit-resource#displayForm"></i>
           <%= link_to box_path, method: :delete, data: { confirm: "Are you sure?" } do %>
             <i class="ms-2 fas fa-trash-alt"></i>
           <% end %>
