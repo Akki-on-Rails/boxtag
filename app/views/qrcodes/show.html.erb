@@ -17,13 +17,11 @@ const print = () => {
   const printFrame = document.createElement("iframe");
   printFrame.style.display = "none";
   // printFrame.src = "/boxes/1/qrcode";
-  // <%= @box.id %>
   window.print()
 
   document.body.appendChild(printFrame);
 
   printFrame.contentWindow.focus();
-  // printFrame.contentWindow.print();
 }
 
 printBtn.addEventListener("click", function(){
@@ -48,10 +46,7 @@ printBtn.addEventListener("click", function(){
  }
 
    html, body, #qrcode {
-        /* width: 210mm; */
-        /* height: 297mm; */
         background: #FFF;
-        /* overflow:visible; */
         size: auto;  margin: 0mm;
         display: table;
         table-layout: fixed;
