@@ -9,6 +9,7 @@ gem 'cloudinary'
 gem 'dotenv-rails', groups: [:development, :test]
 # Serviceworker for PWA
 gem 'serviceworker-rails'
+gem "browser", require: "browser/aliases"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.6', '>= 6.1.6.1'
