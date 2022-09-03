@@ -54,15 +54,15 @@
         </div>
         <div class="d-flex justify-content-between">
           <p><%= box.items.size %> items inside</p>
-          <div class="d-flex justify-content-end mb-2">
+          <div class="d-flex justify-content-end">
             <%= link_to box_qrcode_path(box) do %>
-              <span class="material-symbols-outlined qr-icon me-2">qr_code_2</span>
+              <span class="material-symbols-outlined card-icon me-1">qr_code_2</span>
             <% end %>
             <%= link_to edit_box_path(box) do %>
-              <i class="fas fa-edit"></i>
+              <span class="material-symbols-outlined card-icon me-1">edit</span>
             <% end %>
             <%= link_to box_path, method: :delete, data: { confirm: "Are you sure?" } do %>
-              <i class="ms-2 fas fa-trash-alt"></i>
+              <span class="material-symbols-outlined card-icon">delete</span>
             <% end %>
           </div>
         </div>

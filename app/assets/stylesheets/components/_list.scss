@@ -14,19 +14,15 @@
   background-color: $main80;
 }
 
-.list-header .fas {
-  color: $white;
-}
-
 .list-title {
   display: flex;
   justify-content: space-between;
-  padding-bottom: $spacer*1.5;
+  padding: $spacer 0 $spacer*0.5 0;
 }
 
 .list-item {
   margin-top: $spacer;
-  padding: $spacer $spacer;
+  padding: $spacer*0.75 $spacer;
   color: $black;
   background-color: $main50;
   height: auto;
