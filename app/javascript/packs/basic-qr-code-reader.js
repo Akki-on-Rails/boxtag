@@ -4,11 +4,11 @@ const codeReader = new BrowserQRCodeReader();
 
 codeReader
   .decodeFromInputVideoDevice(undefined, 'video')
-  .then(() => {
+  .then((result) => {
     // process the result
 
     document.getElementById('beep-audio').play()
-
+    return result
 
 
   }).then((result) => {
