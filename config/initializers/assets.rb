@@ -1,4 +1,7 @@
 # Be sure to restart your server when you modify this file.
+Rails.application.config.assets.configure do |env|
+  env.export_concurrent = false
+end
 
 Rails.application.config.assets.configure do |env|
   env.export_concurrent = false

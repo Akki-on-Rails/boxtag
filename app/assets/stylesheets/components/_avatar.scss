@@ -37,3 +37,13 @@
   background-color: $main60;
   border: solid 2px $main60;
 }
+
+.avatar-remove {
+  background-color: $main60;
+  border: solid 2px $main60;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: -10px;
+  opacity: 0.6;
+}
