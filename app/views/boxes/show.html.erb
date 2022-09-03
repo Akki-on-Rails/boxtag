@@ -1,7 +1,7 @@
 <div class="container list-header">
   <div class="list-title">
     <div class="d-flex align-items-center">
-      <span class="material-symbols-outlined">inventory_2</span>
+      <span class="material-symbols-outlined category-icon">inventory_2</span>
       <h1><%= @box.name.capitalize %></h1>
     </div>
   </div>
@@ -20,7 +20,7 @@
   <h4>Items in this box:</h4>
   <div data-controller="edit-resource">
     <div class="list-item add-new" data-edit-resource-target="infos">
-      <i class="fas fa-plus" data-action="click->edit-resource#displayForm"></i>
+      <span class="material-symbols-outlined card-icon" data-action="click->edit-resource#displayForm">add</span>
     </div>
     <%= simple_form_for [@box, @item], html: { class: 'list-item add-new d-none', data: { edit_resource_target: 'form' } } do |f| %>
       <%= f.input :name, label: "Item name" %>
@@ -33,7 +33,7 @@
       <div class="list-item list-item-info" data-edit-resource-target="infos" data-action="click->edit-resource#displayForm">
         <h3 class="item-name"><%= item.name %></h3>
         <%= link_to item_path(item), method: :delete, data: { confirm: "Are you sure?" } do %>
-          <i class="fas fa-trash-alt"></i>
+          <span class="material-symbols-outlined card-icon">delete</span>
         <% end %>
       </div>
       <%= simple_form_for [item], html: { class: 'list-item d-none', data: { edit_resource_target: 'form' } } do |f| %>
