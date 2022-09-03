@@ -43,7 +43,7 @@
       <%= link_to "Cancel", collection_path(@collection), class: "button" %>
     <% end %>
     <% @collection.boxes.each_with_index do |box, index| %>
-      <div class="card-container">
+      <div class="list-container">
         <%= link_to box_path(box) do %>
           <div class="list-item" data-edit-resource-target="infos">
             <h3><%= box.name %></h3>

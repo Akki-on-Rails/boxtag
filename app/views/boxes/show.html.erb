@@ -26,12 +26,17 @@
       <%= link_to "Cancel", box_path(@box), class: "button" %>
     <% end %>
     <% @box.items.each_with_index do |item, index| %>
+    <div class="list-container">
       <div class="list-item list-item-info" data-edit-resource-target="infos" data-index='<%= index %>' data-action="click->edit-resource#displayForm">
         <h3 class="item-name"><%= item.name %></h3>
+      </div>
+      <div class="icons-container" data-edit-resource-target="icons">
+        <span class="material-symbols-outlined card-icon me-1" data-index='<%= index %>' data-action="click->edit-resource#displayForm">edit</span>
         <%= link_to item_path(item), method: :delete, data: { confirm: "Are you sure?" } do %>
           <span class="material-symbols-outlined card-icon">delete</span>
         <% end %>
       </div>
+    </div>
       <%= simple_form_for [item], html: { class: 'list-item d-none', data: { edit_resource_target: 'form' } } do |f| %>
         <%= f.input :name, label: false, input_html: { required: true} %>
         <%= f.submit "Update", class:"button button-main" %>
