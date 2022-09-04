@@ -1,7 +1,12 @@
 <%# <h1 style="font-weight:600;">QRCODE SCAN</h1> %>
 <div class="box" style="margin:auto;margin-top:60px;">
   <video id="video" width="100%" height="100%" style="object-fit: contain;"></video>
-  <a id="result" href="result" style="color:red;font-weight:600;text-decoration: underline red;"></a>
+</div>
+
+<br>
+
+<div style="text-align: center; width: 100%;">
+  <a id="result" href="result" style="color:red;font-weight:600;text-decoration: underline red;text-align: center;width: 100%;"></a>
 </div>
 
 <%# <label><b>link:</b></label> %>
@@ -15,11 +20,11 @@
 
 <style>
 .box {
-  width:200px;
-  height:200px;
+  width:400px;
+  height:300px;
   margin:20px;
-  outline:1px solid;color:gray;
-  outline-offset:10px;
+  outline:0px solid;color:gray;
+  outline-offset:35px;
   position:relative;
 }
 .box::before {
@@ -33,8 +38,8 @@
   box-shadow:0 0 70px 20px #18c89b;
   clip-path:inset(0);
   animation:
-    x 0.5s ease-in-out infinite alternate,
-    y 1s   ease-in-out infinite;
+    x 0.7s ease-in-out infinite alternate,
+    y 1.4s   ease-in-out infinite;
 }
 
 @keyframes x {
