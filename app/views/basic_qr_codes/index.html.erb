@@ -20,22 +20,22 @@
 
 <style>
 .box {
-  width:400px;
-  height:300px;
-  margin:20px;
+  width:auto;
+  height:auto;
+  margin:0px;
   outline:0px solid;color:gray;
-  outline-offset:35px;
+  outline-offset:28px;
   position:relative;
 }
 .box::before {
   content:"";
   position:absolute;
   top:0;
-  bottom:0;
+  bottom: 5px;
   left:0;
-  width:20px;
+  width:0;
   background:#18c89b;
-  box-shadow:0 0 70px 20px #18c89b;
+  box-shadow:0 0 70px 30px #18c89b;
   clip-path:inset(0);
   animation:
     x 0.7s ease-in-out infinite alternate,
