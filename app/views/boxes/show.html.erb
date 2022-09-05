@@ -20,7 +20,7 @@
   <h4>Items in this box:</h4>
   <div data-controller="edit-resource">
     <div class="list-item add-new" data-edit-resource-target="infos">
-      <span class="material-symbols-outlined card-icon" data-action="click->edit-resource#displayForm">add</span>
+      <span class="material-symbols-outlined card-icon add-icon" data-action="click->edit-resource#displayForm">add</span>
     </div>
     <%= simple_form_for [@box, @item], html: { class: 'list-item add-new d-none', data: { edit_resource_target: 'form' } } do |f| %>
       <%= f.input :name, label: "Item name", input_html: { required: true} %>

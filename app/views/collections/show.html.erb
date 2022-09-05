@@ -25,7 +25,7 @@
         </li>
       <% end %>
       <%= link_to new_collection_user_collection_path(@collection, @user_collection) do %>
-        <i class="fas fa-plus  mx-1 avatar avatar-add"></i>
+        <span class="material-symbols-outlined card-icon add-icon mx-1 avatar avatar-add" data-action="click->edit-resource#displayForm">add</span>
       <% end %>
     </ul>
   </div>
@@ -34,7 +34,7 @@
   <h4>Boxes in this collection:</h4>
   <div data-controller="edit-resource">
     <div class="list-item add-new" data-edit-resource-target="infos">
-      <i class="fas fa-plus" data-action="click->edit-resource#displayForm"></i>
+      <span class="material-symbols-outlined card-icon add-icon" data-action="click->edit-resource#displayForm">add</span>
     </div>
     <%= simple_form_for [@collection, @box], html: { class: 'd-none list-item add-new', data: { edit_resource_target: 'form' } } do |f| %>
       <%= f.input :name, label: "Box name", input_html: { required: true } %>
