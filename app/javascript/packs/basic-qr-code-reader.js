@@ -19,7 +19,7 @@ codeReader
     console.log(result.text)
     document.getElementById('result').textContent = result.text
 
-    setTimeout(function(){window.location.replace(result.text)} , 750);
+    setTimeout(function(){window.location.replace(result.text)} , 550);
 
   })
   .catch(err => console.error(err));
