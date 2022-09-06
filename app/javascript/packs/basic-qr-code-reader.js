@@ -8,13 +8,18 @@ codeReader
     // process the result
 
     document.getElementById('beep-audio').play()
+
     return result
+
+
+
 
 
   }).then((result) => {
     console.log(result.text)
     document.getElementById('result').textContent = result.text
-    window.location.replace(result.text)
+
+    setTimeout(function(){window.location.replace(result.text)} , 550);
 
   })
   .catch(err => console.error(err));
