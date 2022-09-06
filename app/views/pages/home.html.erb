@@ -33,7 +33,7 @@
             <span class="material-symbols-outlined card-icon me-1" data-index='<%= index %>' data-action="click->edit-resource#displayForm">edit</span>
             <span class="d-flex flex-row align-items-center">
               <p class=''>Owner: </p>
-              <span class="avatar">
+              <span class="avatar ms-1">
                 <%= collection.owner.avatar.attached? ? cl_image_tag(collection.owner.avatar.key, class: "avatar-pic") : "#{collection.owner.first_name[0].capitalize}  #{collection.owner.last_name[0].capitalize}" %>
               </span>
             </span>
