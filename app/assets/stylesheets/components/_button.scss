@@ -6,7 +6,6 @@ a{
     color: black;
   }
 
-
 .button {
   border: 1px solid black;
   border-radius: $border-radius * 4;
@@ -81,7 +80,6 @@ border:solid;
 .button-print{
   color: $main;
 }
-
 
 .button-print:hover, .button-print:active{
   color: $white;
