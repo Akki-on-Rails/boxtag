@@ -5,8 +5,8 @@
       <h1><%= @collection.name.capitalize %></h1>
     </div>
   </div>
-  <p><%= @collection.description %></p>
-  <p>Shared with</p>
+  <p class='mb-3'><strong>About: </strong><%= @collection.description %></p>
+  <p class='secondary-text-light'>Shared with:</p>
   <div class="users">
     <ul class="d-flex list-unstyled">
       <% unless @collection.owner == current_user %>
@@ -47,7 +47,7 @@
         <%= link_to box_path(box) do %>
           <div class="list-item" data-edit-resource-target="infos">
             <h3><%= box.name %></h3>
-            <p><%= box.items.size %> items inside</p>
+            <p class='secondary-text'><%= box.items.size %> items inside</p>
           </div>
         <% end %>
         <div class="icons-container" data-edit-resource-target="icons">

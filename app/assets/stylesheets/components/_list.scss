@@ -9,7 +9,6 @@
 
 .list-header {
   padding-top: $spacer*0.5;
-  padding-bottom: 1px;
   color: $white;
   background-color: $main80;
 }
@@ -46,7 +45,7 @@
   box-shadow: none;
 }
 
-.list-item-info{
+.list-item-info {
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -14,7 +14,7 @@
   'opsz' 50;
   line-height: initial;
   color: #232320;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .category-icon {
@@ -29,20 +29,18 @@
   position: relative;
   left: -22px;
   top: -3px;
-  font-size: 24px;
   line-height: 1;
 }
 
 .card-icon {
   color: #545451;
-  font-size: 1.7rem;
-}
-
-.footer-icon {
-
 }
 
 .add-icon {
   color: #C0C0C0;
   font-variation-settings: 'FILL' 0, 'wght' 900, 'GRAD' 0, 'opsz' 50;
+}
+
+.navigation-icon {
+  font-size: 1.75rem;
 }
