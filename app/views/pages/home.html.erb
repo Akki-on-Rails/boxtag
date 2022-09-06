@@ -1,4 +1,12 @@
 <% if user_signed_in? %>
+  <div class="container list-header">
+    <div class="list-title">
+      <div class="d-flex align-items-center">
+        <span class="material-symbols-outlined category-icon">home</span>
+        <h1>Dashboard</h1>
+      </div>
+    </div>
+  </div>
   <div class="list">
     <h4>Your collections</h4>
     <div data-controller="edit-resource">
@@ -16,14 +24,17 @@
           <%= link_to collection_path(collection) do %>
             <div class="list-item" data-edit-resource-target="infos">
               <h3><%= collection.name %></h3>
-              <p><%= collection.boxes.count %> Boxes inside</p>
-              <span class="avatar">
-                <%= collection.owner.avatar.attached? ? cl_image_tag(collection.owner.avatar.key, class: "avatar-pic") : "#{collection.owner.first_name[0].capitalize}  #{collection.owner.last_name[0].capitalize}" %>
-              </span>
-            <% end %>
-          </div>
-          <div class="icons-container" data-edit-resource-target="icons">
+              <div class="secondary-text row align-items-end justify-content-between mt-3">
+                <p class='col'><%= collection.boxes.count %> Boxes inside</p>
+                <p class='col-auto me-5'>Owner:</p>
+              </div>
+            </div>
+          <% end %>
+          <div class="icons-container d-flex flex-column align-items-end" data-edit-resource-target="icons">
             <span class="material-symbols-outlined card-icon me-1" data-index='<%= index %>' data-action="click->edit-resource#displayForm">edit</span>
+            <span class="avatar">
+              <%= collection.owner.avatar.attached? ? cl_image_tag(collection.owner.avatar.key, class: "avatar-pic") : "#{collection.owner.first_name[0].capitalize}  #{collection.owner.last_name[0].capitalize}" %>
+            </span>
           </div>
         </div>
         <%= simple_form_for [ collection ], html: { class: 'd-none list-item', data: { edit_resource_target: 'form' } } do |f| %>

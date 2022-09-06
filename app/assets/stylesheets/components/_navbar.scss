@@ -2,14 +2,6 @@
   background-color: lightgray;
 }
 
-.navbar .fas {
-  color: black;
-}
-
-.nav-link {
-  color: black;
-}
-
-a {
-  color: black;
+.nav-link, a, .fas {
+  color: $neutral90;
 }
