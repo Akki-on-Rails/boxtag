@@ -22,7 +22,7 @@
 .list-item {
   margin-top: $spacer;
   padding: 0.75rem 7rem 0.75rem 1rem;
-    color: $black;
+  color: $black;
   background-color: $main50;
   height: auto;
   width: auto;
@@ -43,6 +43,7 @@
   background-color: $white;
   color: rgba(84,84,81,0.28);
   box-shadow: none;
+  padding: 0.75rem 1rem;
 }
 
 .list-item-info {
