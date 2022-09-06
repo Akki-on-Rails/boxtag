@@ -1,43 +1,48 @@
 <% if user_signed_in? %>
-
   <div class="list">
-    <%# <h4>your collections</h4> %>
+    <h4>Your collections</h4>
     <div data-controller="edit-resource">
       <div class="list-item add-new" data-edit-resource-target="infos">
-        <i class="fas fa-plus" data-action="click->edit-resource#displayForm"></i>
+        <span class="material-symbols-outlined card-icon add-icon" data-action="click->edit-resource#displayForm">add</span>
       </div>
       <%= simple_form_for [@collection] , html: { class: 'd-none list-item add-new', data: { edit_resource_target: 'form' } } do |f| %>
-        <%= f.input :name %>
-        <%= f.input :description %>
+        <%= f.input :name, input_html: { required: true } %>
+        <%= f.input :description, input_html: { required: true, minlength: 8 } %>
         <%= f.submit "Create", class: "button-main button" %>
         <%= link_to "Cancel", root_path, class: "button" %>
       <% end %>
-    </div>
-      <% @collections.each do |collection| %>
-        <%= link_to collection_path(collection) do %>
-          <div class="list-item">
-            <h3><%= collection.name %></h3>
-            <div class="list-item-info">
+      <% @collections.each_with_index do |collection, index| %>
+        <div class="list-container">
+          <%= link_to collection_path(collection) do %>
+            <div class="list-item" data-edit-resource-target="infos">
+              <h3><%= collection.name %></h3>
               <p><%= collection.boxes.count %> Boxes inside</p>
-                <span class="avatar">
+              <span class="avatar">
                 <%= collection.owner.avatar.attached? ? cl_image_tag(collection.owner.avatar.key, class: "avatar-pic") : "#{collection.owner.first_name[0].capitalize}  #{collection.owner.last_name[0].capitalize}" %>
               </span>
-            </div>
+            <% end %>
           </div>
-        <% end %>
+          <div class="icons-container" data-edit-resource-target="icons">
+            <span class="material-symbols-outlined card-icon me-1" data-index='<%= index %>' data-action="click->edit-resource#displayForm">edit</span>
+          </div>
+        </div>
+        <%= simple_form_for [ collection ], html: { class: 'd-none list-item', data: { edit_resource_target: 'form' } } do |f| %>
+        <%= f.input :name, label: "Collection name", input_html: { required: true } %>
+        <%= f.input :description, label: "Collection description", input_html: { required: true, minlength: 8 } %>
+        <%= f.submit "Update", class: "button-main button" %>
+        <%= link_to "Cancel", root_path, class: "button" %>
       <% end %>
+      <% end %>
+    </div>
   </div>
-
 <%else%>
-
   <div class="first-image">
-
     <h1 class="first-line">BOX</h1>
     <h1 class="second-line">TAG</h1>
     <h2 class="subline">store it, find it.</h2>
     <div class="vertical-center">
       <%= link_to "Sign Up", new_user_registration_path, class:"button button-main" %>
       <%= link_to "Login", new_user_session_path, class:"ms-3 button button-secondary" %>
+    </div>
   </div>
-
 <%end%>

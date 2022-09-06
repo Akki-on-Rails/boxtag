@@ -6,9 +6,7 @@
     </div>
   </div>
   <p><%= @collection.description %></p>
-
-  <p>shared with</p>
-
+  <p>Shared with</p>
   <div class="users">
     <ul class="d-flex list-unstyled">
       <% unless @collection.owner == current_user %>
@@ -27,46 +25,47 @@
         </li>
       <% end %>
       <%= link_to new_collection_user_collection_path(@collection, @user_collection) do %>
-        <i class="fas fa-plus  mx-1 avatar avatar-add"></i>
+        <span class="material-symbols-outlined card-icon add-icon mx-1 avatar avatar-add" data-action="click->edit-resource#displayForm">add</span>
       <% end %>
     </ul>
   </div>
 </div>
-
 <div class="list">
   <h4>Boxes in this collection:</h4>
   <div data-controller="edit-resource">
     <div class="list-item add-new" data-edit-resource-target="infos">
-      <i class="fas fa-plus" data-action="click->edit-resource#displayForm"></i>
+      <span class="material-symbols-outlined card-icon add-icon" data-action="click->edit-resource#displayForm">add</span>
     </div>
     <%= simple_form_for [@collection, @box], html: { class: 'd-none list-item add-new', data: { edit_resource_target: 'form' } } do |f| %>
-      <%= f.input :name, label: "Box name" %>
-      <%= f.input :description, label: "Box description" %>
+      <%= f.input :name, label: "Box name", input_html: { required: true } %>
+      <%= f.input :description, label: "Box description", input_html: { required: true, minlength: 8 } %>
       <%= f.submit "Create", class: "button-main button" %>
       <%= link_to "Cancel", collection_path(@collection), class: "button" %>
     <% end %>
-  </div>
-  <% @collection.boxes.each do |box| %>
-    <%= link_to box_path(box) do %>
-      <div class="list-item">
-        <div>
-          <h3><%= box.name %></h3>
-        </div>
-        <div class="d-flex justify-content-between">
-          <p><%= box.items.size %> items inside</p>
-          <div class="d-flex justify-content-end mb-2">
-            <%= link_to box_qrcode_path(box) do %>
-              <span class="material-symbols-outlined qr-icon me-2">qr_code_2</span>
-            <% end %>
-            <%= link_to edit_box_path(box) do %>
-              <i class="fas fa-edit"></i>
-            <% end %>
-            <%= link_to box_path, method: :delete, data: { confirm: "Are you sure?" } do %>
-              <i class="ms-2 fas fa-trash-alt"></i>
-            <% end %>
+    <% @collection.boxes.each_with_index do |box, index| %>
+      <div class="list-container">
+        <%= link_to box_path(box) do %>
+          <div class="list-item" data-edit-resource-target="infos">
+            <h3><%= box.name %></h3>
+            <p><%= box.items.size %> items inside</p>
           </div>
+        <% end %>
+        <div class="icons-container" data-edit-resource-target="icons">
+          <%= link_to box_qrcode_path(box) do %>
+            <span class="material-symbols-outlined card-icon me-1">qr_code_2</span>
+          <% end %>
+          <span class="material-symbols-outlined card-icon me-1" data-index='<%= index %>' data-action="click->edit-resource#displayForm">edit</span>
+          <%= link_to box_path(box), method: :delete, data: { confirm: "Are you sure?" } do %>
+            <span class="material-symbols-outlined card-icon">delete</span>
+          <% end %>
         </div>
       </div>
+      <%= simple_form_for [ box ], html: { class: 'd-none list-item', data: { edit_resource_target: 'form' } } do |f| %>
+        <%= f.input :name, label: "Box name", input_html: { required: true } %>
+        <%= f.input :description, label: "Box description", input_html: { required: true, minlength: 8 } %>
+        <%= f.submit "Update", class: "button-main button" %>
+        <%= link_to "Cancel", collection_path(@collection), class: "button" %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
