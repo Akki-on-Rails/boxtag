@@ -24,3 +24,18 @@
   color: $white !important;
   background-color: $main !important;
   }
+
+
+
+.boxtitle{
+  font-family: $headers-font;
+  font-size: 2rem;
+  font-weight: bolder;
+  // display: none;
+  align-content: center;
+  display: block;
+}
+
+.boxurl{
+  display: block;
+}
