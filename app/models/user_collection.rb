@@ -4,6 +4,7 @@ class UserCollection < ApplicationRecord
 
   # add valiadtions for sharing with other users
   validates :user, uniqueness: { scope: :collection }
+  validates :user, presence: true
 
   attr_accessor :email
 
