@@ -28,7 +28,7 @@
               <p><%= collection.boxes.count %> Boxes inside</p>
               <% elsif collection.boxes.count == 1 %>
               <p><%= collection.boxes.count %> Box inside </p>
-              <% else %> Boxes are empty
+              <% else %> collection is empty
               <% end %>
               <span class="avatar">
                 <%= collection.owner.avatar.attached? ? cl_image_tag(collection.owner.avatar.key, class: "avatar-pic") : "#{collection.owner.first_name[0].capitalize}  #{collection.owner.last_name[0].capitalize}" %>
