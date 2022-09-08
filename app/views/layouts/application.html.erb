@@ -27,10 +27,10 @@
   </head>
 
   <body>
-   <%# <% if browser.device.mobile? %>
+   <% if browser.device.mobile? %>
     <% if user_signed_in? %>
       <%= render 'shared/navbar' %>
-    <%end%>
+    <% end %>
 
     <%= render 'shared/flashes' %>
     <div class="d-flex flex-column min-vh-100">
@@ -40,10 +40,10 @@
     </div>
     <% if user_signed_in? %>
       <%= render 'shared/footer-navigation' %>
-    <%end%>
-    <%# <% else %>
-    <%#= render "shared/non_mobile" %>
-  <%#end %>
+    <% end %>
+    <% else %>
+    <%= render "shared/non_mobile" %>
+  <% end %>
 
   </body>
 </html>
