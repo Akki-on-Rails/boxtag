@@ -47,14 +47,13 @@
         <%= link_to box_path(box) do %>
           <div class="list-item" data-edit-resource-target="infos">
             <h3><%= box.name %></h3>
-
             <% if box.items.size > 1 %>
-            <p><%= box.items.size %> items inside</p>
+              <p class='secondary-text'><%= box.items.size %> items inside</p>
             <% elsif box.items.size == 1 %>
-            <p><%= box.items.size %> item inside</p>
-            <% else %> box is empty
+              <p class='secondary-text'><%= box.items.size %> item inside</p>
+            <% else %>
+              <p class='secondary-text'>Box is empty</p>
             <% end %>
-            <p class='secondary-text'><%= box.items.size %> items inside</p>
           </div>
         <% end %>
         <div class="icons-container" data-edit-resource-target="icons">

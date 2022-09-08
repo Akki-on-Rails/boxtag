@@ -25,26 +25,22 @@
             <div class="list-item" data-edit-resource-target="infos">
               <h3><%= collection.name %></h3>
               <% if collection.boxes.count > 1 %>
-              <p><%= collection.boxes.count %> Boxes inside</p>
+                <p class="secondary-text"><%= collection.boxes.count %> Boxes inside</p>
               <% elsif collection.boxes.count == 1 %>
-              <p><%= collection.boxes.count %> Box inside </p>
-              <% else %> collection is empty
+                <p class="secondary-text"><%= collection.boxes.count %> Box inside </p>
+              <% else %>
+                <p class="secondary-text">collection is empty</p>
               <% end %>
-              <span class="avatar">
-                <%= collection.owner.avatar.attached? ? cl_image_tag(collection.owner.avatar.key, class: "avatar-pic") : "#{collection.owner.first_name[0].capitalize}  #{collection.owner.last_name[0].capitalize}" %>
-              </span>
-            <% end %>
           </div>
           <div class="icons-container" data-edit-resource-target="icons">
               <div class="secondary-text row align-items-end justify-content-between mt-3">
-                <p class='col'><%= collection.boxes.count %> Boxes inside</p>
               </div>
             </div>
           <% end %>
           <div class="icons-container d-flex flex-column align-items-end" data-edit-resource-target="icons">
             <span class="material-symbols-outlined card-icon me-1" data-index='<%= index %>' data-action="click->edit-resource#displayForm">edit</span>
             <span class="d-flex flex-row align-items-center">
-              <p class=''>Owner: </p>
+              <p class='secondary-text'>Owner: </p>
               <span class="avatar ms-1">
                 <%= collection.owner.avatar.attached? ? cl_image_tag(collection.owner.avatar.key, class: "avatar-pic") : "#{collection.owner.first_name[0].capitalize}  #{collection.owner.last_name[0].capitalize}" %>
               </span>
