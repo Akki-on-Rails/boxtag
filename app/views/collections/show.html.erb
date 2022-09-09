@@ -19,8 +19,8 @@
           <span class="avatar">
             <%= collaborator.avatar.attached? ? cl_image_tag(collaborator.avatar.key, class: "avatar-pic") : "#{collaborator.first_name[0].capitalize}  #{collaborator.last_name[0].capitalize}" %>
           </span>
-          <%= link_to user_collection_path(UserCollection.find_by(user: collaborator, collection: params[:id])), method: :delete, data: { confirm: "Are you sure?" } do %>
-            <i class="fas fa-minus avatar avatar-remove"></i>
+          <%= link_to user_collection_path(UserCollection.find_by(user: collaborator, collection: params[:id])), class:"avatar avatar-remove", method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="fas fa-minus"></i>
           <% end %>
         </li>
       <% end %>

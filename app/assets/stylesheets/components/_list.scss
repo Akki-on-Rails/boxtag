@@ -11,6 +11,10 @@
   padding-top: $spacer*0.5;
   color: $white;
   background-color: $main80;
+  padding-bottom: 16px;
+  ul {
+    margin-bottom: 0px;
+  }
 }
 
 .list-title {
