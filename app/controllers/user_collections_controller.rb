@@ -8,7 +8,10 @@ class UserCollectionsController < ApplicationController
   def create
     user = User.find_by(email: params.dig(:user_collection, :email))
     if user.nil?
-
+      @error = "User not found"
+      @user_collection = UserCollection.new
+      @collection = Collection.find(params[:collection_id])
+      render :new
       # handle non existing user (send email invite)
     else
       @collection = Collection.find(params[:collection_id])

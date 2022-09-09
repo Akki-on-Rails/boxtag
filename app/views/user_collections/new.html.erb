@@ -1,7 +1,13 @@
  <div class="container mt-2">
+  <h2>Share with: </h2>
+  <p>Enter the email of the user you would like to share with</p>
     <%= simple_form_for [ @collection, @user_collection ] do |f| %>
-      <%= f.input :email %>
+      <%= f.input :email, label: false %>
+      <% if @error %>
+        <h4 class="alert alert-danger"><%= @error %></h4>
+      <% end %>
       <%= f.submit "Share", class:"button button-main" %>
       <%= link_to "Cancel", collection_path(@collection), class: "button" %>
     <% end%>
+  <p><br> If the collaborator does not have an account with us yet, please ask them to create an account by signing up with BoxTag.</p>
   </div>

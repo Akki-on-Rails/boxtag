@@ -30,7 +30,8 @@
       </div>
 
         <%= f.button :submit, "Sign up", class:"button button-main" %>
+        <%= link_to "Cancel", destroy_user_session_path, method: :delete, class: "button", style: "color:gray" %>
+        <%#= render "devise/shared/links" %>
     <% end %>
 
-    <%= render "devise/shared/links" %>
 </div>

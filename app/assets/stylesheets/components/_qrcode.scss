@@ -19,15 +19,12 @@
   td.white { border-color: #fff; }
 }
 
-
-.button-print:hover, .button-print:active{
+.button-print:hover, .button-print:active {
   color: $white !important;
   background-color: $main !important;
   }
 
-
-
-.boxtitle{
+.boxtitle {
   font-family: $headers-font;
   font-size: 2rem;
   font-weight: bolder;
@@ -36,6 +33,7 @@
   display: block;
 }
 
-.boxurl{
+.boxurl {
   display: block;
 }
+

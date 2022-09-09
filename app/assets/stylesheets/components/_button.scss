@@ -1,26 +1,12 @@
-a{
-    color: black;
-  }
-
-  a:active, a:visited{
-    color: black;
-  }
 
 .button {
-  border: 1px solid black;
   border-radius: $border-radius * 4;
   padding: 10px 20px;
   display: inline-block;
   text-decoration: none;
   font-family: "Open Sans", sans-serif;
-  color: $main;
   font-weight: 500;
   box-sizing: border-box;
-}
-
-.button a {
-  text-decoration: none;
-  color: black;
 }
 
 .button-round {
@@ -31,11 +17,6 @@ a{
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.fa-search{
-// maybe a bit dirty? !important
-  color: black;
 }
 
 .button-round:hover, .button-round:active{
@@ -57,7 +38,7 @@ a{
 .button-secondary {
   color: $neutral90;
   background-color: $white;
-  border-color: $neutral90;
+  border: 1px solid $neutral90;
 }
 
 .button-secondary:hover, .button-secondary:active {
@@ -76,14 +57,6 @@ border: none;
 color: $warning;
 border:solid;
 }
-
-.button-print{
-  color: $main;
-}
-
-.button-print:hover, .button-print:active{
-  color: $white;
-  }
 
 .button-gray {
   color: $neutral50;
