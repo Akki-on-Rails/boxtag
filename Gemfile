@@ -38,6 +38,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
 
+gem 'forest_liana'
+
 gem 'pg_search', '~> 2.3.6'
 
 gem 'autoprefixer-rails', '10.2.5'
