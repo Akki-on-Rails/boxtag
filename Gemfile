@@ -6,7 +6,7 @@ ruby '3.0.3'
 gem 'faker'
 gem 'rqrcode'
 gem 'cloudinary'
-gem 'dotenv-rails', groups: [:development, :test]
+gem 'dotenv-rails', groups: [:development, :test, :production]
 # Serviceworker for PWA
 gem 'serviceworker-rails'
 gem "browser", require: "browser/aliases"
